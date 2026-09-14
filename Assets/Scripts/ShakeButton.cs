@@ -12,7 +12,7 @@ public class ShakeButton : MonoBehaviour
         Instance = this;
     }
 
-    public void Shake(Transform buttonTransform, string message, bool allowBug = true)
+    public void Shake(Transform buttonTransform, string message, bool allowBug = false)
     {
         if (message != "") Description.Instance.ShowMessage(message, 2f);
         if (allowBug)

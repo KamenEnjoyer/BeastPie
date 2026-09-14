@@ -106,7 +106,7 @@ public class MenuAlchemy : MonoBehaviour
         {
             if (IngredientFactory.GetCountById(ingredient.id) < ingredient.count)
             {
-                ShakeButton.Instance.Shake(mixButton.transform, "", false);
+                ShakeButton.Instance.Shake(mixButton.transform, "");
                 return;
             }
         }

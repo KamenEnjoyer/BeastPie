@@ -59,17 +59,17 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
     {
         if (!isAvailable)
         {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().GetComponentInParent<Button>().transform, "Требуется купить ячейку.", false);
+            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().GetComponentInParent<Button>().transform, "Требуется купить ячейку.");
             return;
         }
         if (ingredient.data.id == "water" || ingredient.data.id == "fire")
         {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Нет возможности использовать в бою.", false);
+            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Нет возможности использовать в бою.");
             return;
         }
         if (ingredient.count == 0)
         {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!", false);
+            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!");
         }
         icon.sprite = ingredient.icon;
         nameText.text = slotData.key.Replace("Alpha", "") + " — " + ingredient.data.ingName;

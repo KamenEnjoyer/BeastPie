@@ -27,10 +27,10 @@ public class MixPotionMode : MonoBehaviour
 
     private void Start()
     {
-        InitIngButton(out leftIngredientButton, out leftIngredient, MixDropZone.DropZone.Left);
+        InitIngButton(out leftIngredientButton, out leftIngredient, MixDropZone.DropZone.LeftPotion);
         leftIngredientButton.GetComponent<Button>().onClick.AddListener(() => { leftIngredient.Clear(); });
 
-        InitIngButton(out rightIngredientButton, out rightIngredient, MixDropZone.DropZone.Right);
+        InitIngButton(out rightIngredientButton, out rightIngredient, MixDropZone.DropZone.RightPotion);
         rightIngredientButton.GetComponent<Button>().onClick.AddListener(() => { rightIngredient.Clear(); });
 
         resultButton = Instantiate(mixSlotPref, resultButtonContent);
@@ -271,7 +271,7 @@ public class MixPotionMode : MonoBehaviour
             {
                 if (right.count < 2)
                 {
-                    ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания", false);
+                    ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                     return;
                 }
                 IngredientFactory.RemoveIngredient(right.data.id, 2, ScenesConfig.IsHome);
@@ -281,7 +281,7 @@ public class MixPotionMode : MonoBehaviour
             {
                 if (left.count < 2)
                 {
-                    ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания", false);
+                    ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                     return;
                 }
                 IngredientFactory.RemoveIngredient(left.data.id, 2, ScenesConfig.IsHome);
@@ -304,7 +304,7 @@ public class MixPotionMode : MonoBehaviour
             }
             else if (left.count < 1 || right.count < 1)
             {
-                ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания", false);
+                ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                 return;
             }
             else

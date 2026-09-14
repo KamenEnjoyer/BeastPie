@@ -24,7 +24,8 @@ public class MixSlot : MonoBehaviour
     
     public void SetSlotScale(float scale = 1.2f)
     {
-        gameObject.GetComponent<RectTransform>().localScale = new Vector3(scale, scale, scale);
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 
+            gameObject.GetComponent<RectTransform>().rect.height * scale);
     }
 
     public StorageContentData GetIng()

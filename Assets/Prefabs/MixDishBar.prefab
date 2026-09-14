@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9016903919990028553}
   - component: {fileID: 5798509656880471965}
   - component: {fileID: 6310949846453799668}
+  - component: {fileID: 7211522886579067625}
   m_Layer: 5
   m_Name: RightPanel
   m_TagString: Untagged
@@ -95,7 +96,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 10
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7211522886579067625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942284483018964748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed863052522747a4bb53c8f21281a0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MixDropZone
+  zone: 4
 --- !u!1 &4061588619870352955
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +356,7 @@ GameObject:
   - component: {fileID: 1323158272334091067}
   - component: {fileID: 5012335572046151247}
   - component: {fileID: 4103714766284289549}
+  - component: {fileID: 6621411659557278151}
   m_Layer: 5
   m_Name: CatalystPanel
   m_TagString: Untagged
@@ -452,6 +467,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 2
   m_LayoutPriority: 1
+--- !u!114 &6621411659557278151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714344511111491443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed863052522747a4bb53c8f21281a0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MixDropZone
+  zone: 5
 --- !u!1 &7795238123151829453
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +618,7 @@ GameObject:
   - component: {fileID: 7440510630243246221}
   - component: {fileID: 717628889142444453}
   - component: {fileID: 4312332226870970463}
+  - component: {fileID: 7326565321519066887}
   m_Layer: 5
   m_Name: LeftPanel
   m_TagString: Untagged
@@ -672,7 +701,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 10
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -700,3 +729,16 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7326565321519066887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221654664512808483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed863052522747a4bb53c8f21281a0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MixDropZone
+  zone: 3
