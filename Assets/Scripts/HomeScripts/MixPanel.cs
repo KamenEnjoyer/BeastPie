@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MixPanel : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class MixPanel : MonoBehaviour
 
     public GameObject mixPotionBarPref;
     public GameObject mixDishBarPref;
-    public Transform contentParent;
+    public GameObject scrollRectParent;
 
     private void Awake()
     {
@@ -15,7 +16,13 @@ public class MixPanel : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(mixPotionBarPref, contentParent);
-        Instantiate(mixDishBarPref, contentParent);
+        Canvas.ForceUpdateCanvases();
+
+        float panelHeight = scrollRectParent.GetComponent<RectTransform>().rect.height;
+        Debug.Log("Panel Height: " + panelHeight);
+
+        Instantiate(mixPotionBarPref, gameObject.GetComponent<Transform>()).GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelHeight);
+        Instantiate(mixDishBarPref, gameObject.GetComponent<Transform>()).GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelHeight);
+        
     }
 }
