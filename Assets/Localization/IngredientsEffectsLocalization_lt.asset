@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IngredientsEffectsLocalization_lt
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: lt
+  m_SharedData: {fileID: 11400000, guid: 25cecf90c9cef8345989bf209f2aba5c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 49757499392
+    m_Localized: "Po jo viskas ka\u017Ekaip labai erzina."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47060561920
+    m_Localized: "D\u0117l grei\u010Dio viskas atrodo \u0161iek tiek nery\u0161ki."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33764618240
+    m_Localized: "I\u0161garuoja ir gamina koncentratus."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29385764864
+    m_Localized: "Sudedamosios dalys sukelia pykinim\u0105."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

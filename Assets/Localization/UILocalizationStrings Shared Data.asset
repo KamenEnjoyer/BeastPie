@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UILocalizationStrings Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: UILocalizationStrings
+  m_TableCollectionNameGuidString: a153c7235cb9a2d44bfb9e4138d18e8f
+  m_Entries:
+  - m_Id: 5553729536
+    m_Key: menu_resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4650799935488
+    m_Key: menu_exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4656122507264
+    m_Key: menu_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18293087344734208
+    m_Key: menu_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4653769502720
+    m_Key: home_to_adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 136539036659712
+    m_Key: sort_by_quantity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138443170983936
+    m_Key: sort_by_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138448158011392
+    m_Key: sort_by_density
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138449718292480
+    m_Key: sort_by_default
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18289314954162176
+    m_Key: density
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18289322965282816
+    m_Key: density_limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39881241842794496
+    m_Key: death_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40184472984731648
+    m_Key: victory_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39880736886341632
+    m_Key: menu_to_home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40185009448796160
+    m_Key: menu_to_camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40185187782213632
+    m_Key: menu_to_combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57606491460190208
+    m_Key: alchemy_book_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57608972256788480
+    m_Key: beasts_book_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57609506648866816
+    m_Key: magic_book_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57620621063733248
+    m_Key: description_potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57621132567494656
+    m_Key: effect_potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60526534531596288
+    m_Key: brew_potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69653720408637440
+    m_Key: health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72548213545877504
+    m_Key: kill_count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312424371109888
+    m_Key: tab_food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312523084054528
+    m_Key: tab_potions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312880963043328
+    m_Key: price
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2665102275224010887
+  references:
+    version: 2
+    RefIds:
+    - rid: 2665102275224010887
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1760869470222

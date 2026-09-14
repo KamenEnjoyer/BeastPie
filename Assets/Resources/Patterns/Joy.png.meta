@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 527ab7398fe8f8d449a0770bdefb02ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8988134999001465026
+    second: joy_pattern_0
+  - first:
+      213: 3858101466222934282
+    second: joy_pattern_1
+  - first:
+      213: 1090624725733874793
+    second: joy_pattern_2
+  - first:
+      213: -9069010877990928995
+    second: joy_pattern_3
+  - first:
+      213: 2475066793086712964
+    second: joy_pattern_4
+  - first:
+      213: -4476124427004604732
+    second: joy_pattern_5
+  - first:
+      213: -8570571172259198895
+    second: joy_pattern_6
+  - first:
+      213: -459151099050394305
+    second: joy_pattern_7
+  - first:
+      213: 5764549063647515729
+    second: joy_pattern_8
+  - first:
+      213: -717796331277588870
+    second: joy_pattern_9
+  - first:
+      213: -8835849411709967099
+    second: joy_pattern_10
+  - first:
+      213: 5901434086338452499
+    second: joy_pattern_11
+  - first:
+      213: -7148218054689141796
+    second: joy_pattern_12
+  - first:
+      213: 1382589746075653309
+    second: joy_pattern_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: joy_pattern_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 435
+        width: 63
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c00db019254cbc70800000000000000
+      internalID: 8988134999001465026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 254
+        width: 177
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a09b1a9a7daba8530800000000000000
+      internalID: 3858101466222934282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_2
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 412
+        width: 76
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c10a0e86da22f00800000000000000
+      internalID: 1090624725733874793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 334
+        width: 116
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d7239f7a6642280800000000000000
+      internalID: -9069010877990928995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 97
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c7c458224395220800000000000000
+      internalID: 2475066793086712964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_5
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 270
+        width: 71
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce01f59c8c91e1c0800000000000000
+      internalID: -4476124427004604732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_6
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 122
+        width: 159
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158894b7de63f0980800000000000000
+      internalID: -8570571172259198895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 276
+        width: 77
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3dfed21284c0a9f0800000000000000
+      internalID: -459151099050394305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 156
+        width: 99
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154550dd4dacfff40800000000000000
+      internalID: 5764549063647515729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_9
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 172
+        width: 88
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a76ee1d2a00e906f0800000000000000
+      internalID: -717796331277588870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 16
+        width: 77
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505ee2e36c1c06580800000000000000
+      internalID: -8835849411709967099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_11
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 27
+        width: 120
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31cd59dc80b16e150800000000000000
+      internalID: 5901434086338452499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 15
+        width: 104
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb48395d8d6ccc90800000000000000
+      internalID: -7148218054689141796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: joy_pattern_13
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 16
+        width: 90
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4dfec7c02ff2310800000000000000
+      internalID: 1382589746075653309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      joy_pattern_0: 8988134999001465026
+      joy_pattern_1: 3858101466222934282
+      joy_pattern_10: -8835849411709967099
+      joy_pattern_11: 5901434086338452499
+      joy_pattern_12: -7148218054689141796
+      joy_pattern_13: 1382589746075653309
+      joy_pattern_2: 1090624725733874793
+      joy_pattern_3: -9069010877990928995
+      joy_pattern_4: 2475066793086712964
+      joy_pattern_5: -4476124427004604732
+      joy_pattern_6: -8570571172259198895
+      joy_pattern_7: -459151099050394305
+      joy_pattern_8: 5764549063647515729
+      joy_pattern_9: -717796331277588870
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

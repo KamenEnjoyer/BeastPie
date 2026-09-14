@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IngredientsEffectsLocalization_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 25cecf90c9cef8345989bf209f2aba5c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 49757499392
+    m_Localized: After it, everything somehow really irritates.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47060561920
+    m_Localized: The speed makes everything seem a bit blurry.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33764618240
+    m_Localized: Evaporates and makes concentrates.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29385764864
+    m_Localized: Dilutes the ingredient.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

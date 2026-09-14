@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: IngredientsEffectsLocalization Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: IngredientsEffectsLocalization
+  m_TableCollectionNameGuidString: 25cecf90c9cef8345989bf209f2aba5c
+  m_Entries:
+  - m_Id: 29385764864
+    m_Key: water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33764618240
+    m_Key: fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47060561920
+    m_Key: bubasjija
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49757499392
+    m_Key: devilhair
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2267407581502767183
+  references:
+    version: 2
+    RefIds:
+    - rid: 2267407581502767183
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1765227581785

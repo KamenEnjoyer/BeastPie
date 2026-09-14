@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 015c4947cc6752a408eb77cc6123d814
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - contentPanel: {instanceID: 0}
+  - ingredientSlotPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

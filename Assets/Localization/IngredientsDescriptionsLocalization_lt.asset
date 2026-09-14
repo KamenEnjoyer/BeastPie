@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IngredientsDescriptionsLocalization_lt
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: lt
+  m_SharedData: {fileID: 11400000, guid: 84340d19891d3dc4faca8e09c171d2a3, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 176777801728
+    m_Localized: Nenauokit rujuje.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68581535744
+    m_Localized: ' Benaudis.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58376794112
+    m_Localized: "Kar\u0161ta liepsna."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46246866944
+    m_Localized: "Skystis, kuris yra daugelio ap\u017Eav\u0173 g\u0117rim\u0173 pagrindas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142900408320
+    m_Localized: "Visi\u0161kai nelimpa prie rank\u0173, bet palieka dr\u0117gnumo
+      poj\u016Bt\u012F."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84248279897718784
+    m_Localized: Nenaudokit perdaug, nes tai bus neimanoma vaigyti!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84256034901573632
+    m_Localized: "A\u0161trokai!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

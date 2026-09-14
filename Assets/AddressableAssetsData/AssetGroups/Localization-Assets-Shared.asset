@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Shared
+  m_GUID: 1ffd492ccc4831646be61cde14ee4c2f
+  m_SerializeEntries:
+  - m_GUID: 25cecf90c9cef8345989bf209f2aba5c
+    m_Address: Assets/Localization/IngredientsEffectsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dc3902d94c430e47b27a27c7c11426f
+    m_Address: Assets/Localization/EnemyDescriptionsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84340d19891d3dc4faca8e09c171d2a3
+    m_Address: Assets/Localization/IngredientsDescriptionsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 977c29436ad6d2c41a510d40cfa82606
+    m_Address: Assets/Localization/EffectDescriptionsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9db41699ff19e964f8c14119baf9ed6a
+    m_Address: Assets/EnemyNamesLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a153c7235cb9a2d44bfb9e4138d18e8f
+    m_Address: Assets/Localization/Band Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a88106a98be31c94d92e4a05ee4521bb
+    m_Address: Assets/Localization/IngredientsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6c2d22ce93d5aa42893c534d9861fe0
+    m_Address: Assets/Localization/EffectNamesLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fde0c9cfa262b6f41a8f9418f2828482
+    m_Address: Assets/Localization/EnemyTypeLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: ceed00f5603f16a438e61946924cd4f2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3ae068e1a53096f41a7012c707cc278a, type: 2}
+    - {fileID: 11400000, guid: 6f2014d5023d3b94ea775210be1fec75, type: 2}

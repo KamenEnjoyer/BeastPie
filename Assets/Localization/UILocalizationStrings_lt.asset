@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UILocalizationStrings_lt
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: lt
+  m_SharedData: {fileID: 11400000, guid: a153c7235cb9a2d44bfb9e4138d18e8f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5553729536
+    m_Localized: Testi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4653769502720
+    m_Localized: "\u012E nuotikius!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4650799935488
+    m_Localized: "I\u0161ejimas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4656122507264
+    m_Localized: Meniu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 136539036659712
+    m_Localized: "Ru\u0161iuoti pagal kiek\u012F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138443170983936
+    m_Localized: "Ru\u0161iuoti pagal pavadinim\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138448158011392
+    m_Localized: "Ru\u0161iuoti pagal tank\u012F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138449718292480
+    m_Localized: "Ru\u0161iuoti kaip numatyta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18289314954162176
+    m_Localized: Tankis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18289322965282816
+    m_Localized: Tankio limitas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18293087344734208
+    m_Localized: "Lietuvi\u0173"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39880736886341632
+    m_Localized: Namo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39881241842794496
+    m_Localized: "KRITIN\u0116S \u017DAIZDOS\nNuostoliai:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40184472984731648
+    m_Localized: "PERGAL\u0116!\nGavyba:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40185187782213632
+    m_Localized: Testi nuotikius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40185009448796160
+    m_Localized: "\u012E stovykl\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57606491460190208
+    m_Localized: Alchemijos knyga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57608972256788480
+    m_Localized: "B\u016Btybi\u0173 knyga"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57609506648866816
+    m_Localized: Magijos knyga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57620621063733248
+    m_Localized: "Apib\u016Bdinkite nuovir\u0105..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57621132567494656
+    m_Localized: "Apib\u016Bdinkite nuoviro poveik\u012F..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60526534531596288
+    m_Localized: "I\u0161virti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69653720408637440
+    m_Localized: "Gyvyb\u0117s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72548213545877504
+    m_Localized: "Nu\u017Eudyta: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312523084054528
+    m_Localized: Nuovirai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312424371109888
+    m_Localized: Maistas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82312880963043328
+    m_Localized: Kaina
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

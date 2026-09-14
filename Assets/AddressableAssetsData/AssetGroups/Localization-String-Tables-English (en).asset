@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-English (en)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-English (en)
+  m_GUID: c80bf883a20dab142b9146b13ab851cb
+  m_SerializeEntries:
+  - m_GUID: 00291d45214bf1d4ea1f621b7048a9b4
+    m_Address: EffectNamesLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16ed5a6315495be4f9149acb4ff0798f
+    m_Address: UILocalizationStrings_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e2f2d8534ceeaa4fa6d854ed4bb4d48
+    m_Address: EnemyTypeLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65cbe2d2cf0091c4d9ef66d4041003b3
+    m_Address: IngredientsDescriptionsLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ad65b7242e40b14cab40ec52a46aca5
+    m_Address: EnemyNamesLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bc0d867bfde1a147bbb18af7a0ae5dc
+    m_Address: IngredientsEffectsLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 772faf8294dcda64ca23fd2c759fbce2
+    m_Address: EnemyDescriptionsLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6e0d938d62e601488275ad62b424aaa
+    m_Address: IngredientsNamesLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d88dc379de76ed94a9ebd250ae95d515
+    m_Address: EffectDescriptionsLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: ceed00f5603f16a438e61946924cd4f2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2247944a9f7c8c24dacfb5e499309333, type: 2}
+    - {fileID: 11400000, guid: 982a7d29ba58aee47a890f75950e0b9e, type: 2}

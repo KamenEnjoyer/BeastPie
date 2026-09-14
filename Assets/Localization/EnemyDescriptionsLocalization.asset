@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: EnemyDescriptionsLocalization
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: 4dc3902d94c430e47b27a27c7c11426f, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 772faf8294dcda64ca23fd2c759fbce2, type: 2}
+  - {fileID: 11400000, guid: 950f94c65209ffa41addb527bd08d8c1, type: 2}
+  - {fileID: 11400000, guid: efc08f3ddbf8a534a88de104713f18b3, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []
