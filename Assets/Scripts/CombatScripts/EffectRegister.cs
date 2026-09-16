@@ -3,19 +3,13 @@ using UnityEngine;
 
 public static class EffectRegistry
 {
-    //PotionEffectType
-    public enum PET
-    {
-        GradualHeal
-    }
-
-    private static Dictionary<PET, PotionEffectInterface> effects =
-        new Dictionary<PET, PotionEffectInterface>
+    private static Dictionary<string, PotionEffectInterface> effects =
+        new Dictionary<string, PotionEffectInterface>
         {
-            { PET.GradualHeal, new GradualHeal() }
+            { "GradualHeal", new GradualHeal() }
         };
 
-    public static PotionEffectInterface Get(PET effect)
+    public static PotionEffectInterface Get(string effect)
     {
         if (effects.TryGetValue(effect, out var effectScript)) return effectScript;
 

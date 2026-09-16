@@ -37,7 +37,7 @@ public class MenuMagic : MonoBehaviour
 
     public void SetMagicList()
     {
-        List<EffectRegistry.PET> effects = new List<EffectRegistry.PET>();
+        List<string> effects = new List<string>();
 
         foreach(GILData ing in GILFactory.LoadIngredients())
         {
