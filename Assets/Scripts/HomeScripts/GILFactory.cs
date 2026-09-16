@@ -85,14 +85,16 @@ public static class GILFactory
                 type = GILData.IngredientType.Catalyst,
                 id = "water",
                 density = 0,
-                densityLimit = 0
+                densityLimit = 0,
+                effectIds = new List<string> { "water" }
             },
             new GILData
             {
                 type = GILData.IngredientType.Catalyst,
                 id = "fire",
                 density = 10,
-                densityLimit = 10
+                densityLimit = 10,
+                effectIds = new List<string> { "fire" }
             }
         };
         foreach (GILData data in defaults)
@@ -138,7 +140,7 @@ public static class GILFactory
             FoodIngredientData defaultFoodData = Resources.Load<FoodIngredientData>("IngredientsTypes/Food/" + substringId);
             if (defaultFoodData != null)
             {
-                newIngredient.effectIds = new List<string>(defaultFoodData.dishEffectIds);
+                newIngredient.effectIds = new List<string>(defaultFoodData.effectIds);
                 newIngredient.conflictIds = new List<string>(defaultFoodData.conflictIds);
                 newIngredient.price = defaultFoodData.price;
                 allIngredients.Add(newIngredient);

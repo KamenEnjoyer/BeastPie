@@ -4,7 +4,7 @@ using UnityEngine;
 public class FoodIngredientData : ScriptableObject
 {
     public string id;
-    public string[] dishEffectIds;
+    public string[] effectIds;
     public string[] conflictIds;
     public int price;
     public int minQuantity;

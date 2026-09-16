@@ -9,11 +9,25 @@ public static class EffectRegistry
             { "GradualHeal", new GradualHeal() }
         };
 
-    public static PotionEffectInterface Get(string effect)
+    private static Dictionary<string, CatalystEffectInterface> catalystEffects =
+        new Dictionary<string, CatalystEffectInterface>
+        {
+            { "water", new WaterPotion() },
+            { "fire", new FirePotion() }
+        };
+
+    public static PotionEffectInterface GetPotionEffect(string effect)
     {
         if (effects.TryGetValue(effect, out var effectScript)) return effectScript;
 
         Debug.LogError($"Potion effect '{effect}' not found");
+        return null;
+    }
+
+    public static CatalystEffectInterface GetCatalystEffect(string effect)
+    {
+        if (catalystEffects.TryGetValue(effect, out var effectScript)) return effectScript;
+        Debug.LogError($"Catalyst effect '{effect}' not found");
         return null;
     }
 }

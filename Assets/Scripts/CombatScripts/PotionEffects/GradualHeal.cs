@@ -9,6 +9,11 @@ public class GradualHeal : PotionEffectInterface
         PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.GradualHeal(density*10, density));
     }
 
+    public StorageContentData Mix(GILData ingredient)
+    {
+        return null;
+    }
+
     public EffectData GetEffectData()
     {
         EffectData effect = ScriptableObject.CreateInstance<EffectData>();

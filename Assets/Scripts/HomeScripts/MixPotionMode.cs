@@ -65,11 +65,13 @@ public class MixPotionMode : MonoBehaviour
 
     public void UpdateResult()
     {
+        Debug.Log("Updating result...");
         if (leftIngredient.GetIng() == null || rightIngredient.GetIng() == null)
         {
             result.Clear();
             return;
         }
+        Debug.Log("Mixing " + leftIngredient.GetIng().data.id + "(" + leftIngredient.GetIng().count + ") and " + rightIngredient.GetIng().data.id + "(" + rightIngredient.GetIng().count + ")");
 
         StorageContentData finalIngredient = Mix(leftIngredient.GetIng(), rightIngredient.GetIng());
 
@@ -103,31 +105,10 @@ public class MixPotionMode : MonoBehaviour
             return steam;
         }
 
-        //Вода + X
-        if (a.data.id == "water" && b.count > 0)
-        {
-            if (b.data.density <= 1) return null;
-            return NewIngredient(b, b.data.density - 1);
-        }
-        if (b.data.id == "water" && a.count > 0)
-        {
-            if (a.data.density <= 1) return null;
-            return NewIngredient(a, a.data.density - 1);
-        }
-
-        //Огонь + X
-        if (a.data.id == "fire")
-        {
-            if (b.data.densityLimit < b.data.density + 1) return null;
-            if (b.count < 2) Description.Instance.ShowMessage("You need more of this ingredient");
-            return NewIngredient(b, b.data.density + 1);
-        }
-        if (b.data.id == "fire")
-        {
-            if (a.data.densityLimit < a.data.density + 1) return null;
-            if (a.count < 2) Description.Instance.ShowMessage("You need more of this ingredient");
-            return NewIngredient(a, a.data.density + 1);
-        }
+        if (a.data.type == GILData.IngredientType.Catalyst && b.data.type != GILData.IngredientType.Catalyst) 
+            return NewIngredient(b, a); //REFACTOR
+        else if (b.data.type == GILData.IngredientType.Catalyst && a.data.type != GILData.IngredientType.Catalyst) 
+            return NewIngredient(a, b); //REFACTOR
 
         //X + Y -> Зелье
         if (a.data.id != b.data.id) return CreatePotion(a, b);
@@ -135,21 +116,29 @@ public class MixPotionMode : MonoBehaviour
         return null;
     }
 
-    private StorageContentData NewIngredient(StorageContentData baseIng, int newDensity)
+    private StorageContentData NewIngredient(StorageContentData baseIng, StorageContentData catalyst)
     {
-        var newIngredient = new StorageContentData();
+        if (catalyst.data.id == "water" && baseIng.data.density <= 1) return null;
+        if (catalyst.data.id == "fire" && baseIng.data.densityLimit < baseIng.data.density + 1) return null;
+
+        CatalystEffectInterface effect = EffectRegistry.GetCatalystEffect(catalyst.data.effectIds[0]);
+        if (baseIng.count < effect.GetNeededCount()) Description.Instance.ShowMessage("You need more of this ingredient");
+
+        StorageContentData newIngredient = new StorageContentData();
         newIngredient.data = new GILData()
         {
             type = baseIng.data.type,
             description = baseIng.data.description,
             effect = baseIng.data.effect,
             effectIds = new List<string>(baseIng.data.effectIds),
+            density = baseIng.data.density,
             densityLimit = baseIng.data.densityLimit,
+            price = baseIng.data.price,
             recipe = new List<IngredientData>(baseIng.data.recipe),
-            conflictIds = new List<string>(baseIng.data.conflictIds)
+            conflictIds = new List<string>(baseIng.data.conflictIds),
         };
 
-        newIngredient.data.density = newDensity;
+        effect.MixPotion(newIngredient);
 
         string iconPath = "default";
         if (baseIng.data.type == GILData.IngredientType.Loot)
@@ -252,7 +241,7 @@ public class MixPotionMode : MonoBehaviour
             potion.data.id = newPotionId;
             potion.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "potion") + " " + newPotionId;
         }
-
+        potion.count = 1;
         return potion;
     }
 
@@ -262,45 +251,32 @@ public class MixPotionMode : MonoBehaviour
         StorageContentData left = leftIngredient.GetIng();
         StorageContentData right = rightIngredient.GetIng();
         if (finalIngredient == null || finalIngredient.data.id == "steam") return;
-        finalIngredient.count = 1;
-        if (left.data.id == "fire" || right.data.id == "fire")
+
+        if (left.data.type == GILData.IngredientType.Catalyst || right.data.type == GILData.IngredientType.Catalyst)
         {
-            if (left.data.id == "fire")
+            CatalystEffectInterface effect = EffectRegistry.GetCatalystEffect(left.data.type == GILData.IngredientType.Catalyst ? left.data.effectIds[0] : right.data.effectIds[0]);
+            if (left.data.type == GILData.IngredientType.Catalyst)
             {
-                if (right.count < 2)
+                if (right.count < effect.GetNeededCount())
                 {
                     ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                     return;
                 }
-                IngredientFactory.RemoveIngredient(right.data.id, 2, ScenesConfig.IsHome);
-                right.count -= 2;
+                IngredientFactory.RemoveIngredient(right.data.id, effect.GetNeededCount(), ScenesConfig.IsHome);
             }
             else
             {
-                if (left.count < 2)
+                if (left.count < effect.GetNeededCount())
                 {
                     ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                     return;
                 }
-                IngredientFactory.RemoveIngredient(left.data.id, 2, ScenesConfig.IsHome);
-                left.count -= 2;
+                IngredientFactory.RemoveIngredient(left.data.id, effect.GetNeededCount(), ScenesConfig.IsHome);
             }
         }
         else
         {
-            if (left.data.id == "water" && right.count > 0)
-            {
-                IngredientFactory.RemoveIngredient(right.data.id, 1, ScenesConfig.IsHome);
-                finalIngredient.count = 2;
-                right.count -= 1;
-            }
-            else if (right.data.id == "water" && left.count > 0)
-            {
-                IngredientFactory.RemoveIngredient(left.data.id, 1, ScenesConfig.IsHome);
-                finalIngredient.count = 2;
-                left.count -= 1;
-            }
-            else if (left.count < 1 || right.count < 1)
+            if (left.count < 1 || right.count < 1)
             {
                 ShakeButton.Instance.Shake(resultButton.transform, "Недостаточно ингредиентов для смешивания");
                 return;
@@ -309,11 +285,9 @@ public class MixPotionMode : MonoBehaviour
             {
                 IngredientFactory.RemoveIngredient(left.data.id, 1, ScenesConfig.IsHome);
                 IngredientFactory.RemoveIngredient(right.data.id, 1, ScenesConfig.IsHome);
-                left.count -= 1;
-                right.count -= 1;
             }
         }
-        if (left.data.type == GILData.IngredientType.Potion || right.data.type == GILData.IngredientType.Potion)
+        if (left.data.type == GILData.IngredientType.Potion && right.data.type == GILData.IngredientType.Potion) //||?
         {
             finalIngredient.count = 2;
         }
@@ -321,8 +295,12 @@ public class MixPotionMode : MonoBehaviour
         string homeOrCamp = ScenesConfig.IsHome ? "Home" : "Camp";
         IngredientFactory.AddIngredient(finalIngredient.data.id, finalIngredient.count, homeOrCamp);
 
+        Debug.Log("Left: " + leftIngredient.GetIng().count);
+        Debug.Log("Right: " + rightIngredient.GetIng().count);
         leftIngredient.Setup(left, true);
         rightIngredient.Setup(right, true);
+        Debug.Log("--Left 2: " + leftIngredient.GetIng().count);
+        Debug.Log("--Right 2: " + rightIngredient.GetIng().count);
         UpdateResult();
     }
 }

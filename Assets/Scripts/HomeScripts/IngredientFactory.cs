@@ -76,6 +76,10 @@ public static class IngredientFactory
                 {
                     StorageContent.Instance.UpdateOneIngredient(id, i.count);
                 }
+                if (i.count == 0) //NEW, YOU NEED IT?
+                {
+                    allIngredients.Remove(i);
+                }
                 SaveIngredients(allIngredients);
                 return true;
             }

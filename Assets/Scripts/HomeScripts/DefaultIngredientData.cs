@@ -5,8 +5,7 @@ using UnityEngine;
 public class DefaultIngredientData : ScriptableObject
 {
     public string id;
-    public List<string> effectIds = new List<string>();
-    public string[] dishEffectIds;
+    public string[] effectIds;
     public int defDensity;
     public int densityLimit;
     public int priceForOneDensity;
