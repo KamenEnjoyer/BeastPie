@@ -71,8 +71,6 @@ public class MixPotionMode : MonoBehaviour
             return;
         }
 
-        Debug.Log("Mixing: " + leftIngredient.GetIng().data.id + " and " + rightIngredient.GetIng().data.id + "\n" +
-            "(Count: " + leftIngredient.GetIng().count + ", " + rightIngredient.GetIng().count + ")");
         StorageContentData finalIngredient = Mix(leftIngredient.GetIng(), rightIngredient.GetIng());
 
         if (finalIngredient != null) result.Setup(finalIngredient);

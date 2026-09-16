@@ -387,53 +387,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82748443}
   m_CullTransparentMesh: 1
---- !u!1 &174511457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 174511459}
-  - component: {fileID: 174511458}
-  m_Layer: 0
-  m_Name: MixPanelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &174511458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174511457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bce0c81f0bacd74990dd373f4dd9538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixPotionBarPref: {fileID: 7323844283774204624, guid: 556c67bc89eba964ebcd17a8070cc075, type: 3}
-  mixDishBarPref: {fileID: 7323844283774204624, guid: ad073cc3f20ec784eb0d5f8a722268f4, type: 3}
-  contentParent: {fileID: 1831146384}
---- !u!4 &174511459
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174511457}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 429.696, y: 170.75261, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207101248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,6 +4380,7 @@ GameObject:
   - component: {fileID: 1831146384}
   - component: {fileID: 1831146385}
   - component: {fileID: 1831146386}
+  - component: {fileID: 1831146387}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -4450,7 +4404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00021642157, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1831146385
@@ -4493,6 +4447,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &1831146387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831146383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bce0c81f0bacd74990dd373f4dd9538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixPotionBarPref: {fileID: 7323844283774204624, guid: 556c67bc89eba964ebcd17a8070cc075, type: 3}
+  mixDishBarPref: {fileID: 7323844283774204624, guid: ad073cc3f20ec784eb0d5f8a722268f4, type: 3}
+  scrollRectParent: {fileID: 292617175}
 --- !u!1 &1850500399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,7 +5159,6 @@ SceneRoots:
   - {fileID: 2020345126}
   - {fileID: 220049989}
   - {fileID: 1093742438}
-  - {fileID: 174511459}
   - {fileID: 1924562361}
   - {fileID: 1341326848}
   - {fileID: 207101250}

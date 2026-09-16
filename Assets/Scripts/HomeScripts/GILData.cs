@@ -12,7 +12,8 @@ public class GILData
     public string description;
     public string effect;
 
-    public List<string> effectIds = new List<string>();
+    public List<EffectRegistry.PET> effectIds = new List<EffectRegistry.PET>();
+    public List<string> dishEffectIds = new List<string>();
     public int density;
     public int densityLimit;
     public int price;
