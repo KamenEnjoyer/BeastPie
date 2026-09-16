@@ -69,7 +69,7 @@ public class MixDishMode : MonoBehaviour
             if (slot.GetIng() == null)
             {
                 slot.Setup(ingredient);
-                //UpdateResult();
+                UpdateResult();
                 return;
             }
             if (slot.GetIng().data.id == ingredient.data.id)
@@ -85,7 +85,7 @@ public class MixDishMode : MonoBehaviour
     {
         if (ingredient.data.type != GILData.IngredientType.Food)
         {
-            ShakeButton.Instance.Shake(leftContent, "The base of the dish requires a food ingredient.");
+            ShakeButton.Instance.Shake(rightContent, "The base of the dish requires a food ingredient.");
             return;
         }
         foreach (var slot in rightIngredients)
@@ -93,7 +93,7 @@ public class MixDishMode : MonoBehaviour
             if (slot.GetIng() == null)
             {
                 slot.Setup(ingredient);
-                //UpdateResult();
+                UpdateResult();
                 return;
             }
             if (slot.GetIng().data.id == ingredient.data.id)
@@ -113,7 +113,38 @@ public class MixDishMode : MonoBehaviour
             return;
         }
         catalyst.Setup(ingredient);
-        //UpdateResult();
+        UpdateResult();
+    }
+
+    private void UpdateResult()
+    {
+        if (!IngredientsExist(rightIngredients) || !IngredientsExist(leftIngredients))
+        {
+            result.Clear();
+            return;
+        }
+        if (catalyst.GetIng() == null)
+        {
+            result.Clear();
+            return;
+        }
+
+        StorageContentData finalIngredient = Mix(leftIngredients, rightIngredients, catalyst.GetIng());
+
+        if (finalIngredient != null) result.Setup(finalIngredient);
+        else result.Clear();
+    }
+
+    private bool IngredientsExist(List<MixSlot> slots)
+    {
+        foreach (var slot in slots)
+        {
+            if (slot.GetIng() != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void ClearAllIngredients()
@@ -128,6 +159,12 @@ public class MixDishMode : MonoBehaviour
         }
         catalyst.Clear();
         result.Clear();
+    }
+
+    private StorageContentData Mix(List<MixSlot> leftSlots, List<MixSlot> rightSlots, StorageContentData catalyst)
+    {
+
+        return null;
     }
 
     private void OnResultButtonClick()

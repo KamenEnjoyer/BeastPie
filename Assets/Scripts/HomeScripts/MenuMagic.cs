@@ -43,7 +43,7 @@ public class MenuMagic : MonoBehaviour
         {
             if (ing.type == GILData.IngredientType.Loot)
             {
-                foreach (string effectId in ing.effectIds)
+                foreach (var effectId in ing.effectIds)
                 {
                     if (!effects.Contains(effectId)) effects.Add(effectId);
                 }

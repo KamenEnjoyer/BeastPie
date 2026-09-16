@@ -138,7 +138,7 @@ public static class GILFactory
             FoodIngredientData defaultFoodData = Resources.Load<FoodIngredientData>("IngredientsTypes/Food/" + substringId);
             if (defaultFoodData != null)
             {
-                newIngredient.effectIds = new List<string>(defaultFoodData.effectIds);
+                newIngredient.effectIds = new List<string>(defaultFoodData.dishEffectIds);
                 newIngredient.conflictIds = new List<string>(defaultFoodData.conflictIds);
                 newIngredient.price = defaultFoodData.price;
                 allIngredients.Add(newIngredient);

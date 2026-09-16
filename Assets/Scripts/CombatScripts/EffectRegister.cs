@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PotionEffectRegistry
+public static class EffectRegistry
 {
     private static Dictionary<string, PotionEffectInterface> effects =
         new Dictionary<string, PotionEffectInterface>
