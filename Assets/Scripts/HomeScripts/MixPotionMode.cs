@@ -65,13 +65,11 @@ public class MixPotionMode : MonoBehaviour
 
     public void UpdateResult()
     {
-        Debug.Log("Updating result...");
         if (leftIngredient.GetIng() == null || rightIngredient.GetIng() == null)
         {
             result.Clear();
             return;
         }
-        Debug.Log("Mixing " + leftIngredient.GetIng().data.id + "(" + leftIngredient.GetIng().count + ") and " + rightIngredient.GetIng().data.id + "(" + rightIngredient.GetIng().count + ")");
 
         StorageContentData finalIngredient = Mix(leftIngredient.GetIng(), rightIngredient.GetIng());
 
@@ -118,9 +116,6 @@ public class MixPotionMode : MonoBehaviour
 
     private StorageContentData NewIngredient(StorageContentData baseIng, StorageContentData catalyst)
     {
-        if (catalyst.data.id == "water" && baseIng.data.density <= 1) return null;
-        if (catalyst.data.id == "fire" && baseIng.data.densityLimit < baseIng.data.density + 1) return null;
-
         CatalystEffectInterface effect = EffectRegistry.GetCatalystEffect(catalyst.data.effectIds[0]);
         if (baseIng.count < effect.GetNeededCount()) Description.Instance.ShowMessage("You need more of this ingredient");
 
@@ -139,6 +134,7 @@ public class MixPotionMode : MonoBehaviour
         };
 
         effect.MixPotion(newIngredient);
+        if (newIngredient == null) return null;
 
         string iconPath = "default";
         if (baseIng.data.type == GILData.IngredientType.Loot)
@@ -295,12 +291,8 @@ public class MixPotionMode : MonoBehaviour
         string homeOrCamp = ScenesConfig.IsHome ? "Home" : "Camp";
         IngredientFactory.AddIngredient(finalIngredient.data.id, finalIngredient.count, homeOrCamp);
 
-        Debug.Log("Left: " + leftIngredient.GetIng().count);
-        Debug.Log("Right: " + rightIngredient.GetIng().count);
         leftIngredient.Setup(left, true);
         rightIngredient.Setup(right, true);
-        Debug.Log("--Left 2: " + leftIngredient.GetIng().count);
-        Debug.Log("--Right 2: " + rightIngredient.GetIng().count);
         UpdateResult();
     }
 }

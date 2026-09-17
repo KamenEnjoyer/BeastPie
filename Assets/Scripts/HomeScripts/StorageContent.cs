@@ -69,16 +69,7 @@ public class StorageContent : MonoBehaviour
         {
             if (ingInStorage.data.id == id)
             {
-                if (count == 0)
-                {
-                    Debug.Log($"REMOVING FROM STORAGE: {id}, old count = {ingInStorage.count}");
-                    allIngredients.Remove(ingInStorage);
-                }
-                else
-                {
-                    Debug.Log($"UPDATING STORAGE: {id}, {ingInStorage.count} -> {count}");
-                    ingInStorage.count = count;
-                }
+                ingInStorage.count = count;
                 StorageFiltersPanel.Instance.ApplyFilter(allIngredients, ingredientsInStorage);
                 return;
             }
