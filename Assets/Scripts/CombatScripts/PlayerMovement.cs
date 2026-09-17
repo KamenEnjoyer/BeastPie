@@ -51,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 screenMax;
     private Vector2 halfSize;
 
+    public static PlayerMovement Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -176,6 +182,20 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    public IEnumerator SpeedBoost(float speed, float duration)
+    {
+        float time = 0f;
+        float speedTmp = moveSpeed;
+        moveSpeed = speed;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        moveSpeed = speedTmp;
     }
 
     private void FixedUpdate()

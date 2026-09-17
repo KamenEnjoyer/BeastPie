@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterPotion : CatalystEffectInterface
+public class Water : CatalystEffectInterface
 {
     public StorageContentData MixPotion(StorageContentData ingredient)
     {
@@ -13,7 +14,7 @@ public class WaterPotion : CatalystEffectInterface
         return null;
     }
 
-    public StorageContentData MixDish(StorageContentData ingredient)
+    public StorageContentData MixDish(StorageContentData ingredient, List<MixSlot> loot, List<MixSlot> food)
     {
 
         return ingredient;

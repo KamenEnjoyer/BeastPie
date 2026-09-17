@@ -6,6 +6,6 @@ public class EffectData : ScriptableObject
 
     public bool isPotion = true;
     public float cooldownDuration;
-    public int screenCount = 0;
-
+    public int screenCount;
+    public int price = 0;
 }

@@ -27,11 +27,14 @@ public class MixPotionMode : MonoBehaviour
 
     private void Start()
     {
-        InitIngButton(out leftIngredientButton, out leftIngredient, MixDropZone.DropZone.LeftPotion);
-        leftIngredientButton.GetComponent<Button>().onClick.AddListener(() => { leftIngredient.Clear(); });
+        leftIngredient = Instantiate(mixSlotPref, ingButtonsContent).GetComponent<MixSlot>();
+        rightIngredient = Instantiate(mixSlotPref, ingButtonsContent).GetComponent<MixSlot>();
 
-        InitIngButton(out rightIngredientButton, out rightIngredient, MixDropZone.DropZone.RightPotion);
-        rightIngredientButton.GetComponent<Button>().onClick.AddListener(() => { rightIngredient.Clear(); });
+        leftIngredient.gameObject.AddComponent<MixDropZone>().zone = MixDropZone.DropZone.LeftPotion;
+        rightIngredient.gameObject.AddComponent<MixDropZone>().zone = MixDropZone.DropZone.RightPotion;
+
+        leftIngredient.GetComponent<Button>().onClick.AddListener(() => { leftIngredient.Clear(); });
+        rightIngredient.GetComponent<Button>().onClick.AddListener(() => { rightIngredient.Clear(); });
 
         resultButton = Instantiate(mixSlotPref, resultButtonContent);
         resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonClick);
@@ -39,14 +42,6 @@ public class MixPotionMode : MonoBehaviour
         result.SetSlotScale();
 
         ClearAllIngredients();
-    }
-
-    private void InitIngButton(out GameObject button, out MixSlot mixSlot, MixDropZone.DropZone zone)
-    {
-        button = Instantiate(mixSlotPref, ingButtonsContent);
-        mixSlot = button.GetComponent<MixSlot>();
-        button.AddComponent<MixDropZone>();
-        button.GetComponent<MixDropZone>().zone = zone;
     }
 
     public void SetIngredient(StorageContentData ingredient, bool leftIng)
@@ -145,7 +140,7 @@ public class MixPotionMode : MonoBehaviour
         }
         else if (baseIng.data.type == GILData.IngredientType.Potion)
         {
-            string newIngredientId = GILFactory.FindIdForPotion(newIngredient.data);
+            string newIngredientId = GILFactory.FindIdForNewIngredient(newIngredient.data, GILData.IngredientType.Potion);
             newIngredient.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "potion") + " " + newIngredientId;
             newIngredient.data.id = newIngredientId;
             iconPath = "IngredientsSprites/" + newIngredient.data.id;
@@ -215,10 +210,6 @@ public class MixPotionMode : MonoBehaviour
                     count = pair.Value
                 });
             }
-            foreach (var ing in potion.data.recipe)
-            {
-                Debug.Log("RECIPE: " + ing.id + " - " + ing.count);
-            }
 
             potion.data.effectIds.AddRange(a.data.effectIds);
             foreach (var effect in b.data.effectIds)
@@ -228,12 +219,8 @@ public class MixPotionMode : MonoBehaviour
                     potion.data.effectIds.Add(effect);
                 }
             }
-            foreach (var effect in potion.data.effectIds)
-            {
-                Debug.Log("EFFECT: " + effect);
-            }
 
-            string newPotionId = GILFactory.FindIdForPotion(potion.data);
+            string newPotionId = GILFactory.FindIdForNewIngredient(potion.data, GILData.IngredientType.Potion);
             potion.data.id = newPotionId;
             potion.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "potion") + " " + newPotionId;
         }

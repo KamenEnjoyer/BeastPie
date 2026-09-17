@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
+using static EnemyTypeAsset;
 
 public class MixDishMode : MonoBehaviour
 {
@@ -12,8 +15,6 @@ public class MixDishMode : MonoBehaviour
     public Transform catalystContent;
     public GameObject mixSlotPref;
 
-    private List<GameObject> leftIngredientsButton;
-    private List<GameObject> rightIngredientsButton;
     private GameObject catalystButton;
     private GameObject resultButton;
 
@@ -139,10 +140,7 @@ public class MixDishMode : MonoBehaviour
     {
         foreach (var slot in slots)
         {
-            if (slot.GetIng() != null)
-            {
-                return true;
-            }
+            if (slot.GetIng() != null) return true;
         }
         return false;
     }
@@ -161,10 +159,62 @@ public class MixDishMode : MonoBehaviour
         result.Clear();
     }
 
-    private StorageContentData Mix(List<MixSlot> leftSlots, List<MixSlot> rightSlots, StorageContentData catalyst)
+    private StorageContentData Mix(List<MixSlot> loot, List<MixSlot> food, StorageContentData catalyst)
     {
+        StorageContentData newIngredient = new StorageContentData();
+        newIngredient.data = new GILData();
 
-        return null;
+        //LOOT
+        foreach (var slot in loot)
+        {
+            if (slot.GetIng() != null)
+            {
+                newIngredient.data.density += slot.GetIng().data.density;
+                newIngredient.data.densityLimit += slot.GetIng().data.densityLimit;
+                newIngredient.data.price += slot.GetIng().data.price;
+            }
+        }
+        newIngredient.data.effectIds.AddRange(loot[0].GetIng().data.effectIds);
+        foreach (var slot in loot)
+        {
+            if(slot == loot[0] || slot.GetIng() == null) continue;
+            foreach (var effectId in slot.GetIng().data.effectIds)
+            {
+                if (!newIngredient.data.effectIds.Contains(effectId))
+                {
+                    newIngredient.data.effectIds.Add(effectId);
+                }
+            }
+        }
+
+        //FOOD
+        foreach (var slot in food)
+        {
+            if (slot.GetIng() == null) continue;
+            if (slot.GetIng().data.effectIds.Count == 0)
+            {
+                Debug.LogError(slot.GetIng().data.id + " effects list is empty!");
+                continue;
+            }
+            FoodEffectInterface foodEffect = EffectRegistry.GetFoodEffect(slot.GetIng().data.effectIds[0]);
+            foodEffect.MixDish(newIngredient);
+        }
+
+        //CATALYST
+        CatalystEffectInterface effect = EffectRegistry.GetCatalystEffect(catalyst.data.effectIds[0]);
+
+        effect.MixDish(newIngredient, loot, food);
+        if (newIngredient == null) return null;
+
+        newIngredient.data.type = GILData.IngredientType.Dish;
+        newIngredient.data.id = GILFactory.FindIdForNewIngredient(newIngredient.data, GILData.IngredientType.Dish);
+        newIngredient.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "dish") + " " + newIngredient.data.id;
+        newIngredient.data.description = "???";
+        newIngredient.data.effect = "???";
+
+        newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/default");
+
+        return newIngredient;
     }
 
     private void OnResultButtonClick()

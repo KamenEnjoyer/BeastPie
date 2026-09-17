@@ -3,15 +3,17 @@ using UnityEngine;
 public class GradualHeal : PotionEffectInterface
 {
     private int density;
-    public void Apply(GILData potion)
+    private int price;
+    public void ApplyPotion(GILData potion)
     {
         density = potion.density;
+        price = potion.price;
         PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.GradualHeal(density*10, density));
     }
 
-    public StorageContentData Mix(GILData ingredient)
+    public void ApplyDish(GILData dish)
     {
-        return null;
+
     }
 
     public EffectData GetEffectData()
@@ -20,6 +22,8 @@ public class GradualHeal : PotionEffectInterface
 
         effect.efcName = "GradualHeal";
         effect.cooldownDuration = density;
+        effect.screenCount = Mathf.RoundToInt(density / 5f);
+        effect.price = price;
 
         return effect;
     }

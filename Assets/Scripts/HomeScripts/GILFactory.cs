@@ -162,12 +162,12 @@ public static class GILFactory
         return null;
     }
 
-    public static string FindIdForPotion(GILData ingredient)
+    public static string FindIdForNewIngredient(GILData ingredient, GILData.IngredientType type)
     {
         int maxId = 0;
         foreach (var item in allIngredients)
         {
-            if(item.type == GILData.IngredientType.Potion)
+            if(item.type == type)
             {
                 if (item.recipe.Count == ingredient.recipe.Count)
                 {
@@ -196,7 +196,6 @@ public static class GILFactory
 
                     foreach (var kvp in dict)
                     {
-                        //Debug.Log(kvp.Key + ": " + kvp.Value);
                         if (kvp.Value != 0)
                         {
                             match = false;

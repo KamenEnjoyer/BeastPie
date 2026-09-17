@@ -44,7 +44,7 @@ public class PotionBarSlot : MonoBehaviour
             if (effect == null) Debug.LogError("Effect " + effectId + " in PotionBarSlot not found.");
             else
             {
-                effect.Apply(ingredientData);
+                effect.ApplyPotion(ingredientData);
                 EffectBarContent.Instance.AddEffect(effect.GetEffectData());
             }
         }

@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: potion
     m_Metadata:
       m_Items: []
+  - m_Id: 120566615707074560
+    m_Key: dish
+    m_Metadata:
+      m_Items: []
   - m_Id: 17408886378541056
     m_Key: bubasjija
     m_Metadata:

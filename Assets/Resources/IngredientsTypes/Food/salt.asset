@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: salt
   m_EditorClassIdentifier: Assembly-CSharp::IngredientFoodData
   id: salt
-  effectIds: []
+  effectIds:
+  - salt
   conflictIds: []
   price: 10
   minQuantity: 3

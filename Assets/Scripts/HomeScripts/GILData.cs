@@ -13,7 +13,6 @@ public class GILData
     public string effect;
 
     public List<string> effectIds = new List<string>();
-    public List<string> dishEffectIds = new List<string>();
     public int density;
     public int densityLimit;
     public int price;

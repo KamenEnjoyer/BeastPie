@@ -50,6 +50,10 @@ MonoBehaviour:
     m_Localized: Ginger
     m_Metadata:
       m_Items: []
+  - m_Id: 120566615707074560
+    m_Localized: Dish
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

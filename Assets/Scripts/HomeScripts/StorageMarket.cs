@@ -80,7 +80,7 @@ public class StorageMarket : MonoBehaviour
             newIngredient.data.description = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsDescriptionsLocalization", ingredient.id);
             newIngredient.data.effect = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsEffectsLocalization", ingredient.id);
 
-            newIngredient.data.dishEffectIds = new List<string>(ingredient.effectIds);
+            newIngredient.data.effectIds = new List<string>(ingredient.effectIds);
             newIngredient.data.conflictIds = new List<string>(ingredient.conflictIds);
             newIngredient.data.price = ingredient.price;
 
