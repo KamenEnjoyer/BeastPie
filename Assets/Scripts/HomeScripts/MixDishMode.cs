@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -219,6 +220,13 @@ public class MixDishMode : MonoBehaviour
 
     private void OnResultButtonClick()
     {
-        
+        StorageContentData finalIngredient = result.GetIng();
+        if (finalIngredient == null) return;
+
+        if (catalyst.GetIng().data.id != "water" || catalyst.GetIng().data.id != "fire")
+        {
+            IngredientFactory.RemoveIngredient(catalyst.GetIng().data.id, 1, ScenesConfig.IsHome);
+        }
+        //foreach (var slot in )
     }
 }
