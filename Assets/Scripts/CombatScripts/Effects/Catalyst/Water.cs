@@ -16,7 +16,13 @@ public class Water : CatalystEffectInterface
 
     public StorageContentData MixDish(StorageContentData ingredient, List<MixSlot> loot, List<MixSlot> food)
     {
-
+        int lootCount = 0;
+        foreach (var ing in loot)
+        {
+            if (ing.GetIng() != null) lootCount++;
+        }
+        ingredient.data.density = Mathf.RoundToInt((ingredient.data.density) / lootCount);
+        ingredient.count *= 3;
         return ingredient;
     }
 

@@ -1,5 +1,7 @@
 using NUnit.Framework.Internal;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
@@ -35,14 +37,14 @@ public class MixDishMode : MonoBehaviour
         {
             MixSlot slot = Instantiate(mixSlotPref, leftContent).GetComponent<MixSlot>();
             leftIngredients.Add(slot);
-            slot.GetComponent<Button>().onClick.AddListener(slot.Clear);
+            slot.GetComponent<Button>().onClick.AddListener(() => slot.Clear(true));
             slot.SetSlotScale(0.8f);
         }
         for (int i = 0; i < 3; i++)
         {
             MixSlot slot = Instantiate(mixSlotPref, rightContent).GetComponent<MixSlot>();
             rightIngredients.Add(slot);
-            slot.GetComponent<Button>().onClick.AddListener(slot.Clear);
+            slot.GetComponent<Button>().onClick.AddListener(() => slot.Clear(true));
             slot.SetSlotScale(0.8f);
         }
 
@@ -74,11 +76,11 @@ public class MixDishMode : MonoBehaviour
                 UpdateResult();
                 return;
             }
-            if (slot.GetIng().data.id == ingredient.data.id)
+            /*if (slot.GetIng().data.id == ingredient.data.id)
             {
                 ShakeButton.Instance.Shake(leftContent, "You cannot add the same ingredient twice.");
                 return;
-            }
+            }*/
         }
         ShakeButton.Instance.Shake(leftContent, "You cannot add more than 3 ingredients.");
     }
@@ -118,7 +120,7 @@ public class MixDishMode : MonoBehaviour
         UpdateResult();
     }
 
-    private void UpdateResult()
+    public void UpdateResult()
     {
         if (!IngredientsExist(rightIngredients) || !IngredientsExist(leftIngredients))
         {
@@ -166,27 +168,36 @@ public class MixDishMode : MonoBehaviour
         newIngredient.data = new GILData();
 
         //LOOT
+        int lootCount = 0;
         foreach (var slot in loot)
         {
             if (slot.GetIng() != null)
             {
+                lootCount++;
                 newIngredient.data.density += slot.GetIng().data.density;
-                newIngredient.data.densityLimit += slot.GetIng().data.densityLimit;
+                if (newIngredient.data.densityLimit < slot.GetIng().data.densityLimit) newIngredient.data.densityLimit = slot.GetIng().data.densityLimit;
                 newIngredient.data.price += slot.GetIng().data.price;
-            }
-        }
-        newIngredient.data.effectIds.AddRange(loot[0].GetIng().data.effectIds);
-        foreach (var slot in loot)
-        {
-            if(slot == loot[0] || slot.GetIng() == null) continue;
-            foreach (var effectId in slot.GetIng().data.effectIds)
-            {
-                if (!newIngredient.data.effectIds.Contains(effectId))
+                foreach (var effectId in slot.GetIng().data.effectIds)
                 {
-                    newIngredient.data.effectIds.Add(effectId);
+                    if (!newIngredient.data.effectIds.Contains(effectId))
+                    {
+                        newIngredient.data.effectIds.Add(effectId);
+                    }
+                }
+
+                IngredientData existing = newIngredient.data.recipe.Find(x => x.id == slot.GetIng().data.id);
+                if (existing != null) existing.count++;
+                else
+                {
+                    newIngredient.data.recipe.Add(new IngredientData
+                    {
+                        id = slot.GetIng().data.id,
+                        count = 1
+                    });
                 }
             }
         }
+        newIngredient.count = loot.Count;
 
         //FOOD
         foreach (var slot in food)
@@ -199,17 +210,34 @@ public class MixDishMode : MonoBehaviour
             }
             FoodEffectInterface foodEffect = EffectRegistry.GetFoodEffect(slot.GetIng().data.effectIds[0]);
             foodEffect.MixDish(newIngredient);
+
+            IngredientData existing = newIngredient.data.recipe.Find(x => x.id == slot.GetIng().data.id);
+            if (existing != null) existing.count++;
+            else
+            {
+                newIngredient.data.recipe.Add(new IngredientData
+                {
+                    id = slot.GetIng().data.id,
+                    count = 1
+                });
+            }
         }
 
         //CATALYST
         CatalystEffectInterface effect = EffectRegistry.GetCatalystEffect(catalyst.data.effectIds[0]);
 
-        effect.MixDish(newIngredient, loot, food);
-        if (newIngredient == null) return null;
+        if (effect.MixDish(newIngredient, loot, food) == null) return null;
+
+        newIngredient.data.recipe.Add(new IngredientData
+        {
+            id = catalyst.data.id,
+            count = 1
+        });
 
         newIngredient.data.type = GILData.IngredientType.Dish;
-        newIngredient.data.id = GILFactory.FindIdForNewIngredient(newIngredient.data, GILData.IngredientType.Dish);
-        newIngredient.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "dish") + " " + newIngredient.data.id;
+        string newId = GILFactory.FindIdForNewIngredient(newIngredient.data, GILData.IngredientType.Dish);
+        newIngredient.data.id = "dish" + newId;
+        newIngredient.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "dish") + " " + newId;
         newIngredient.data.description = "???";
         newIngredient.data.effect = "???";
 
@@ -223,10 +251,56 @@ public class MixDishMode : MonoBehaviour
         StorageContentData finalIngredient = result.GetIng();
         if (finalIngredient == null) return;
 
-        if (catalyst.GetIng().data.id != "water" || catalyst.GetIng().data.id != "fire")
+        if (finalIngredient.data.density < 5)
         {
-            IngredientFactory.RemoveIngredient(catalyst.GetIng().data.id, 1, ScenesConfig.IsHome);
+            ShakeButton.Instance.Shake(result.GetComponent<Transform>(), "Слишком низкая итоговая плотность. Результат разочаровывает...");
+            return;
         }
-        //foreach (var slot in )
+
+
+        if (catalyst.GetIng().data.id != "water" && catalyst.GetIng().data.id != "fire")
+        {
+            if (catalyst.GetIng().count > 0) IngredientFactory.RemoveIngredient(catalyst.GetIng().data.id, 1, ScenesConfig.IsHome);
+            else
+            {
+                ShakeButton.Instance.Shake(result.GetComponent<Transform>(), "Недостаточно ингредиентов для смешивания.");
+                return;
+            }
+        }
+        foreach (var slot in leftIngredients)
+        {
+            if (slot.GetIng() == null) continue;
+            if (slot.GetIng().count < finalIngredient.data.recipe.Find(x => x.id == slot.GetIng().data.id).count)
+            {
+                ShakeButton.Instance.Shake(result.GetComponent<Transform>(), "Недостаточно ингредиентов для смешивания.");
+                return;
+            }
+        }
+        foreach (var slot in rightIngredients)
+        {
+            if (slot.GetIng() == null) continue;
+            if (slot.GetIng().count < finalIngredient.data.recipe.Find(x => x.id == slot.GetIng().data.id).count)
+            {
+                ShakeButton.Instance.Shake(result.GetComponent<Transform>(), "Недостаточно ингредиентов для смешивания.");
+                return;
+            }
+        }
+
+        foreach (var slot in leftIngredients)
+        {
+            if (slot.GetIng() == null) continue;
+            IngredientFactory.RemoveIngredient(slot.GetIng().data.id, 1, ScenesConfig.IsHome);
+        }
+        foreach (var slot in rightIngredients)
+        {
+            if (slot.GetIng() == null) continue;
+            IngredientFactory.RemoveIngredient(slot.GetIng().data.id, 1, ScenesConfig.IsHome);
+        }
+
+        GILFactory.CreateIngredient(finalIngredient.data);
+        string homeOrCamp = ScenesConfig.IsHome ? "Home" : "Camp";
+        IngredientFactory.AddIngredient(finalIngredient.data.id, finalIngredient.count, homeOrCamp);
+
+        ClearAllIngredients();
     }
 }

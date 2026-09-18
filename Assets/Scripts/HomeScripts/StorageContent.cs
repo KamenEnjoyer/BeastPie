@@ -51,10 +51,8 @@ public class StorageContent : MonoBehaviour
             {
                 newIngredient.data = data;
                 newIngredient.count = ingredient.count;
-                string substringId;
-                if (data.type != GILData.IngredientType.Loot) substringId = data.id;
-                else substringId = data.id.Substring(0, data.id.Length - 2);
-                if (Resources.Load<Sprite>("IngredientsSprites/" + substringId) != null) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + substringId);
+                if (newIngredient.data.type == GILData.IngredientType.Loot) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id.Substring(0, ingredient.id.Length - 2));
+                else if (Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id) != null) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id);
                 else newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/default");
                 allIngredients.Add(newIngredient);
             }
@@ -80,9 +78,8 @@ public class StorageContent : MonoBehaviour
             count = count
         };
         Debug.Log($"Adding new ingredient to storage: {newIngredient.data.ingName} with count {count} and type {newIngredient.data.type}");
-        string substringId = id;
-        if (newIngredient.data.type == GILData.IngredientType.Loot) substringId = id.Substring(0, id.Length - 2);
-        if (newIngredient.data.type != GILData.IngredientType.Potion) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + substringId);
+        if (newIngredient.data.type == GILData.IngredientType.Loot) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + id.Substring(0, id.Length - 2));
+        else if (Resources.Load<Sprite>("IngredientsSprites/" + id) != null) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + id);
         else newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/default");
         allIngredients.Add(newIngredient);
         StorageFiltersPanel.Instance.ApplyFilter(allIngredients, ingredientsInStorage);

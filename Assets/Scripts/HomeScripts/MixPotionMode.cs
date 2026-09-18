@@ -33,8 +33,8 @@ public class MixPotionMode : MonoBehaviour
         leftIngredient.gameObject.AddComponent<MixDropZone>().zone = MixDropZone.DropZone.LeftPotion;
         rightIngredient.gameObject.AddComponent<MixDropZone>().zone = MixDropZone.DropZone.RightPotion;
 
-        leftIngredient.GetComponent<Button>().onClick.AddListener(() => { leftIngredient.Clear(); });
-        rightIngredient.GetComponent<Button>().onClick.AddListener(() => { rightIngredient.Clear(); });
+        leftIngredient.GetComponent<Button>().onClick.AddListener(() => { leftIngredient.Clear(true); });
+        rightIngredient.GetComponent<Button>().onClick.AddListener(() => { rightIngredient.Clear(true); });
 
         resultButton = Instantiate(mixSlotPref, resultButtonContent);
         resultButton.GetComponent<Button>().onClick.AddListener(OnResultButtonClick);
@@ -221,7 +221,7 @@ public class MixPotionMode : MonoBehaviour
             }
 
             string newPotionId = GILFactory.FindIdForNewIngredient(potion.data, GILData.IngredientType.Potion);
-            potion.data.id = newPotionId;
+            potion.data.id = "potion" + newPotionId;
             potion.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "potion") + " " + newPotionId;
         }
         potion.count = 1;
