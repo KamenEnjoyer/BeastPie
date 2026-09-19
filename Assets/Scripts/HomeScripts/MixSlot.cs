@@ -33,12 +33,13 @@ public class MixSlot : MonoBehaviour
         return ingredient;
     }
 
-    public void Clear(bool update = false)
+    public void Clear(bool updateDish = false, bool updatePotion = false)
     {
         icon.sprite = null;
         text.text = "";
         ingredient = null;
         gameObject.SetActive(false);
-        if (update) MixDishMode.Instance.UpdateResult(); //А С ЗЕЛЬЯМИ ТО ЧЁ ДЕЛАТЬ?!
+        if (updateDish) MixDishMode.Instance.UpdateResult(); //А С ЗЕЛЬЯМИ ТО ЧЁ ДЕЛАТЬ?!
+        if (updatePotion) MixPotionMode.Instance.UpdateResult();
     }
 }

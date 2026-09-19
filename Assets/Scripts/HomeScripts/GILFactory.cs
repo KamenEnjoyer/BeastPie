@@ -203,9 +203,9 @@ public static class GILFactory
                         }
                     }
 
-                    if (match) return item.id;
+                    if (match) return item.id.Replace(type.ToString(), "");
                 }
-                if (int.TryParse(item.id, out int value))
+                if (int.TryParse(item.id.Replace(type.ToString(), ""), out int value))
                 {
                     if (value > maxId) maxId = value;
                 }

@@ -51,8 +51,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
     {
         var dragged = eventData.pointerDrag?.GetComponent<StorageSlot>();
         if (dragged == null || dragged.slotData == null) return;
-        StorageContentData ingredient = dragged.slotData;
-        SetIngredient(ingredient);
+        SetIngredient(dragged.slotData);
     }
 
     public void SetIngredient(StorageContentData ingredient)

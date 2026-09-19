@@ -1,12 +1,7 @@
-using NUnit.Framework.Internal;
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
-using UnityEngine.UIElements.Experimental;
-using static EnemyTypeAsset;
 
 public class MixDishMode : MonoBehaviour
 {
@@ -76,11 +71,6 @@ public class MixDishMode : MonoBehaviour
                 UpdateResult();
                 return;
             }
-            /*if (slot.GetIng().data.id == ingredient.data.id)
-            {
-                ShakeButton.Instance.Shake(leftContent, "You cannot add the same ingredient twice.");
-                return;
-            }*/
         }
         ShakeButton.Instance.Shake(leftContent, "You cannot add more than 3 ingredients.");
     }
@@ -236,7 +226,7 @@ public class MixDishMode : MonoBehaviour
 
         newIngredient.data.type = GILData.IngredientType.Dish;
         string newId = GILFactory.FindIdForNewIngredient(newIngredient.data, GILData.IngredientType.Dish);
-        newIngredient.data.id = "dish" + newId;
+        newIngredient.data.id = GILData.IngredientType.Dish.ToString() + newId;
         newIngredient.data.ingName = LocalizationSettings.StringDatabase.GetLocalizedString("IngredientsNamesLocalization", "dish") + " " + newId;
         newIngredient.data.description = "???";
         newIngredient.data.effect = "???";
