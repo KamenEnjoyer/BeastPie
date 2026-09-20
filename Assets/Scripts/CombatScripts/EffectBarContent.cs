@@ -15,6 +15,30 @@ public class EffectBarContent : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        if (PlayerConfig.LoadDish() == null) return;
+        else
+        {
+            List<EffectData> effects = new List<EffectData>();
+            foreach (var eff in PlayerConfig.LoadDish())
+            {
+                PotionEffectInterface effect = EffectRegistry.GetPotionEffect(eff.efcName);
+                if (effect == null) Debug.LogError("Effect " + eff + " in PotionBarSlot not found.");
+                else
+                {
+                    effect.ApplyDish();
+                    EffectSlot slot = Instantiate(potionSlotPrefab, contentParent).GetComponent<EffectSlot>();
+                    slot.Setup(eff, true);
+
+                    eff.screenCount--;
+                    if (eff.screenCount > 0) effects.Add(eff);
+                }
+            }
+            PlayerConfig.SaveResources(effects);
+        }
+    }
+
     public void AddEffect(EffectData effectData)
     {
         EffectSlot slot = Instantiate(potionSlotPrefab, contentParent).GetComponent<EffectSlot>();

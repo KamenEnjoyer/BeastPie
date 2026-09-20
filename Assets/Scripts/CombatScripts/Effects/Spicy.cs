@@ -7,27 +7,30 @@ public class Spicy : PotionEffectInterface
     private int density;
     private int price;
 
-    public void ApplyPotion(GILData potion)
+    public void Setup(int density, int price)
     {
-        density = potion.density;
-        price = potion.price;
+        this.density = density;
+        this.price = price;
+    }
+
+    public void ApplyPotion()
+    {
         PlayerMovement.Instance.StartCoroutine(PlayerMovement.Instance.SpeedBoost(price/16f, density/3f));
     }
 
-    public void ApplyDish(GILData dish)
+    public void ApplyDish()
     {
-        density = dish.density;
-        price = dish.price;
         PlayerMovement.Instance.moveSpeed = price / 100f;
     }
 
     public EffectData GetEffectData()
     {
-        EffectData effect = ScriptableObject.CreateInstance<EffectData>();
+        EffectData effect = new EffectData();
 
         effect.efcName = "Spicy";
         effect.cooldownDuration = density;
         effect.screenCount = Mathf.RoundToInt(density / 5f);
+        effect.maxScreenCount = effect.screenCount;
         effect.price = price;
 
         return effect;

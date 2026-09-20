@@ -1,11 +1,11 @@
-using UnityEngine;
 
-public class EffectData : ScriptableObject
+[System.Serializable]
+public class EffectData
 {
     public string efcName;
 
-    public bool isPotion = true;
     public float cooldownDuration;
+    public int maxScreenCount;
     public int screenCount;
     public int price = 0;
 }

@@ -40,10 +40,17 @@ public class InventoryDishSlot : MonoBehaviour, IPointerClickHandler, IDropHandl
         eatButton.interactable = true;
     }
 
-    public void ClearSlot() //NEED TO ADD METHOD TO eatButton
+    public void ClearSlot()
     {
         icon.sprite = null;
         eatButton.interactable = false;
         id = "";
+    }
+
+    public void EatDish()
+    {
+        PlayerConfig.SetNewDish(id);
+        IngredientFactory.RemoveIngredient(id, 1, ScenesConfig.IsHome);
+        ClearSlot();
     }
 }

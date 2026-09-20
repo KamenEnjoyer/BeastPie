@@ -9,11 +9,12 @@ public class EffectSlot : MonoBehaviour
 
     bool onCooldown = true;
 
-    public void Setup(EffectData effect)
+    public void Setup(EffectData effect, bool dish = false)
     {
         icon.sprite = Resources.Load<Sprite>("EffectsSprites/" + effect.efcName);
 
-        StartCoroutine(CooldownCoroutine(effect.cooldownDuration));
+        if (dish) cooldown.fillAmount = effect.screenCount * 1f / effect.maxScreenCount;
+        else StartCoroutine(CooldownCoroutine(effect.cooldownDuration));
     }
 
     private IEnumerator CooldownCoroutine(float cooldownDuration)

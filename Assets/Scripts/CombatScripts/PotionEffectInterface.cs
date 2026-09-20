@@ -2,9 +2,11 @@ using NUnit.Framework;
 
 public interface PotionEffectInterface
 {
-    void ApplyPotion(GILData potion);
+    void Setup(int density, int price);
 
-    void ApplyDish(GILData dish);
+    void ApplyPotion();
+
+    void ApplyDish();
 
     EffectData GetEffectData();
 }
