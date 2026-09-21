@@ -18,7 +18,7 @@ public class GradualHeal : PotionEffectInterface
 
     public void ApplyDish()
     {
-        PlayerHealth.Instance.maxHealth += price/2;
+        PlayerHealth.Instance.maxHealth += price / 2f;
     }
 
     public EffectData GetEffectData()

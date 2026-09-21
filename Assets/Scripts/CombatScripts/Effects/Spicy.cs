@@ -20,7 +20,7 @@ public class Spicy : PotionEffectInterface
 
     public void ApplyDish()
     {
-        PlayerMovement.Instance.moveSpeed = price / 100f;
+        PlayerMovement.Instance.moveSpeed += price / 100f;
     }
 
     public EffectData GetEffectData()
