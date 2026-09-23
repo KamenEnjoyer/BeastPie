@@ -1,27 +1,18 @@
 using UnityEngine;
 
-public class GradualHeal : PotionEffectInterface
+public class GradualHeal : PotionEffect
 {
-    private int density;
-    private int price;
-
-    public void Setup(int density, int price)
-    {
-        this.density = density;
-        this.price = price;
-    }
-
-    public void ApplyPotion()
+    public override void ApplyPotion()
     {
         PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.GradualHeal(density*10, density));
     }
 
-    public void ApplyDish()
+    public override void ApplyDish()
     {
         PlayerHealth.Instance.maxHealth += price / 2f;
     }
 
-    public EffectData GetEffectData()
+    public override EffectData GetEffectData()
     {
         EffectData effect = new EffectData();
 

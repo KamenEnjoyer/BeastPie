@@ -3,8 +3,8 @@ using UnityEngine;
 
 public static class EffectRegistry
 {
-    private static Dictionary<string, PotionEffectInterface> effects =
-        new Dictionary<string, PotionEffectInterface>
+    private static Dictionary<string, PotionEffect> effects =
+        new Dictionary<string, PotionEffect>
         {
             { "GradualHeal", new GradualHeal() },
             { "Spicy", new Spicy() }
@@ -24,7 +24,7 @@ public static class EffectRegistry
             { "ginger", new Ginger() }
         };
 
-    public static PotionEffectInterface GetPotionEffect(string effect)
+    public static PotionEffect GetPotionEffect(string effect)
     {
         if (effects.TryGetValue(effect, out var effectScript)) return effectScript;
 

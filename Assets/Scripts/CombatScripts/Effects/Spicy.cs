@@ -2,28 +2,19 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class Spicy : PotionEffectInterface
+public class Spicy : PotionEffect
 {
-    private int density;
-    private int price;
-
-    public void Setup(int density, int price)
-    {
-        this.density = density;
-        this.price = price;
-    }
-
-    public void ApplyPotion()
+    public override void ApplyPotion()
     {
         PlayerMovement.Instance.StartCoroutine(PlayerMovement.Instance.SpeedBoost(price/16f, density/3f));
     }
 
-    public void ApplyDish()
+    public override void ApplyDish()
     {
         PlayerMovement.Instance.moveSpeed += price / 100f;
     }
 
-    public EffectData GetEffectData()
+    public override EffectData GetEffectData()
     {
         EffectData effect = new EffectData();
 
