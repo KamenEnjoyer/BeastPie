@@ -161,11 +161,11 @@ public class MixPotionMode : MonoBehaviour
         potion.data.density = (int)Math.Ceiling((a.data.density + b.data.density) / 2.0);
         potion.data.densityLimit = (int)Math.Ceiling((a.data.densityLimit + b.data.densityLimit) / 2.0);
 
-        if (a.data.type == GILData.IngredientType.Loot && a.data.id.Substring(0, a.data.id.Length - 1) == b.data.id.Substring(0, b.data.id.Length - 1))
+        if (a.data.type == GILData.IngredientType.Loot && a.data.id.Substring(0, a.data.id.IndexOf('_')) == b.data.id.Substring(0, b.data.id.IndexOf('_')))
         {
-            potion.icon = Resources.Load<Sprite>("IngredientsSprites/" + a.data.id.Substring(0, a.data.id.Length - 2));
+            potion.icon = Resources.Load<Sprite>("IngredientsSprites/" + a.data.id.Substring(0, a.data.id.IndexOf('_')));
             potion.data.id = a.data.id.Substring(0, a.data.id.Length - 1) + (potion.data.density - 1).ToString();
-            potion.data.ingName = a.data.ingName.Replace(NumbersConvertor.ToRoman(a.data.density), "") + "+ " + b.data.ingName.Replace(" " + NumbersConvertor.ToRoman(b.data.density), "");
+            potion.data.ingName = a.data.ingName.Replace(NumbersConvertor.ToRoman(a.data.density), "") + NumbersConvertor.ToRoman(potion.data.density);
             potion.data.type = GILData.IngredientType.Loot;
             potion.data.description = a.data.description;
             potion.data.effect = a.data.effect;

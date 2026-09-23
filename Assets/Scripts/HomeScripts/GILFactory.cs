@@ -109,22 +109,18 @@ public static class GILFactory
     {
         if(FindIngredientById(id) != null) return;
 
-        string substringId;
-        if (type == GILData.IngredientType.Loot) substringId = id.Substring(0, id.Length - 2);
-        else substringId = id;
-
         GILData newIngredient = new GILData
         {
-            id = id,
             type = type
         };
-        SetLocalization(substringId, out newIngredient.ingName, out newIngredient.description, out newIngredient.effect);
+        SetLocalization(id, out newIngredient.ingName, out newIngredient.description, out newIngredient.effect);
 
         if(type == GILData.IngredientType.Loot)
         {
-            DefaultIngredientData defaultLootData = Resources.Load<DefaultIngredientData>("IngredientsTypes/Loot/" + substringId);
+            DefaultIngredientData defaultLootData = Resources.Load<DefaultIngredientData>("IngredientsTypes/Loot/" + id);
             if (defaultLootData != null)
             {
+                newIngredient.id = id + "_" + defaultLootData.defDensity;
                 newIngredient.effectIds = new List<string>(defaultLootData.effectIds);
                 newIngredient.density = defaultLootData.defDensity;
                 newIngredient.densityLimit = defaultLootData.densityLimit;
@@ -137,9 +133,10 @@ public static class GILFactory
 
         if (type == GILData.IngredientType.Food)
         {
-            FoodIngredientData defaultFoodData = Resources.Load<FoodIngredientData>("IngredientsTypes/Food/" + substringId);
+            FoodIngredientData defaultFoodData = Resources.Load<FoodIngredientData>("IngredientsTypes/Food/" + id);
             if (defaultFoodData != null)
             {
+                newIngredient.id = id;
                 newIngredient.effectIds = new List<string>(defaultFoodData.effectIds);
                 newIngredient.conflictIds = new List<string>(defaultFoodData.conflictIds);
                 newIngredient.price = defaultFoodData.price;

@@ -43,8 +43,6 @@ public class StorageContent : MonoBehaviour
 
         foreach (var ingredient in ingredients)
         {
-            if (ingredient.count < 1 && ingredient.count > -1) continue;
-
             StorageContentData newIngredient = new StorageContentData();
             GILData data = GILFactory.FindIngredientById(ingredient.id);
             if (data != null)
@@ -77,7 +75,6 @@ public class StorageContent : MonoBehaviour
             data = GILFactory.FindIngredientById(id),
             count = count
         };
-        Debug.Log($"Adding new ingredient to storage: {newIngredient.data.ingName} with count {count} and type {newIngredient.data.type}");
         if (newIngredient.data.type == GILData.IngredientType.Loot) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + id.Substring(0, id.Length - 2));
         else if (Resources.Load<Sprite>("IngredientsSprites/" + id) != null) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + id);
         else newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/default");

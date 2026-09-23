@@ -40,7 +40,7 @@ public class PotionBarSlot : MonoBehaviour
         }
         foreach (var effectId in ingredientData.effectIds)
         {
-            PotionEffectInterface effect = EffectRegistry.GetPotionEffect(effectId);
+            PotionEffect effect = EffectRegistry.GetPotionEffect(effectId);
             if (effect == null) Debug.LogError("Effect " + effectId + " in PotionBarSlot not found.");
             else
             {

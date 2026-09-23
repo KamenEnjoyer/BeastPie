@@ -23,7 +23,7 @@ public class EffectBarContent : MonoBehaviour
             List<EffectData> effects = new List<EffectData>();
             foreach (var eff in PlayerConfig.LoadDish())
             {
-                PotionEffectInterface effect = EffectRegistry.GetPotionEffect(eff.efcName);
+                PotionEffect effect = EffectRegistry.GetPotionEffect(eff.efcName);
                 if (effect == null) Debug.LogError("Effect " + eff + " in PotionBarSlot not found.");
                 else
                 {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +20,7 @@ public class MixPanel : MonoBehaviour
         Canvas.ForceUpdateCanvases();
 
         float panelHeight = scrollRectParent.GetComponent<RectTransform>().rect.height;
-        Debug.Log("Panel Height: " + panelHeight);
-
         Instantiate(mixPotionBarPref, gameObject.GetComponent<Transform>()).GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelHeight);
         Instantiate(mixDishBarPref, gameObject.GetComponent<Transform>()).GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelHeight);
-        
     }
 }

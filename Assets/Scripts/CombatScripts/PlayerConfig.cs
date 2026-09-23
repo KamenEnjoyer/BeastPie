@@ -30,7 +30,7 @@ public static class PlayerConfig
             List<EffectData> effects = new List<EffectData>();
             foreach (var effId in dish.effectIds)
             {
-                PotionEffectInterface effect = EffectRegistry.GetPotionEffect(effId);
+                PotionEffect effect = EffectRegistry.GetPotionEffect(effId);
                 if (effect == null) Debug.LogError("Effect " + effId + " in PotionBarSlot not found.");
                 else
                 {

@@ -16,6 +16,7 @@ public class StorageFilters : MonoBehaviour
     public Toggle lootToggle;
     public Toggle foodToggle;
     public Toggle otherToggle;
+    public Toggle inStockToggle;
 
     [System.Flags]
     public enum StorageFilter
@@ -25,7 +26,8 @@ public class StorageFilters : MonoBehaviour
         Potion = 1 << 1,
         Loot = 1 << 2,
         Food = 1 << 3,
-        Other = 1 << 4
+        Other = 1 << 4,
+        InStock = 1 << 5
     }
     public StorageFilter activeFilter = StorageFilter.None;
 
@@ -40,6 +42,7 @@ public class StorageFilters : MonoBehaviour
         lootToggle.onValueChanged.AddListener(value => SetFilter(StorageFilter.Loot, value));
         foodToggle.onValueChanged.AddListener(value => SetFilter(StorageFilter.Food, value));
         otherToggle.onValueChanged.AddListener(value => SetFilter(StorageFilter.Other, value));
+        inStockToggle.onValueChanged.AddListener(value => SetFilter(StorageFilter.InStock, value));
     }
 
     private void SetFilter(StorageFilter filter, bool enabled)

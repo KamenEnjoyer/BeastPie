@@ -99,7 +99,9 @@ public class StorageFiltersPanel : MonoBehaviour
                     ||
                     (activeFilter.HasFlag(StorageFilter.Food) && item.data.type == GILData.IngredientType.Food)
                     ||
-                    (activeFilter.HasFlag(StorageFilter.Other) && item.data.type == GILData.IngredientType.Other);
+                    (activeFilter.HasFlag(StorageFilter.Other) && item.data.type == GILData.IngredientType.Other)
+                    ||
+                    (activeFilter.HasFlag(StorageFilter.InStock) && (item.count > 0 || item.count == -1));
             }));
         }
         SortInventory(filteredIng);
