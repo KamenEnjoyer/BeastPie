@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Localized: Spits out stones found along the way.
     m_Metadata:
       m_Items: []
+  - m_Id: 58560416271155200
+    m_Localized: Mushroom.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

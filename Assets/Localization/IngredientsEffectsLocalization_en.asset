@@ -34,6 +34,14 @@ MonoBehaviour:
     m_Localized: Dilutes the ingredient.
     m_Metadata:
       m_Items: []
+  - m_Id: 104509257314844672
+    m_Localized: It's poisoned?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104509259789484032
+    m_Localized: Tasty...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

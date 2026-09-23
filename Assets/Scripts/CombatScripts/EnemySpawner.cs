@@ -46,9 +46,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        int index = Random.Range(0, enemies.Length);
+        int index = Random.Range(0, enemies.Length); //Сделать разное количество спавна в зависимости от настроек шанса спавна
 
-        Vector2 spawnPos = GetRandomEdgePosition();
+        Vector2 spawnPos = enemies[index].enemyType.behaviourPrefab.GetComponent<EnemyBehaviour>().GetRandomEdgePosition();
         GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         enemyGO.GetComponent<Enemy>().Initialize(enemies[index].enemyType);
         spawnedEnemies.Add(enemyGO);
@@ -57,22 +57,6 @@ public class EnemySpawner : MonoBehaviour
         if (spawnedEnemyCount >= enemyCountToSpawn)
         {
             CancelInvoke(nameof(SpawnEnemy));
-        }
-    }
-
-    private Vector2 GetRandomEdgePosition()
-    {
-        Vector2 min = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector2 max = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
-
-        int side = Random.Range(0, 4);
-
-        switch (side)
-        {
-            case 0: return new Vector2(min.x, Random.Range(min.y, max.y)); // left
-            case 1: return new Vector2(max.x, Random.Range(min.y, max.y)); // right
-            case 2: return new Vector2(Random.Range(min.x, max.x), max.y); // top
-            default: return new Vector2(Random.Range(min.x, max.x), min.y); // bottom
         }
     }
 

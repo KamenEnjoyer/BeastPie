@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: GradualHeal
     m_Metadata:
       m_Items: []
+  - m_Id: 48488082042634240
+    m_Key: Spicy
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

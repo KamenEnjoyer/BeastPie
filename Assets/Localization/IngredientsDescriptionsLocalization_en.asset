@@ -46,6 +46,14 @@ MonoBehaviour:
     m_Localized: A bit spicy!
     m_Metadata:
       m_Items: []
+  - m_Id: 104517013119811584
+    m_Localized: Green.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104517015720280064
+    m_Localized: Just giant mushroom.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Gradual healing.
     m_Metadata:
       m_Items: []
+  - m_Id: 48488082042634240
+    m_Localized: A bit more speed.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

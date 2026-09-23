@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Localized: "A\u0161trokai!"
     m_Metadata:
       m_Items: []
+  - m_Id: 104517013119811584
+    m_Localized: "\u017Dali."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104517015720280064
+    m_Localized: "Tesiog did\u017Eiulis grybas."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

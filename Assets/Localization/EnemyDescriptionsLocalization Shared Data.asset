@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: Spitter
     m_Metadata:
       m_Items: []
+  - m_Id: 58560416271155200
+    m_Key: Mushrboom
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

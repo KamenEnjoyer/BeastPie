@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17408886378541056
-    m_Localized: Bimb's slime
+    m_Localized: Bleab's slime
     m_Metadata:
       m_Items: []
   - m_Id: 56437002244833280
@@ -52,6 +52,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 120566615707074560
     m_Localized: Dish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 122645455547777024
+    m_Localized: Marsh spores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 122645437516464128
+    m_Localized: Mushrboom stipe
     m_Metadata:
       m_Items: []
   references:

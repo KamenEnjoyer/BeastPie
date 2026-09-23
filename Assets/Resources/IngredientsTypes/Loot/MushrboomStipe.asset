@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b376b965df102ff48a37a6eb56da808b, type: 3}
-  m_Name: BubasJija
+  m_Name: MushrboomStipe
   m_EditorClassIdentifier: Assembly-CSharp::DefaultIngredientData
-  id: bubasjija_0
+  id: mushrboomstipe_1
   effectIds:
   - GradualHeal
-  defDensity: 1
-  densityLimit: 4
-  priceForOneDensity: 1
+  defDensity: 2
+  densityLimit: 5
+  priceForOneDensity: 3

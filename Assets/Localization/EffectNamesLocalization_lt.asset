@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Regeneracija
     m_Metadata:
       m_Items: []
+  - m_Id: 48488077097549824
+    m_Localized: "A\u0161trai"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
