@@ -138,7 +138,7 @@ public class MixDishMode : MonoBehaviour
         return false;
     }
 
-    private void ClearAllIngredients()
+    public void ClearAllIngredients()
     {
         foreach (var slot in leftIngredients)
         {

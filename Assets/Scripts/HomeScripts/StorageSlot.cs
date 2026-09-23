@@ -84,7 +84,7 @@ public class StorageSlot : MonoBehaviour,
                 Description.Instance.ShowMessage(slotData.data.ingName + " cannot be sold.");
             }
         }
-        else
+        else if (MixPanel.Instance.isPotionMode)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
@@ -93,6 +93,21 @@ public class StorageSlot : MonoBehaviour,
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
                 MixPotionMode.Instance?.SetIngredient(slotData, false);
+            }
+        }
+        else
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                MixDishMode.Instance.AddLeftIngredient(slotData);
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                MixDishMode.Instance.AddRightIngredient(slotData);
+            }
+            else if (eventData.button == PointerEventData.InputButton.Middle)
+            {
+                MixDishMode.Instance.SetCatalystIngredient(slotData);
             }
         }
         
