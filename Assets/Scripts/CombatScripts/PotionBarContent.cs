@@ -25,6 +25,7 @@ public class PotionBarContent : MonoBehaviour
 
         List<InventorySaveData> savedSlots = InventoryFactory.LoadBindings();
 
+        bool isEmpty = true;
         foreach (var slotData in savedSlots)
         {
             if (slotData.ingredientId != "")
@@ -33,8 +34,11 @@ public class PotionBarContent : MonoBehaviour
                 PotionBarSlot slot = Instantiate(potionSlotPrefab, contentParent).GetComponent<PotionBarSlot>();
                 slot.Setup(slotData);
                 slots.Add(slot);
+                isEmpty = false;
             }
         }
+
+        if (isEmpty) gameObject.SetActive(false);
     }
 
     private void Update()
