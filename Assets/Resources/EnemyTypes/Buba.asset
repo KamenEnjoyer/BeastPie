@@ -14,15 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTypeAsset
   id: Buba
   level: 1
-  zoneType:
-  - spruce_forest
   emotionPattern: 0
+  behaviourType: 0
   maxHealth: 4
   behaviourPrefab: {fileID: 493819764977437094, guid: 6feb5381448ad6b4897313f03ccf6293, type: 3}
   lootTable:
-  - ingredientId: bubasjija_0
+  - ingredientId: bubasjija_1
     minQuantity: 1
     maxQuantity: 3
-  - ingredientId: devilhair_4
+  - ingredientId: devilhair_5
     minQuantity: -1
     maxQuantity: 2

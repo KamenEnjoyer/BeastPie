@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b376b965df102ff48a37a6eb56da808b, type: 3}
   m_Name: DevilHair
   m_EditorClassIdentifier: Assembly-CSharp::DefaultIngredientData
-  id: devilhair_4
+  id: devilhair_5
   effectIds: []
   defDensity: 5
   densityLimit: 6

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b376b965df102ff48a37a6eb56da808b, type: 3}
   m_Name: MarshSpores
   m_EditorClassIdentifier: Assembly-CSharp::DefaultIngredientData
-  id: marshspores_0
+  id: marshspores_1
   effectIds: []
   defDensity: 1
   densityLimit: 3

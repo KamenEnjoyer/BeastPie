@@ -36,8 +36,8 @@ public class Mushrboom : EnemyBehaviour
         Vector2 spawnPosition = (Vector2)transform.position + spawnOffset;
         GameObject slash = Instantiate(aoePrefab, spawnPosition, Quaternion.identity);
 
-        slash.GetComponent<PlayerMelleDamage>().isPlayer = false;
-        slash.GetComponent<PlayerMelleDamage>().damage = damage;
+        slash.GetComponent<MelleDamage>().isPlayer = false;
+        slash.GetComponent<MelleDamage>().damage = damage;
 
         Destroy(slash, 2f);
     }

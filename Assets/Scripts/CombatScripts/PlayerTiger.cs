@@ -27,6 +27,14 @@ public class PlayerTiger : MonoBehaviour
     {
         if(!isReturning && enemy != null) endPos = ((Vector2)enemy.transform.position - rb.position).normalized;
         rb.MovePosition(rb.position + endPos * moveSpeed * Time.fixedDeltaTime);
+
+        if (isReturning)
+        {
+            if (transform.position.x < -0.5) Destroy(gameObject);
+            if (transform.position.y < -0.5) Destroy(gameObject);
+            if (transform.position.x > 1.5) Destroy(gameObject);
+            if (transform.position.y > 1.5) Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

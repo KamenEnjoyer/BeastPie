@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject healthBarPref;
+    private Image healthBar;
+    private Rigidbody2D rbHealthBar;
+
     private float currentHealth;
     private Transform player;
     private EnemyBehaviour behaviour;
@@ -13,6 +18,9 @@ public class Enemy : MonoBehaviour
         GameObject behaviourGO = Instantiate(type.behaviourPrefab, transform);
         behaviour = behaviourGO.GetComponent<EnemyBehaviour>();
         if (behaviour == null) Debug.LogError("Behaviour prefab has no EnemyBehaviour!");
+
+        Vector2 spawnPos = behaviour.GetRandomEdgePosition();
+        transform.position = spawnPos;
 
         currentHealth = type.maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -36,6 +44,15 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        if (currentHealth < enemyType.maxHealth)
+        {
+            if (healthBar == null)
+            {
+                healthBar = Instantiate(healthBarPref, GetComponentInChildren<Canvas>().transform).GetComponent<Image>();
+                rbHealthBar = healthBar.gameObject.GetComponent<Rigidbody2D>();
+            }
+            healthBar.fillAmount = currentHealth / enemyType.maxHealth;
+        }
         if (currentHealth <= 0f) //Add death animation later
         {
             foreach(var loot in enemyType.lootTable)
@@ -45,6 +62,7 @@ public class Enemy : MonoBehaviour
             }
             EnemyFactory.IncBeastKillCount(enemyType.id, "Spruce_forest"); //Пока что просто затычка
             EnemySpawner.Instance.isItVictory(this);
+            Destroy(healthBar.gameObject);
             Destroy(gameObject);
         }
     }

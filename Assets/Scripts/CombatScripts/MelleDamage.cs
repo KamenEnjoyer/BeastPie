@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class PlayerMelleDamage : MonoBehaviour
+public class MelleDamage : MonoBehaviour
 {
     public float damage = 1f;
     public bool isPlayer = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") || isPlayer)
+        if (other.CompareTag("Enemy") && isPlayer)
         {
             other.GetComponent<Enemy>()?.TakeDamage(damage);
         }

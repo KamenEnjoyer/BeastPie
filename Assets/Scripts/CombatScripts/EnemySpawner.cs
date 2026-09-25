@@ -65,8 +65,7 @@ public class EnemySpawner : MonoBehaviour
     {
         int index = GetEnemyIndex();
 
-        Vector2 spawnPos = enemies[index].enemyType.behaviourPrefab.GetComponent<EnemyBehaviour>().GetRandomEdgePosition();
-        GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        GameObject enemyGO = Instantiate(enemyPrefab);
         enemyGO.GetComponent<Enemy>().Initialize(enemies[index].enemyType);
         spawnedEnemies.Add(enemyGO);
         spawnedEnemyCount++;

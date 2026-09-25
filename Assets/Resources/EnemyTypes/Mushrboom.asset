@@ -19,9 +19,9 @@ MonoBehaviour:
   maxHealth: 7
   behaviourPrefab: {fileID: 493819764977437094, guid: c448815bce8af324c9c55edb8a0fa5a2, type: 3}
   lootTable:
-  - ingredientId: marshspores_0
+  - ingredientId: marshspores_1
     minQuantity: 0
     maxQuantity: 3
-  - ingredientId: mushrboomstipe_1
+  - ingredientId: mushrboomstipe_2
     minQuantity: 1
     maxQuantity: 4
