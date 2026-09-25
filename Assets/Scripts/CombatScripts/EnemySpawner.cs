@@ -44,9 +44,26 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating(nameof(SpawnEnemy), 1f, Random.Range(minSpawnInterval, maxSpawnInterval)); //Cделать куротину
     }
 
+    private int GetEnemyIndex()
+    {
+        float totalChance = 0f;
+        foreach (var enemy in enemies) totalChance += enemy.spawnChance;
+        float randomValue = Random.Range(0f, totalChance);
+
+        float currentChance = 0f;
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            currentChance += enemies[i].spawnChance;
+
+            if (randomValue < currentChance) return i;
+        }
+
+        return enemies.Length - 1;
+    }
+
     public void SpawnEnemy()
     {
-        int index = Random.Range(0, enemies.Length); //Сделать разное количество спавна в зависимости от настроек шанса спавна
+        int index = GetEnemyIndex();
 
         Vector2 spawnPos = enemies[index].enemyType.behaviourPrefab.GetComponent<EnemyBehaviour>().GetRandomEdgePosition();
         GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using static GILData;
 
 public static class GILFactory
 {
@@ -82,7 +83,7 @@ public static class GILFactory
         {
             new GILData
             {
-                type = GILData.IngredientType.Catalyst,
+                type = IngredientType.Catalyst,
                 id = "water",
                 density = 0,
                 densityLimit = 0,
@@ -90,7 +91,7 @@ public static class GILFactory
             },
             new GILData
             {
-                type = GILData.IngredientType.Catalyst,
+                type = IngredientType.Catalyst,
                 id = "fire",
                 density = 10,
                 densityLimit = 10,
@@ -105,17 +106,18 @@ public static class GILFactory
         return defaults;
     }
 
-    public static void AddIngredientFromDefaulds(string id, GILData.IngredientType type)
+    public static void AddIngredientFromDefaulds(string id, IngredientType type)
     {
-        if(FindIngredientById(id) != null) return;
+        if (FindIngredientById(id) != null) return;
 
+        id = id.IndexOf('_') < 0 ? id : id.Substring(0, id.IndexOf('_'));
         GILData newIngredient = new GILData
         {
             type = type
         };
         SetLocalization(id, out newIngredient.ingName, out newIngredient.description, out newIngredient.effect);
 
-        if(type == GILData.IngredientType.Loot)
+        if(type == IngredientType.Loot)
         {
             DefaultIngredientData defaultLootData = Resources.Load<DefaultIngredientData>("IngredientsTypes/Loot/" + id);
             if (defaultLootData != null)
@@ -131,7 +133,7 @@ public static class GILFactory
             return;
         }
 
-        if (type == GILData.IngredientType.Food)
+        if (type == IngredientType.Food)
         {
             FoodIngredientData defaultFoodData = Resources.Load<FoodIngredientData>("IngredientsTypes/Food/" + id);
             if (defaultFoodData != null)
@@ -159,7 +161,7 @@ public static class GILFactory
         return null;
     }
 
-    public static string FindIdForNewIngredient(GILData ingredient, GILData.IngredientType type)
+    public static string FindIdForNewIngredient(GILData ingredient, IngredientType type)
     {
         int maxId = 0;
         foreach (var item in allIngredients)

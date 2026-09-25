@@ -16,9 +16,9 @@ MonoBehaviour:
   backgroundImage: {fileID: 629883482048932953, guid: 6d5404fe79e83044cadae9d1f5675123, type: 3}
   enemies:
   - enemyType: {fileID: 11400000, guid: 4aed2f55bfb5fa44fabd782f9df0f99c, type: 2}
-    spawnChance: 0.6
+    spawnChance: 60
   - enemyType: {fileID: 11400000, guid: 450adcf7455d7704483e4ef3f7b30746, type: 2}
-    spawnChance: 0.4
+    spawnChance: 40
   minEnemies: 2
   maxEnemies: 6
   minEnemySpawnInterval: 1

@@ -15,7 +15,7 @@ public class EndCombatMenu : MonoBehaviour
         foreach (var slotData in lootData)
         {
             EndCombatMenuSlot slot = Instantiate(lootSlotPrefab, contentParent, false).GetComponent<EndCombatMenuSlot>();
-            slot.Setup(slotData.id, slotData.count);
+            slot.Setup(slotData.id.Substring(0, slotData.id.IndexOf('_')), slotData.count);
         }
     }
 
