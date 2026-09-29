@@ -17,11 +17,12 @@ public class ZoneType : ScriptableObject
         public float spawnChance;
     }
 
-    public enum ZoneName { Spruce_forest, Forest, Desert, Mountain, Swamp, Cave, Plains };
+    public string id;
+
+    public enum ZoneName { Reality, Chitin, Slime, Flesh, Plant, Fire, Water, Earth, Storm, Void};
     public ZoneName zoneType;
 
-    public Sprite backgroundImage;
-    //music, sounds
+    public Vector2 mapPosition;
 
     [Header("Spawn")]
     public Enemies[] enemies;

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ZonesDescriptionLocalization_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b3d183502e399da49910557d3931ff79, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 13874610176
+    m_Localized: An amazing place full of angry mushrooms. Perhaps they are irritated
+      by the violation of their territory's boundaries.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15984345088
+    m_Localized: Even ordinary coniferous forests are rather dark and gloomy, but
+      these ones are also teeming with small monsters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11748098048
+    m_Localized: E
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 611282b2ba294b7428b4046b5181f567
+    m_Address: ZonesNamesLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65cbe2d2cf0091c4d9ef66d4041003b3
     m_Address: IngredientsDescriptionsLocalization_en
     m_ReadOnly: 1
@@ -47,6 +53,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6bc0d867bfde1a147bbb18af7a0ae5dc
     m_Address: IngredientsEffectsLocalization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 754950a115902bf41a1b31e1a8a171c5
+    m_Address: ZonesDescriptionLocalization_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

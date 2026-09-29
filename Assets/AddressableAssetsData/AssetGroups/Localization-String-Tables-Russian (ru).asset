@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e76bf17150929145b444d3efd4cec7a
+    m_Address: ZonesNamesLocalization_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34e1dedf63b580748aaa41a4d067fa74
     m_Address: EnemyNamesLocalization_ru
     m_ReadOnly: 1
@@ -35,6 +41,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42a0ebbbacd6aca4b850b0529cf63289
     m_Address: UILocalizationStrings_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 625c90a5a7662d24ca1a7d308666c345
+    m_Address: ZonesDescriptionLocalization_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru

@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b47c47972312dd45a346648551999ad
+    m_Address: Assets/Localization/ZonesNamesLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9db41699ff19e964f8c14119baf9ed6a
     m_Address: Assets/EnemyNamesLocalization Shared Data.asset
     m_ReadOnly: 1
@@ -47,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a88106a98be31c94d92e4a05ee4521bb
     m_Address: Assets/Localization/IngredientsLocalization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3d183502e399da49910557d3931ff79
+    m_Address: Assets/Localization/ZonesDescriptionLocalization Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

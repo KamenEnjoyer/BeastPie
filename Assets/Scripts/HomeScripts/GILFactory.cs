@@ -1,8 +1,6 @@
 //Global Ingredients List
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using static GILData;
@@ -32,8 +30,8 @@ public static class GILFactory
     {
         foreach (GILData data in allIngredients)
         {
-            if (data.type == GILData.IngredientType.Potion) continue;
-            if (data.type != GILData.IngredientType.Loot)
+            if (data.type == IngredientType.Potion) continue;
+            if (data.type != IngredientType.Loot)
             {
                 SetLocalization(data.id, out data.ingName, out data.description, out data.effect);
                 continue;

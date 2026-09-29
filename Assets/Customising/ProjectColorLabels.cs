@@ -25,7 +25,7 @@ public static class ProjectColorLabels
         else if (path.Contains("Enemy")) EditorGUI.DrawRect(selectionRect, new Color(255f / 255f, 30f / 255f, 30f / 255f, 0.2f));
         else if (path.Contains("Effect")) EditorGUI.DrawRect(selectionRect, new Color(100f / 255f, 225f / 255f, 20f / 255f, 0.2f));
         else if (path.Contains("Obstacle")) EditorGUI.DrawRect(selectionRect, new Color(255f / 255f, 165f / 255f, 0f / 255f, 0.2f));
-        else if (path.Contains("Zone")) EditorGUI.DrawRect(selectionRect, new Color(235f / 255f, 255f / 255f, 0f / 255f, 0.2f));
+        else if (path.Contains("Zone") || path.Contains("Map")) EditorGUI.DrawRect(selectionRect, new Color(235f / 255f, 255f / 255f, 0f / 255f, 0.2f));
 
     }
 }

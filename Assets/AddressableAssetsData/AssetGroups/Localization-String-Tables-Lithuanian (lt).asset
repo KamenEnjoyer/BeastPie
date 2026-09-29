@@ -63,8 +63,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-lt
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad0468eea05b1a44db3c62a586a6055e
+    m_Address: ZonesNamesLocalization_lt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-lt
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e358b374dfb9f1442bf7720ffd6b1c37
     m_Address: UILocalizationStrings_lt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-lt
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4377dc5e689b1648b9e87a27203416c
+    m_Address: ZonesDescriptionLocalization_lt
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-lt

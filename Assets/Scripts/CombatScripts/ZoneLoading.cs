@@ -22,7 +22,7 @@ public class ZoneLoading : MonoBehaviour
     {
         int index = Random.Range(0, zoneTypes.Length);
         currentZone = zoneTypes[index];
-        background.sprite = currentZone.backgroundImage;
+        background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
         ObstacleSpawner.Instance.Setup(currentZone.minObstacles, currentZone.maxObstacles, currentZone.obstacles);
 
