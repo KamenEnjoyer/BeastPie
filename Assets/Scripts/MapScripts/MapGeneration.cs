@@ -1,27 +1,42 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class MapGeneration : MonoBehaviour
+public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     [SerializeField] private GameObject locationButtonPrefab;
 
-    [SerializeField] private List<ZoneType> locations;
+    private float zoomSpeed = 0.1f;
+    private float minZoom = 0.5f;
+    private float maxZoom = 2.5f;
+
+    private Vector2 lastMousePosition;
+    private float currentZoom = 1f;
+
+    private float width;
+    private float height;
+
+    private bool dragLock = false;
 
     private void Start()
     {
+        width = gameObject.GetComponent<RectTransform>().rect.width;
+        height = gameObject.GetComponent<RectTransform>().rect.height;
         GenerateMap();
     }
 
     private void GenerateMap()
     {
-        List<MapFactory.MapSlot> mapLocations = MapFactory.LoadMap(); 
+        List<MapFactory.MapSlot> mapLocations = MapFactory.LoadMap();
+        
         foreach (var location in mapLocations)
         {
             GameObject zoneButton = Instantiate(locationButtonPrefab, transform);
 
-            float width = gameObject.GetComponent<RectTransform>().rect.width;
-            float height = gameObject.GetComponent<RectTransform>().rect.height;
             RectTransform rect = zoneButton.GetComponent<RectTransform>();
 
             ZoneType zone = Resources.Load<ZoneType>("ZoneTypes/" + location.id);
@@ -31,5 +46,74 @@ public class MapGeneration : MonoBehaviour
 
             slot.Setup(zone, location.canMove, location.unlocked);
         }
+    }
+
+    void Update()
+    {
+        float scroll = Input.mouseScrollDelta.y;
+
+        if (scroll > 0)
+        {
+            ZoomOut();
+        }
+        else if (scroll < 0)
+        {
+            ZoomIn();
+        }
+    }
+
+    public void ZoomIn()
+    {
+        SetZoom(currentZoom + zoomSpeed * currentZoom);
+    }
+
+    public void ZoomOut()
+    {
+        SetZoom(currentZoom - zoomSpeed * currentZoom);
+    }
+
+    private void SetZoom(float value)
+    {
+        currentZoom = Mathf.Clamp(value, minZoom, maxZoom);
+
+        transform.localScale = Vector3.one * currentZoom;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        lastMousePosition = eventData.position;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (dragLock) return;
+
+        Vector2 delta = eventData.position - lastMousePosition;
+
+        GetComponent<RectTransform>().anchoredPosition += delta;
+
+        ClampPosition();
+
+        lastMousePosition = eventData.position;
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 mapSize = GetComponent<RectTransform>().rect.size * GetComponent<RectTransform>().localScale;
+        Vector2 viewportSize = transform.parent.GetComponent<RectTransform>().rect.size;
+
+        Vector2 position = GetComponent<RectTransform>().anchoredPosition;
+
+        float maxX = (mapSize.x - viewportSize.x) / 2f + (viewportSize.x*0.2f);
+        float maxY = (mapSize.y - viewportSize.y) / 2f + (viewportSize.x * 0.2f);
+
+        // Если карта меньше окна, не позволяем ей двигаться.
+        if (mapSize.x <= viewportSize.x) position.x = 0;
+        else position.x = Mathf.Clamp(position.x, -maxX, maxX);
+
+        if (mapSize.y <= viewportSize.y) position.y = 0;
+        else position.y = Mathf.Clamp(position.y, -maxY, maxY);
+
+        GetComponent<RectTransform>().anchoredPosition = position;
     }
 }

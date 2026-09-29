@@ -25,6 +25,6 @@ public class MapSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ZoneDescription.Instance.SetInfo(zone, unlocked);
+        ZoneDescription.Instance.SetInfo(zone, canMove, unlocked);
     }
 }

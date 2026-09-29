@@ -12,6 +12,8 @@ public class ZoneDescription : MonoBehaviour
     public Transform enemiesListContent;
     public GameObject enemySlotPref;
 
+    public Button goToCombatButton;
+
     public static ZoneDescription Instance;
     private void Awake()
     {
@@ -28,13 +30,14 @@ public class ZoneDescription : MonoBehaviour
 
     public void Clear()
     {
+        goToCombatButton.interactable = false;
         name.text = "";
         icon.color = new Color(1f, 1f, 1f, 0f);
         description.text = "";
         foreach (Transform child in enemiesListContent) Destroy(child.gameObject);
     }
 
-    public void SetInfo(ZoneType data, bool unlocked)
+    public void SetInfo(ZoneType data, bool canMove, bool unlocked)
     {
         Clear();
 
@@ -57,5 +60,7 @@ public class ZoneDescription : MonoBehaviour
             icon.color = new Color(1f, 1f, 1f, 1f);
             icon.sprite = Resources.Load<Sprite>("ZonesSprites/default");
         }
+
+        if (canMove) goToCombatButton.interactable = true;
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZoneType
   id: Desert
   zoneType: 7
-  mapPosition: {x: 0.5, y: 0.2}
+  mapPosition: {x: 0.6, y: 0.2}
   enemies:
   - enemyType: {fileID: 11400000, guid: 362fac2958879ad45aea23f8eb39669b, type: 2}
     spawnChance: 100
