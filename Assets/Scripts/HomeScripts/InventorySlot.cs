@@ -13,21 +13,31 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     public void Setup(InventorySaveData data, bool available)
     {
+        Canvas.ForceUpdateCanvases();
+        float height = GetComponent<RectTransform>().rect.height - 10f;
+        icon.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+        float width = GetComponent<RectTransform>().rect.width - 15f - height;
+        nameText.transform.parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+        nameText.transform.parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+        nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, height);
+        nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, width);
+
+
         slotData = data;
         isAvailable = available;
 
         if (data.ingredientId == "")
         {
             icon.sprite = null;
-            nameText.text = data.key.Replace("Alpha", ""); 
         }
         else
         {
             StorageContentData ingredient = StorageContent.Instance.GetIngredientById(data.ingredientId);
             icon.sprite = ingredient.icon;
-            nameText.text = data.key.Replace("Alpha", "") + " — " + ingredient.data.ingName;
             GetComponent<IngredientHover>()?.SetIngredient(ingredient);
         }
+
+        nameText.text = data.key.Replace("Alpha", "");
 
         if (!available)
         {
@@ -71,16 +81,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!");
         }
         icon.sprite = ingredient.icon;
-        nameText.text = slotData.key.Replace("Alpha", "") + " — " + ingredient.data.ingName;
         slotData.ingredientId = ingredient.data.id;
+        GetComponent<IngredientHover>()?.SetIngredient(ingredient);
         InventoryFactory.SaveNamesByIngredient(slotData);
     }   
 
     public void ClearSlot()
     {
         icon.sprite = null;
-        nameText.text = slotData.key.Replace("Alpha", "");
         slotData.ingredientId = "";
+        GetComponent<IngredientHover>()?.SetIngredient(null);
         InventoryFactory.SaveNamesByIngredient(slotData);
     }
 }

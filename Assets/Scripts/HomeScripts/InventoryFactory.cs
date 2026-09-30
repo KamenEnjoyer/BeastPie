@@ -26,20 +26,17 @@ public static class InventoryFactory
     private static List<InventorySaveData> CreateDefaultBindings()
     {
         List<InventorySaveData> inventorySaveData = new List<InventorySaveData>();
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 8; i++)
         {
             string key = "Alpha" + (i + 1).ToString();
-            if (i > 4)
+            if (i > 3)
             {
                 switch (i)
                 {
-                    case 5: key = "Q"; break;
-                    case 6: key = "E"; break;
-                    case 7: key = "R"; break;
-                    case 8: key = "F"; break;
-                    case 9: key = "C"; break;
-                    case 10: key = "X"; break;
-                    case 11: key = "Z"; break;
+                    case 4: key = "Q"; break;
+                    case 5: key = "E"; break;
+                    case 6: key = "R"; break;
+                    case 7: key = "F"; break;
                 }
             }
             inventorySaveData.Add(new InventorySaveData

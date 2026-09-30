@@ -10,7 +10,6 @@ public class MenuSmallSlot : MonoBehaviour
     public void Setup(Sprite iconSprite, string countText)
     {
         icon.sprite = iconSprite;
-        Debug.Log("Small slot setup with icon: " + iconSprite.name);
         count.text = countText;
     }
 }

@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
@@ -54,22 +50,12 @@ public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         if (scroll > 0)
         {
-            ZoomOut();
+            SetZoom(currentZoom - zoomSpeed * currentZoom);
         }
         else if (scroll < 0)
         {
-            ZoomIn();
+            SetZoom(currentZoom + zoomSpeed * currentZoom);
         }
-    }
-
-    public void ZoomIn()
-    {
-        SetZoom(currentZoom + zoomSpeed * currentZoom);
-    }
-
-    public void ZoomOut()
-    {
-        SetZoom(currentZoom - zoomSpeed * currentZoom);
     }
 
     private void SetZoom(float value)
@@ -77,6 +63,8 @@ public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
         currentZoom = Mathf.Clamp(value, minZoom, maxZoom);
 
         transform.localScale = Vector3.one * currentZoom;
+
+        ClampPosition();
     }
 
     public void OnPointerDown(PointerEventData eventData)
