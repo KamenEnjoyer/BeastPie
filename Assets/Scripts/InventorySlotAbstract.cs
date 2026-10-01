@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlotCanvasUpdate : MonoBehaviour
+public class InventorySlotAbstract : MonoBehaviour
 {
     public Image icon;
     public TextMeshProUGUI nameText;
@@ -17,6 +17,22 @@ public class InventorySlotCanvasUpdate : MonoBehaviour
         nameText.transform.parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
         nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, height);
         nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, width);
+    }
 
+    public void SetVisual(Sprite icon, string slotName)
+    {
+        this.icon.sprite = icon;
+        nameText.text = slotName;
+        this.icon.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public Image GetIcon()
+    {
+        return icon;
+    }
+
+    public TextMeshProUGUI GetNameText()
+    {
+        return nameText;
     }
 }

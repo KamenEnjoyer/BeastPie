@@ -49,7 +49,7 @@ public class StorageContent : MonoBehaviour
             {
                 newIngredient.data = data;
                 newIngredient.count = ingredient.count;
-                if (newIngredient.data.type == GILData.IngredientType.Loot) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id.Substring(0, ingredient.id.Length - 2));
+                if (newIngredient.data.type == GILData.IngredientType.Loot) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id.Substring(0, ingredient.id.IndexOf('_')));
                 else if (Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id) != null) newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/" + ingredient.id);
                 else newIngredient.icon = Resources.Load<Sprite>("IngredientsSprites/default");
                 allIngredients.Add(newIngredient);

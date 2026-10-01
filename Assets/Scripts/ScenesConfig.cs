@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using static GILData;
 
 public static class ScenesConfig
 {
@@ -13,7 +17,5 @@ public static class ScenesConfig
         Type
     }
     public static sortingVariables currentSorting { get; set; } = sortingVariables.Default;
-
-
 }
 

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,9 +5,15 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
-    public Image icon;
-    public TextMeshProUGUI countText;
+    private Image icon;
+    private TextMeshProUGUI countText;
     private IngredientData slotData;
+
+    void Awake()
+    {
+        icon = gameObject.GetComponent<InventorySlotAbstract>().GetIcon();
+        countText = gameObject.GetComponent<InventorySlotAbstract>().GetNameText();
+    }
 
     public void Setup(IngredientData data)
     {

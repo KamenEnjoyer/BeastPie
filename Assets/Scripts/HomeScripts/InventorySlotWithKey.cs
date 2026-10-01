@@ -5,11 +5,17 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
-    public Image icon;
-    public TextMeshProUGUI nameText;
+    private Image icon;
+    private TextMeshProUGUI nameText;
     private InventorySaveData slotData;
 
     private bool isAvailable = true;
+
+    void Awake()
+    {
+        icon = gameObject.GetComponent<InventorySlotAbstract>().GetIcon();
+        nameText = gameObject.GetComponent<InventorySlotAbstract>().GetNameText();
+    }
 
     public void Setup(InventorySaveData data, bool available)
     {
@@ -61,7 +67,7 @@ public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHa
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().GetComponentInParent<Button>().transform, "Требуется купить ячейку.");
             return;
         }
-        if (ingredient.data.id == "water" || ingredient.data.id == "fire")
+        if (ingredient.data.type != GILData.IngredientType.Potion && ingredient.data.type != GILData.IngredientType.Loot)
         {
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Нет возможности использовать в бою.");
             return;
