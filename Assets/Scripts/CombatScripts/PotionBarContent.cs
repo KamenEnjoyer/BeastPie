@@ -23,7 +23,7 @@ public class PotionBarContent : MonoBehaviour
         foreach (Transform child in contentParent) Destroy(child.gameObject);
         slots.Clear();
 
-        List<InventorySaveData> savedSlots = InventoryFactory.LoadBindings();
+        List<InventorySaveData> savedSlots = InventoryWithKeysFactory.LoadBindings();
 
         bool isEmpty = true;
         foreach (var slotData in savedSlots)

@@ -1,59 +1,38 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
     public Image icon;
-    public TextMeshProUGUI nameText;
-    private InventorySaveData slotData;
+    public TextMeshProUGUI countText;
+    private IngredientData slotData;
 
-    private bool isAvailable = true;
-
-    public void Setup(InventorySaveData data, bool available)
+    public void Setup(IngredientData data)
     {
-        Canvas.ForceUpdateCanvases();
-        float height = GetComponent<RectTransform>().rect.height - 10f;
-        icon.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-        float width = GetComponent<RectTransform>().rect.width - 15f - height;
-        nameText.transform.parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
-        nameText.transform.parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-        nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, height);
-        nameText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, width);
-
-
         slotData = data;
-        isAvailable = available;
 
-        if (data.ingredientId == "")
+        if (data.id == "")
         {
             icon.sprite = null;
         }
         else
         {
-            StorageContentData ingredient = StorageContent.Instance.GetIngredientById(data.ingredientId);
+            StorageContentData ingredient = StorageContent.Instance.GetIngredientById(data.id);
             icon.sprite = ingredient.icon;
             GetComponent<IngredientHover>()?.SetIngredient(ingredient);
         }
 
-        nameText.text = data.key.Replace("Alpha", "");
+        if (data.count > 0) countText.text = data.count.ToString();
+        else countText.text = "";
 
-        if (!available)
-        {
-            icon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-            nameText.text = "";
-        }
-        else icon.color = new Color(1f, 1f, 1f, 1f);
+        icon.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!isAvailable)
-        {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Хотите купить ячейку?", true); //Ну, пока что хотеть не вредно
-            return;
-        }
         ClearSlot();
     }
 
@@ -66,31 +45,29 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     public void SetIngredient(StorageContentData ingredient)
     {
-        if (!isAvailable)
-        {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().GetComponentInParent<Button>().transform, "Требуется купить ячейку.");
-            return;
-        }
         if (ingredient.data.id == "water" || ingredient.data.id == "fire")
         {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Нет возможности использовать в бою.");
+            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "РќРµС‚ РЅСѓР¶РЅС‹ Р±СЂР°С‚СЊ СЃ СЃРѕР±РѕР№.");
             return;
         }
         if (ingredient.count == 0)
         {
-            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!");
+            ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂР°РІРЅРѕ РЅСѓР»СЋ!");
+            return;
         }
         icon.sprite = ingredient.icon;
-        slotData.ingredientId = ingredient.data.id;
+        slotData.id = ingredient.data.id;
+        countText.text = ingredient.count.ToString();
         GetComponent<IngredientHover>()?.SetIngredient(ingredient);
-        InventoryFactory.SaveNamesByIngredient(slotData);
-    }   
+        InventoryFactory.AddNewIngredient(slotData);
+    }
 
     public void ClearSlot()
     {
         icon.sprite = null;
-        slotData.ingredientId = "";
+        slotData.id = "";
+        countText.text = "";
         GetComponent<IngredientHover>()?.SetIngredient(null);
-        InventoryFactory.SaveNamesByIngredient(slotData);
+        InventoryFactory.AddNewIngredient(slotData);
     }
 }

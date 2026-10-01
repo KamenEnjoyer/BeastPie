@@ -97,6 +97,6 @@ public class PotionBarSlot : MonoBehaviour
         {
             IngredientFactory.AddIngredient(ingredientData.id, count, "camp");
         }
-        InventoryFactory.SaveCountsByIngredient(ingredientData.id, IngredientFactory.GetCountById(ingredientData.id));
+        InventoryWithKeysFactory.SaveCountsByIngredient(ingredientData.id, IngredientFactory.GetCountById(ingredientData.id));
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ZoneDescription : MonoBehaviour
 {
-    public TextMeshProUGUI name;
+    public TextMeshProUGUI zoneName;
     public Image icon;
     public TextMeshProUGUI description;
 
@@ -25,13 +25,13 @@ public class ZoneDescription : MonoBehaviour
         Clear();
         Canvas.ForceUpdateCanvases();
         float width = icon.transform.parent.GetComponent<RectTransform>().rect.width - icon.GetComponent<RectTransform>().rect.width - 15f;
-        name.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+        zoneName.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
     }
 
     public void Clear()
     {
         goToCombatButton.interactable = false;
-        name.text = "";
+        zoneName.text = "";
         icon.color = new Color(1f, 1f, 1f, 0f);
         description.text = "";
         foreach (Transform child in enemiesListContent) Destroy(child.gameObject);
@@ -43,7 +43,7 @@ public class ZoneDescription : MonoBehaviour
 
         if (unlocked)
         {
-            name.text = LocalizationSettings.StringDatabase.GetLocalizedString("ZonesNamesLocalization", data.id);
+            zoneName.text = LocalizationSettings.StringDatabase.GetLocalizedString("ZonesNamesLocalization", data.id);
             description.text = LocalizationSettings.StringDatabase.GetLocalizedString("ZonesDescriptionLocalization", data.id);
             icon.color = new Color(1f, 1f, 1f, 1f);
             icon.sprite = Resources.Load<Sprite>("ZonesSprites/" + data.id);
@@ -56,7 +56,7 @@ public class ZoneDescription : MonoBehaviour
         }
         else
         {
-            name.text = "???";
+            zoneName.text = "???";
             icon.color = new Color(1f, 1f, 1f, 1f);
             icon.sprite = Resources.Load<Sprite>("ZonesSprites/default");
         }

@@ -10,7 +10,7 @@ public class InventoryInfo : MonoBehaviour
     public Transform effectsContentParent;
     public GameObject inventorySlotPrefab;
 
-    private List<MenuSmallSlot> potionSlots = new List<MenuSmallSlot>();
+    private List<InventorySlotWithKey> potionSlots = new List<InventorySlotWithKey>();
     private List<InventorySlot> inventorySlots = new List<InventorySlot>();
     private List<InventorySlot> effectsSlots = new List<InventorySlot>();
 

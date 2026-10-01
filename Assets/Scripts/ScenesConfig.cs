@@ -13,5 +13,7 @@ public static class ScenesConfig
         Type
     }
     public static sortingVariables currentSorting { get; set; } = sortingVariables.Default;
+
+
 }
 
