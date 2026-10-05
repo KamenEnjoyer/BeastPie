@@ -11,6 +11,6 @@ public class InventoryToCombatButton : MonoBehaviour
             ingredient.ingredientInStock = IngredientFactory.GetCountById(ingredient.ingredientId); //ОТКУДА ДАННЫЕ, ИЗ ДОМА ИЛИ ЛАГЕРЯ?
             InventoryWithKeysFactory.SaveCountsByIngredient(ingredient.ingredientId, ingredient.ingredientInStock);
         }
-        SceneManager.LoadScene("CombatScene");
+        SceneManager.LoadScene("MapScene");
     }
 }

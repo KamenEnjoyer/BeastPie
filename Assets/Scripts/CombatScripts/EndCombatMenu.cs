@@ -52,7 +52,6 @@ public class EndCombatMenu : MonoBehaviour
 
     private void GoToNextScene(string sceneName, bool isHome)
     {
-        Time.timeScale = 1f;
         ScenesConfig.IsHome = isHome;
 
         foreach (var loot in lootData)
@@ -71,7 +70,8 @@ public class EndCombatMenu : MonoBehaviour
             }
             IngredientFactory.DeleteFile(false);
         }
-        
+
+        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
     }
 }

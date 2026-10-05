@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class ZoneLoading : MonoBehaviour
 {
     public Image background;
 
-    private ZoneType[] zoneTypes;
     private ZoneType currentZone;
 
     public static ZoneLoading Instance;
@@ -13,15 +13,11 @@ public class ZoneLoading : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        zoneTypes = Resources.LoadAll<ZoneType>("ZoneTypes");
-        if (zoneTypes.Length == 0) Debug.LogError("No ZoneType found in Resources/ZoneTypes");
     }
 
     private void Start()
     {
-        int index = Random.Range(0, zoneTypes.Length);
-        currentZone = zoneTypes[index];
+        currentZone = ZoneTransfer.zone;
         background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
         ObstacleSpawner.Instance.Setup(currentZone.minObstacles, currentZone.maxObstacles, currentZone.obstacles);

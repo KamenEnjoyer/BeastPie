@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ZoneDescription : MonoBehaviour
@@ -13,6 +14,8 @@ public class ZoneDescription : MonoBehaviour
     public GameObject enemySlotPref;
 
     public Button goToCombatButton;
+
+    private ZoneType zone;
 
     public static ZoneDescription Instance;
     private void Awake()
@@ -41,6 +44,8 @@ public class ZoneDescription : MonoBehaviour
     {
         Clear();
 
+        zone = data;
+
         if (unlocked)
         {
             zoneName.text = LocalizationSettings.StringDatabase.GetLocalizedString("ZonesNamesLocalization", data.id);
@@ -62,5 +67,11 @@ public class ZoneDescription : MonoBehaviour
         }
 
         if (canMove) goToCombatButton.interactable = true;
+    }
+
+    public void GoToCombat()
+    {
+        ZoneTransfer.zone = zone;
+        SceneManager.LoadScene("CombatScene");
     }
 }

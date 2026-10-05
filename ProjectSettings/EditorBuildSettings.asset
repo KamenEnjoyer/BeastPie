@@ -12,9 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/HomeScene.unity
     guid: 211ed700c1f8431418b18ee73b0e46ff
   - enabled: 1
+    path: Assets/Scenes/MapScene.unity
+    guid: 052ffbace4edb9f4c914b60f710cac45
+  - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: 0c5f0e26702d41c4194d6c33f3528d7c
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: dcbb43b9517a61543bf5f0e725e0a1aa, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 313a50ded8841ca41993f0ea0eaf1d13, type: 2}
-  m_UseUCBPForAssetBundles: 0
