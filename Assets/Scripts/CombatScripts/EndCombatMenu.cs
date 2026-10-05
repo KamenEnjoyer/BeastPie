@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndCombatMenu : MonoBehaviour
 {
@@ -9,14 +11,29 @@ public class EndCombatMenu : MonoBehaviour
 
     private List<IngredientData> lootData;
 
-    public void Start()
+    private bool canPressButton = false;
+
+    private IEnumerator Start()
     {
+        yield return null;
+        Canvas.ForceUpdateCanvases();
+        float width = contentParent.GetComponentInParent<ScrollRect>().GetComponent<RectTransform>().rect.width - 35f;
+        contentParent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / 5f, width * 0.25f);
+
         lootData = IngredientFactory.LoadIngredients("Loot");
         foreach (var slotData in lootData)
         {
             EndCombatMenuSlot slot = Instantiate(lootSlotPrefab, contentParent, false).GetComponent<EndCombatMenuSlot>();
             slot.Setup(slotData.id.Substring(0, slotData.id.IndexOf('_')), slotData.count);
         }
+
+        int timeDelay = 60;
+        while (timeDelay > 0)
+        {
+            timeDelay--;
+            yield return null;
+        }
+        canPressButton = true;
     }
 
     public void ExitToHome()
@@ -52,6 +69,7 @@ public class EndCombatMenu : MonoBehaviour
 
     private void GoToNextScene(string sceneName, bool isHome)
     {
+        if (!canPressButton) return;
         ScenesConfig.IsHome = isHome;
 
         foreach (var loot in lootData)

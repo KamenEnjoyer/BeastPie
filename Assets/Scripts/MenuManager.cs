@@ -25,6 +25,7 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu()
     {
         currentMenu = Instantiate(menuPref);
+        Time.timeScale = 0f;
         Transform child = currentMenu.transform.Find("Background/Panel/ResumeButton");
         child.GetComponent<Button>().onClick.AddListener(HideMenu);
         child = currentMenu.transform.Find("Background/Panel/ExitButton");
@@ -34,6 +35,7 @@ public class MenuManager : MonoBehaviour
     public void HideMenu()
     {
         Destroy(currentMenu);
+        Time.timeScale = 1f;
     }
 
     public void ExitGame()
