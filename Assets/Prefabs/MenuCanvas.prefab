@@ -141,7 +141,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 30}
+  m_SizeDelta: {x: 208.32, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &157726866484907182
 CanvasRenderer:
@@ -224,7 +224,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3243948560958436832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7007887465947126212}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: ToggleLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6178384845667899562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a06e15fec2b3334cbec341beef606e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageButton: {fileID: 0}
 --- !u!1 &3331395121559546170
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +465,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 30}
+  m_SizeDelta: {x: 208.32, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3591609739477426554
 CanvasRenderer:
@@ -547,8 +560,9 @@ GameObject:
   - component: {fileID: 692331307480223859}
   - component: {fileID: 3583260442695811457}
   - component: {fileID: 1469845470800397404}
-  - component: {fileID: 4206591463292182826}
   - component: {fileID: 9064424912891063201}
+  - component: {fileID: 4206591463292182826}
+  - component: {fileID: 7007887465947126212}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -616,20 +630,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4206591463292182826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778121183541647250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
-  m_AspectMode: 2
-  m_AspectRatio: 0.8
 --- !u!114 &9064424912891063201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,13 +649,40 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4206591463292182826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778121183541647250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 2
+  m_AspectRatio: 0.8
+--- !u!114 &7007887465947126212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778121183541647250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a06e15fec2b3334cbec341beef606e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtons
+  languageButton: {fileID: 7889310725824150643}
 --- !u!1 &5544505583105214520
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +1001,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 30}
+  m_SizeDelta: {x: 208.32, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1778891428342297378
 CanvasRenderer:
@@ -1057,7 +1084,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8737469886187587157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7007887465947126212}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8162645674803112557
 GameObject:
   m_ObjectHideFlags: 0

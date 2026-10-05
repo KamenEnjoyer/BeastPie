@@ -80,7 +80,12 @@ public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHa
         slotData.ingredientId = ingredient.data.id;
         GetComponent<IngredientHover>()?.SetIngredient(ingredient);
         InventoryWithKeysFactory.SaveNamesByIngredient(slotData);
-    }   
+    }  
+    
+    public int GetSlotIndex()
+    {
+        return slotData.slotIndex;
+    }
 
     public void ClearSlot()
     {

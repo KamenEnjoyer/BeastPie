@@ -1,29 +1,62 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryKeysListener : MonoBehaviour
 {
-    List<InventorySaveData> keyBindings;
+    public Transform contentParent;
 
-    private void Start()
+    public void OnUsePotion1()
     {
-        keyBindings = InventoryWithKeysFactory.LoadBindings();
+        SetHoveredSlot(0);
     }
 
-    private void Update()
+    public void OnUsePotion2()
+    {
+        SetHoveredSlot(1);
+    }
+
+    public void OnUsePotion3()
+    {
+        SetHoveredSlot(2);
+    }
+
+    public void OnUsePotion4()
+    {
+        SetHoveredSlot(3);
+    }
+
+    public void OnUsePotion5()
+    {
+        SetHoveredSlot(4);
+    }
+
+    public void OnUsePotion6()
+    {
+        SetHoveredSlot(5);
+    }
+
+    public void OnUsePotion7()
+    {
+        SetHoveredSlot(6);
+    }
+
+    public void OnUsePotion8()
+    {
+        SetHoveredSlot(7);
+    }
+
+    private void SetHoveredSlot(int potionIndex)
     {
         var hoveredSlot = StorageSlot.GetHoveredSlot();
         if (hoveredSlot == null || hoveredSlot.slotData == null) return;
 
-        foreach (var inventorySlot in keyBindings)
+        foreach (Transform child in contentParent)
         {
-            KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), inventorySlot.key);
-            if (Input.GetKeyDown(key))
+            int slotId = child.GetComponent<InventorySlotWithKey>().GetSlotIndex();
+            if (slotId == potionIndex)
             {
-                Debug.Log("Key: " + inventorySlot.key + "; Id: " + inventorySlot.slotIndex);
-                var inventorySlots = FindObjectsByType<InventorySlotWithKey>();
-                int index = inventorySlot.slotIndex;
-                inventorySlots[inventorySlots.Length - index - 1].SetIngredient(hoveredSlot.slotData);
+                child.GetComponent<InventorySlotWithKey>().SetIngredient(hoveredSlot.slotData);
                 return;
             }
         }

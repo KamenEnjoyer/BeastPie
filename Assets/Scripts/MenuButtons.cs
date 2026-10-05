@@ -1,31 +1,33 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
-public class LanguageButton : MonoBehaviour
+public class MenuButtons : MonoBehaviour
 {
-    private Button button;
-    private TMP_Text buttonText;
+    public Button languageButton;
 
     private void Start()
     {
+        Canvas.ForceUpdateCanvases();
+        foreach (Transform child in transform)
+        {
+            float width = transform.GetComponent<RectTransform>().rect.width * 0.8f;
+            child.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+            child.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, width*0.2f);
+        }
         SetLanguage("en");
     }
 
     private void Awake()
     {
-        button = GetComponent<Button>();
-        buttonText = GetComponentInChildren<TMP_Text>();
-
-        button.onClick.AddListener(ToggleLanguage);
         //buttonText.text = "English";
     }
 
-    private void ToggleLanguage()
+    public void ToggleLanguage()
     {
-        switch (buttonText.text)
+        switch (languageButton.GetComponentInChildren<TMP_Text>().text)
         {
             case "English":
                 SetLanguage("ru");
@@ -57,5 +59,10 @@ public class LanguageButton : MonoBehaviour
         StorageContent.Instance.UpdateIngredients();
         InventoryContent.Instance?.RefreshAllSlots();
         //REFACTOR
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
