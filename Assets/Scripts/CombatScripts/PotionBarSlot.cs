@@ -10,6 +10,7 @@ public class PotionBarSlot : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI keyText;
     public Image cooldown;
+    public int index;
 
     private GILData ingredientData;
     private int count;
@@ -27,6 +28,8 @@ public class PotionBarSlot : MonoBehaviour
         countAtStart = count;
         keyText.text = data.key.Replace("Alpha", "");
         ingredientData = GILFactory.FindIngredientById(data.ingredientId);
+
+        index = data.slotIndex;
 
         UpdateView();
     }

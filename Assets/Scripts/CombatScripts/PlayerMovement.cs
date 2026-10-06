@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -51,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 screenMax;
     private Vector2 halfSize;
 
+    private bool isSprinting = false;
+    private bool isMoving = false;
+
     public static PlayerMovement Instance;
     private void Awake()
     {
@@ -70,27 +74,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        if (movement.sqrMagnitude > 1f) movement = movement.normalized;
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (melleAttacking) MelleAttack(true, lightSlashPref);
-            else RangedAttack();
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (melleAttacking) MelleAttack(false, heavySlashPref);
-            else RangedAttackReloading();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            melleAttacking = !melleAttacking;
-        }
+        //if (movement.sqrMagnitude > 1f) movement = movement.normalized;
 
         RotateTowardsMouse();
+    }
+
+    public void OnMovement(InputValue value)
+    {
+        movement = value.Get<Vector2>();
+    }
+
+    public void OnLeftAttack()
+    {
+        if (melleAttacking) MelleAttack(true, lightSlashPref);
+        else RangedAttack();
+    }
+    public void OnRightAttack()
+    {
+        if (melleAttacking) MelleAttack(false, heavySlashPref);
+        else RangedAttackReloading();
+    }
+    public void OnSwithWeapon()
+    {
+        melleAttacking = !melleAttacking;
     }
 
     public void ArrowSpawn(float damage)
@@ -198,14 +204,22 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = speedTmp;
     }
 
+    public void OnRun()
+    {
+        isSprinting = stamina.fillAmount > 0f && isMoving;
+    }
+
+    public void OnEndRun()
+    {
+        isSprinting = false;
+    }
+
     private void FixedUpdate()
     {
         if (movementLocked) return;
 
         float currentSpeed = moveSpeed;
-        bool isMoving = movement.sqrMagnitude > 0.01f;
-
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && stamina.fillAmount > 0f && isMoving;
+        isMoving = movement.sqrMagnitude > 0.01f;
 
         if (isSprinting || isAiming)
         {
@@ -240,13 +254,13 @@ public class PlayerMovement : MonoBehaviour
         targetPosition.y = Mathf.Clamp(targetPosition.y, screenMin.y + halfSize.y, screenMax.y - halfSize.y);
 
         if (tentionForce) { rbTensionBar.MovePosition(targetPosition); }
-        
+
         rb.MovePosition(targetPosition);
     }
 
     private void RotateTowardsMouse() //REFACTOR
     {
-        Vector3 mouseScreenPos = Input.mousePosition;
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
 
         mouseScreenPos.z = Mathf.Abs(mainCamera.transform.position.z - transform.position.z);
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);

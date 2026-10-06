@@ -39,6 +39,7 @@ public class IngredientHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Description.Instance.ClearDescription();
+        if (ingredientData != null)
+            Description.Instance.ClearDescription();
     }
 }

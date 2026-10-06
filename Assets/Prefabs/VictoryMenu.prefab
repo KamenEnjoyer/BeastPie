@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5599640157047105110}
         m_TargetAssemblyTypeName: EndCombatMenu, Assembly-CSharp
-        m_MethodName: ExitToHome
+        m_MethodName: OnExitToHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +895,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5599640157047105110}
         m_TargetAssemblyTypeName: EndCombatMenu, Assembly-CSharp
-        m_MethodName: ExitToCamp
+        m_MethodName: OnExitToCamp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1229,7 +1229,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5599640157047105110}
         m_TargetAssemblyTypeName: EndCombatMenu, Assembly-CSharp
-        m_MethodName: ExitToNextCombat
+        m_MethodName: OnExitToNextCombat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

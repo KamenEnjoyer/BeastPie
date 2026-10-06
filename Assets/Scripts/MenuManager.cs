@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
     public GameObject menuPref;
+    public PlayerInput otherPlayerInput;
 
     private GameObject currentMenu;
 
@@ -14,23 +15,22 @@ public class MenuManager : MonoBehaviour
         Instance = this;
     }
 
-    public void OnOpenHideMenu()
-    {
-        if (currentMenu) HideMenu();
-        else ShowMenu();
-    }
-
-    public void ShowMenu()
+    public void OnOpenMenu()
     {
         GetComponent<PlayerInput>().SwitchCurrentActionMap("Menu");
+        otherPlayerInput.SwitchCurrentActionMap("Menu");
+
         currentMenu = Instantiate(menuPref);
         Time.timeScale = 0f;
         Transform child = currentMenu.transform.Find("Background/Panel/ResumeButton");
-        child.GetComponent<Button>().onClick.AddListener(HideMenu);
+        child.GetComponent<Button>().onClick.AddListener(OnHideMenu);
     }
 
-    public void HideMenu()
+    public void OnHideMenu()
     {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap("GamePlay");
+        otherPlayerInput.SwitchCurrentActionMap("GamePlay");
+
         Destroy(currentMenu);
         Time.timeScale = 1f;
     }

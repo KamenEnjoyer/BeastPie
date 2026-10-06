@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +16,10 @@ public class EndCombatMenu : MonoBehaviour
 
     private IEnumerator Start()
     {
+        GetComponent<PlayerInput>().actions.FindActionMap("GamePlay").Disable();
+        GetComponent<PlayerInput>().actions.FindActionMap("Menu").Enable();
+        GetComponent<PlayerInput>().actions.FindActionMap("MenuManager").Enable();
+
         yield return null;
         Canvas.ForceUpdateCanvases();
         float width = contentParent.GetComponentInParent<ScrollRect>().GetComponent<RectTransform>().rect.width - 35f;
@@ -36,35 +41,19 @@ public class EndCombatMenu : MonoBehaviour
         canPressButton = true;
     }
 
-    public void ExitToHome()
+    public void OnExitToHome()
     {
         GoToNextScene("HomeScene", true);
     }
 
-    public void ExitToCamp()
+    public void OnExitToCamp()
     {
         GoToNextScene("HomeScene", false);
     }
 
-    public void ExitToNextCombat()
+    public void OnExitToNextCombat()
     {
         GoToNextScene("CombatScene", false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ExitToHome();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ExitToNextCombat();
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ExitToCamp();
-        }
     }
 
     private void GoToNextScene(string sceneName, bool isHome)
@@ -90,6 +79,10 @@ public class EndCombatMenu : MonoBehaviour
         }
 
         Time.timeScale = 1f;
+        GetComponent<PlayerInput>().actions.FindActionMap("GamePlay").Enable();
+        GetComponent<PlayerInput>().actions.FindActionMap("Menu").Disable();
+        GetComponent<PlayerInput>().actions.FindActionMap("MenuManager").Enable();
+
         SceneManager.LoadScene(sceneName);
     }
 }

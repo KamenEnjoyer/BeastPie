@@ -10,8 +10,9 @@ public static class PlayerConfig
     {
         if (!File.Exists(savePath))
         {
-            SaveResources(new List<EffectData>());
-            return null;
+            List<EffectData> effects = new List<EffectData>();
+            SaveResources(effects);
+            return effects;
         }
         else
         {

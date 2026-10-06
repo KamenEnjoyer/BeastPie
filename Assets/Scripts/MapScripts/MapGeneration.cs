@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
@@ -44,15 +45,13 @@ public class MapGeneration : MonoBehaviour, IPointerDownHandler, IDragHandler
         }
     }
 
-    void Update()
+    public void OnMapZoom(InputValue value)
     {
-        float scroll = Input.mouseScrollDelta.y;
-
-        if (scroll > 0)
+        if (value.Get<float>() > 0)
         {
             SetZoom(currentZoom - zoomSpeed * currentZoom);
         }
-        else if (scroll < 0)
+        else if (value.Get<float>() < 0)
         {
             SetZoom(currentZoom + zoomSpeed * currentZoom);
         }

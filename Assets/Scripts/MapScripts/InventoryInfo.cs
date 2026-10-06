@@ -38,7 +38,7 @@ public class InventoryInfo : MonoBehaviour
         {
             if (slotData.ingredientId == null || slotData.ingredientId == "") continue;
             InventorySlotAbstract slot = Instantiate(inventorySlotPrefab, potionsContentParent).GetComponent<InventorySlotAbstract>();
-
+            
             Sprite icon;
             if (slotData.ingredientId.IndexOf('_') < 0)
             {

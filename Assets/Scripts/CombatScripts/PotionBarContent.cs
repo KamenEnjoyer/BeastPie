@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PotionBarContent : MonoBehaviour
 {
@@ -41,14 +39,53 @@ public class PotionBarContent : MonoBehaviour
         if (isEmpty) gameObject.SetActive(false);
     }
 
-    private void Update()
+    public void OnUsePotion1()
     {
-        foreach (var slotData in potionSlotsData)
+        UsePotion(0);
+    }
+
+    public void OnUsePotion2()
+    {
+        UsePotion(1);
+    }
+
+    public void OnUsePotion3()
+    {
+        UsePotion(2);
+    }
+
+    public void OnUsePotion4()
+    {
+        UsePotion(3);
+    }
+
+    public void OnUsePotion5()
+    {
+        UsePotion(4);
+    }
+
+    public void OnUsePotion6()
+    {
+        UsePotion(5);
+    }
+
+    public void OnUsePotion7()
+    {
+        UsePotion(6);
+    }
+
+    public void OnUsePotion8()
+    {
+        UsePotion(7);
+    }
+
+    private void UsePotion(int index)
+    {
+        foreach (var slot in slots)
         {
-            KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), slotData.key);
-            if (Input.GetKeyDown(key))
+            if (slot.index == index)
             {
-                slots.FirstOrDefault(s => s.GetIngredientId() == slotData.ingredientId)?.ConsumeOne();
+                slot.ConsumeOne();
                 return;
             }
         }

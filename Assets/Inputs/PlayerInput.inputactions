@@ -48,7 +48,16 @@
                     "id": "764cabb6-12c3-4981-939a-a0158bd6bcfa",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EndRun",
+                    "type": "Button",
+                    "id": "58057186-be39-4926-b7e4-c65602843b3b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 },
                 {
@@ -122,52 +131,81 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MapZoom",
+                    "type": "Value",
+                    "id": "db0049b4-8646-4a33-863e-92302860410a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "OpenMenu",
+                    "type": "Button",
+                    "id": "d1d5f9e4-8714-4314-8d67-5b48dbf09bf3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "512d0a1e-4e0f-4591-a5ba-4c023ce02114",
+                    "name": "2D Vector",
+                    "id": "6736c978-5974-4195-800c-7d3bdab90823",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "017cccab-c218-4262-8bf6-3304d3ced1d4",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "efd4413e-1532-49c8-b9b3-33f6e69f98ce",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "03fbd359-26c4-4305-9155-b29ecfedde04",
+                    "name": "down",
+                    "id": "e32e8001-3296-4bfc-bf1c-170bec4dfc1f",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "d7a7e53f-5cbf-49a5-bba6-47a4d15f0468",
+                    "name": "left",
+                    "id": "25da737a-3e7b-4f71-a7f8-b127b3872f42",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "b93918f7-5be5-456b-85ca-f1490bd5142e",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -199,6 +237,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3883c33-3c0e-47bc-95b3-28caa304f12c",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndRun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -300,6 +349,28 @@
                     "action": "UsePotion8",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51cf1aae-316f-48ab-b292-5129188313ba",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "372cbb57-ae00-4ed8-a776-f4c9358be309",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -308,16 +379,7 @@
             "id": "017316d4-649f-48b6-b83f-a49e6afaf213",
             "actions": [
                 {
-                    "name": "OpenHideMenu",
-                    "type": "Button",
-                    "id": "7f15a449-3a0d-4aef-a384-78f3b4e8944c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ContinueCombat",
+                    "name": "ExitToNextCombat",
                     "type": "Button",
                     "id": "51f5c341-4559-4757-a6b2-1c209dd110d2",
                     "expectedControlType": "",
@@ -342,20 +404,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HideMenu",
+                    "type": "Button",
+                    "id": "fbcc9318-2d00-4b7a-8de7-a37663c1d7ef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "421767a8-3bd1-4823-bc73-730c885f3736",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenHideMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "b856085f-1cdf-4dd4-aa43-897c843c2ae9",
@@ -363,7 +423,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ContinueCombat",
+                    "action": "ExitToNextCombat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -386,6 +446,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ExitToHome",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bd70cdb-199d-4246-87c1-1a6efb8fbfbb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HideMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
