@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
@@ -33,7 +34,8 @@ public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHa
             GetComponent<IngredientHover>()?.SetIngredient(ingredient);
         }
 
-        nameText.text = data.key.Replace("Alpha", "");
+        PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
+        nameText.text = playerInput.actions.FindAction("UsePotion" + (slotData.slotIndex+1)).GetBindingDisplayString().Replace("Alpha", "");
 
         if (!available)
         {

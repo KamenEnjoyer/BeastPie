@@ -28,22 +28,10 @@ public static class InventoryWithKeysFactory
         List<InventorySaveData> inventorySaveData = new List<InventorySaveData>();
         for (int i = 0; i < 8; i++)
         {
-            string key = "Alpha" + (i + 1).ToString();
-            if (i > 3)
-            {
-                switch (i)
-                {
-                    case 4: key = "Q"; break;
-                    case 5: key = "E"; break;
-                    case 6: key = "R"; break;
-                    case 7: key = "F"; break;
-                }
-            }
             inventorySaveData.Add(new InventorySaveData
             {
                 ingredientId = "",
                 ingredientInStock = 0,
-                key = key,
                 slotIndex = i
             });
         }

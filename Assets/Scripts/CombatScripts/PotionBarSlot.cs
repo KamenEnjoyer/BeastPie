@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PotionBarSlot : MonoBehaviour
@@ -26,7 +26,8 @@ public class PotionBarSlot : MonoBehaviour
         else icon.sprite = Resources.Load<Sprite>("IngredientsSprites/default");
         count = data.ingredientInStock;
         countAtStart = count;
-        keyText.text = data.key.Replace("Alpha", "");
+        PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
+        keyText.text = playerInput.actions.FindAction("UsePotion" + (data.slotIndex + 1)).GetBindingDisplayString().Replace("Alpha", "");
         ingredientData = GILFactory.FindIngredientById(data.ingredientId);
 
         index = data.slotIndex;
