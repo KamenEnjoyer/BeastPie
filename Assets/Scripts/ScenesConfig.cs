@@ -1,9 +1,3 @@
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
-using UnityEngine.Localization.Settings;
-using static GILData;
-
 public static class ScenesConfig
 {
     public static bool IsHome { get; set; } = true;
@@ -17,5 +11,13 @@ public static class ScenesConfig
         Type
     }
     public static sortingVariables currentSorting { get; set; } = sortingVariables.Default;
+
+    public enum languageVariables
+    {
+        en,
+        ru,
+        lt
+    }
+    public static languageVariables currentLanguage { get; set; } = languageVariables.en;
 }
 

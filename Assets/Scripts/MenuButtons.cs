@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
@@ -17,36 +18,30 @@ public class MenuButtons : MonoBehaviour
             child.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
             child.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, width*0.2f);
         }
-        SetLanguage("en");
-    }
-
-    private void Awake()
-    {
-        //buttonText.text = "English";
     }
 
     public void ToggleLanguage()
     {
-        switch (languageButton.GetComponentInChildren<TMP_Text>().text)
+        switch (ScenesConfig.currentLanguage)
         {
-            case "English":
-                SetLanguage("ru");
-                RefreshAllIngreients();
+            case ScenesConfig.languageVariables.en:
+                SetLanguage(ScenesConfig.languageVariables.ru);
                 break;
-            case "Русский":
-                SetLanguage("lt");
-                RefreshAllIngreients();
+            case ScenesConfig.languageVariables.ru:
+                SetLanguage(ScenesConfig.languageVariables.lt);
                 break;
-            case "Lietuvių":
-                SetLanguage("en");
-                RefreshAllIngreients();
+            case ScenesConfig.languageVariables.lt:
+                SetLanguage(ScenesConfig.languageVariables.en);
                 break;
         }
+        RefreshAllIngreients();
+        ConfigFactory.SaveConfig();
     }
 
-    public void SetLanguage(string languageCode)
+    public void SetLanguage(ScenesConfig.languageVariables languageCode)
     {
-        Locale locale = LocalizationSettings.AvailableLocales.GetLocale(languageCode);
+        ScenesConfig.currentLanguage = languageCode;
+        Locale locale = LocalizationSettings.AvailableLocales.GetLocale(languageCode.ToString());
         if (locale != null)
         {
             LocalizationSettings.SelectedLocale = locale;
@@ -56,8 +51,20 @@ public class MenuButtons : MonoBehaviour
     public void RefreshAllIngreients()
     {
         GILFactory.UpdateLocalization();
-        StorageContent.Instance.UpdateIngredients();
-        InventoryContent.Instance?.RefreshAllSlots();
+
+        if (SceneManager.GetActiveScene().name == "HomeScene")
+        {
+            StorageContent.Instance?.UpdateIngredients();
+            InventoryContent.Instance?.RefreshAllSlots();
+        }
+        else if (SceneManager.GetActiveScene().name == "CombatScene")
+        {
+            
+        }
+        else if (SceneManager.GetActiveScene().name == "MapScene")
+        {
+            
+        }
         //REFACTOR
     }
 

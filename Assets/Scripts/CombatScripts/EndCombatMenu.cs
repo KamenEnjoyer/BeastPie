@@ -60,6 +60,7 @@ public class EndCombatMenu : MonoBehaviour
     {
         if (!canPressButton) return;
         ScenesConfig.IsHome = isHome;
+        ConfigFactory.SaveConfig();
 
         foreach (var loot in lootData)
         {
