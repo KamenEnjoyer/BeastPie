@@ -51,10 +51,10 @@ public class InventoryKeysListener : MonoBehaviour
 
         foreach (Transform child in contentParent)
         {
-            int slotId = child.GetComponent<InventorySlotWithKey>().GetSlotIndex();
+            int slotId = child.GetComponent<InventoryPlayerSlot>().GetSlotIndex();
             if (slotId == potionIndex)
             {
-                child.GetComponent<InventorySlotWithKey>().SetIngredient(hoveredSlot.slotData);
+                child.GetComponent<InventoryPlayerSlot>().SetIngredient(hoveredSlot.slotData);
                 return;
             }
         }

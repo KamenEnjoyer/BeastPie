@@ -1,7 +1,8 @@
-using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEngine.Analytics.IAnalytic;
 
 public class InventoryContent : MonoBehaviour
 {
@@ -21,25 +22,17 @@ public class InventoryContent : MonoBehaviour
         foreach (Transform child in contentParentPotions) Destroy(child.gameObject);
         foreach (Transform child in contentParentInventory) Destroy(child.gameObject);
 
-        List<InventorySaveData> savedKeySlots = InventoryWithKeysFactory.LoadBindings();
-        foreach (var slotData in savedKeySlots)
+        foreach (var invData in InventoryFactory.LoadGoods(true))
         {
-            InventorySlotWithKey slot = Instantiate(inventorySlotPrefab, contentParentPotions).AddComponent<InventorySlotWithKey>();
-            bool available = slotData.slotIndex < 3;
-            slot.Setup(slotData, available);
+            InventoryPlayerSlot slot = Instantiate(inventorySlotPrefab, contentParentPotions).AddComponent<InventoryPlayerSlot>();
+            bool available = invData.slotIndex < 3;
+            slot.Setup(invData.slotData, invData.slotIndex, available);
         }
 
-        List<IngredientData> savedSlots = InventoryFactory.LoadGoods();
-        foreach (var slotData in savedSlots)
+        foreach (var invData in InventoryFactory.LoadGoods(false))
         {
-            InventorySlot slot = Instantiate(inventorySlotPrefab, contentParentInventory).AddComponent<InventorySlot>();
-            slot.Setup(slotData);
-        }
-        int emptySlotsCount = 8 - savedSlots.Count;
-        for (int i = 0; i < emptySlotsCount; i++)
-        {
-            InventorySlot slot = Instantiate(inventorySlotPrefab, contentParentInventory).AddComponent<InventorySlot>();
-            slot.Setup(new IngredientData { id = "", count = 0 });
+            InventoryTigerSlot slot = Instantiate(inventorySlotPrefab, contentParentInventory).AddComponent<InventoryTigerSlot>();
+            slot.Setup(invData.slotData, invData.slotIndex, true);
         }
     }
 }

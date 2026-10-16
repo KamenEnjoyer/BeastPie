@@ -19,18 +19,18 @@ public class PotionBarSlot : MonoBehaviour
     private float cooldownDuration = 2.5f;
     private bool onCooldown = false;
 
-    public void Setup(InventorySaveData data)
+    public void Setup(IngredientData data, int slotIndex)
     {
-        string iconPath = "IngredientsSprites/" + data.ingredientId.Substring(0, data.ingredientId.Length - 2);
+        string iconPath = "IngredientsSprites/" + data.id.Substring(0, data.id.Length - 2);
         if (Resources.Load<Sprite>(iconPath) != null) icon.sprite = Resources.Load<Sprite>(iconPath);
         else icon.sprite = Resources.Load<Sprite>("IngredientsSprites/default");
-        count = data.ingredientInStock;
+        count = data.count;
         countAtStart = count;
         PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
-        keyText.text = playerInput.actions.FindAction("UsePotion" + (data.slotIndex + 1)).GetBindingDisplayString().Replace("Alpha", "");
-        ingredientData = GILFactory.FindIngredientById(data.ingredientId);
+        keyText.text = playerInput.actions.FindAction("UsePotion" + (slotIndex + 1)).GetBindingDisplayString().Replace("Alpha", "");
+        ingredientData = GILFactory.FindIngredientById(data.id);
 
-        index = data.slotIndex;
+        index = slotIndex;
 
         UpdateView();
     }
@@ -90,7 +90,7 @@ public class PotionBarSlot : MonoBehaviour
         }
     }
     
-    public string GetIngredientId()
+    public string Getid()
     {
         return ingredientData.id;
     }
@@ -101,6 +101,6 @@ public class PotionBarSlot : MonoBehaviour
         {
             IngredientFactory.AddIngredient(ingredientData.id, count, "camp");
         }
-        InventoryWithKeysFactory.SaveCountsByIngredient(ingredientData.id, IngredientFactory.GetCountById(ingredientData.id));
+        InventoryFactory.SaveCountsByIngredient(ingredientData.id, IngredientFactory.GetCountById(ingredientData.id), true);
     }
 }

@@ -33,54 +33,76 @@ public class InventoryInfo : MonoBehaviour
         foreach (Transform child in potionsContentParent) Destroy(child.gameObject);
         foreach (Transform child in inventoryContentParent) Destroy(child.gameObject);
 
-        List<InventorySaveData> savedKeySlots = InventoryWithKeysFactory.LoadBindings();
-        foreach (var slotData in savedKeySlots)
+        SetInventorySlots(InventoryFactory.LoadGoods(true), potionsContentParent);
+        SetInventorySlots(InventoryFactory.LoadGoods(false), inventoryContentParent);
+
+        /*
+        foreach (var invSlot in InventoryFactory.LoadGoods(true))
         {
-            if (slotData.ingredientId == null || slotData.ingredientId == "") continue;
-            InventorySlotAbstract slot = Instantiate(inventorySlotPrefab, potionsContentParent).GetComponent<InventorySlotAbstract>();
+            if (invSlot.slotData.id == null || invSlot.slotData.id == "") continue;
+            InventorySlot slot = Instantiate(inventorySlotPrefab, potionsContentParent).GetComponent<InventorySlot>();
             
             Sprite icon;
-            if (slotData.ingredientId.IndexOf('_') < 0)
+            if (invSlot.slotData.id.IndexOf('_') < 0)
             {
-                if (Resources.Load<Sprite>("IngredientsSprites/" + slotData.ingredientId) != null) icon = Resources.Load<Sprite>("IngredientsSprites/" + slotData.ingredientId);
+                if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id) != null) icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id);
                 else icon = Resources.Load<Sprite>("IngredientsSprites/default");
             }
-            else if (Resources.Load<Sprite>("IngredientsSprites/" + slotData.ingredientId.Substring(0, slotData.ingredientId.IndexOf('_'))) != null)
-                icon = Resources.Load<Sprite>("IngredientsSprites/" + slotData.ingredientId.Substring(0, slotData.ingredientId.IndexOf('_')));
+            else if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_'))) != null)
+                icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_')));
             else icon = Resources.Load<Sprite>("IngredientsSprites/default");
 
-            Debug.Log("Count: " + slotData.ingredientInStock);
-            slot.SetVisual(icon, slotData.ingredientInStock.ToString());
+            slot.SetVisual(icon, invSlot.slotData.count.ToString());
         }
 
-        List<IngredientData> savedSlots = InventoryFactory.LoadGoods();
-        foreach (var slotData in savedSlots)
+        foreach (var invSlot in InventoryFactory.LoadGoods(false))
         {
-            if (slotData.id == null || slotData.id == "") continue;
-            InventorySlotAbstract slot = Instantiate(inventorySlotPrefab, inventoryContentParent).GetComponent<InventorySlotAbstract>();
+            if (invSlot.slotData.id == null || invSlot.slotData.id == "") continue;
+            InventorySlot slot = Instantiate(inventorySlotPrefab, inventoryContentParent).GetComponent<InventorySlot>();
 
             Sprite icon;
-            if (slotData.id.IndexOf('_') < 0)
+            if (invSlot.slotData.id.IndexOf('_') < 0)
             {
-                if (Resources.Load<Sprite>("IngredientsSprites/" + slotData.id) != null) icon = Resources.Load<Sprite>("IngredientsSprites/" + slotData.id);
+                if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id) != null) icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id);
                 else icon = Resources.Load<Sprite>("IngredientsSprites/default");
             }
-            else if (Resources.Load<Sprite>("IngredientsSprites/" + slotData.id.Substring(0, slotData.id.IndexOf('_'))) != null)
-                icon = Resources.Load<Sprite>("IngredientsSprites/" + slotData.id.Substring(0, slotData.id.IndexOf('_')));
+            else if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_'))) != null)
+                icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_')));
             else icon = Resources.Load<Sprite>("IngredientsSprites/default");
 
-            slot.SetVisual(icon, slotData.count.ToString());
-        }
+            slot.SetVisual(icon, invSlot.slotData.count.ToString());
+        }*/
 
         List<EffectData> playerEffects = PlayerConfig.LoadDish();
         foreach (var effectData in playerEffects)
         {
             if (effectData.efcName == null || effectData.efcName == "") continue;
-            InventorySlotAbstract slot = Instantiate(inventorySlotPrefab, effectsContentParent).GetComponent<InventorySlotAbstract>();
+            InventorySlot slot = Instantiate(inventorySlotPrefab, effectsContentParent).GetComponent<InventorySlot>();
             Sprite icon;
             if (Resources.Load<Sprite>("EffectsSprites/" + effectData.efcName) != null) icon = Resources.Load<Sprite>("EffectsSprites/" + effectData.efcName);
             else icon = Resources.Load<Sprite>("EffectsSprites/default");
             slot.SetVisual(icon, effectData.screenCount.ToString());
+        }
+    }
+
+    private void SetInventorySlots(List<InventoryFactory.InventoryData> inventoryData, Transform parent)
+    {
+        foreach (var invSlot in inventoryData)
+        {
+            if (invSlot.slotData.id == null || invSlot.slotData.id == "") continue;
+            InventorySlot slot = Instantiate(inventorySlotPrefab, parent).GetComponent<InventorySlot>();
+
+            Sprite icon;
+            if (invSlot.slotData.id.IndexOf('_') < 0)
+            {
+                if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id) != null) icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id);
+                else icon = Resources.Load<Sprite>("IngredientsSprites/default");
+            }
+            else if (Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_'))) != null)
+                icon = Resources.Load<Sprite>("IngredientsSprites/" + invSlot.slotData.id.Substring(0, invSlot.slotData.id.IndexOf('_')));
+            else icon = Resources.Load<Sprite>("IngredientsSprites/default");
+
+            slot.SetVisual(icon, invSlot.slotData.count.ToString());
         }
     }
 

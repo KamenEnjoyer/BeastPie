@@ -9,8 +9,7 @@ public class PotionBarContent : MonoBehaviour
     public GameObject potionSlotPrefab;
 
     private List<PotionBarSlot> slots = new List<PotionBarSlot>();
-    private List<InventorySaveData> potionSlotsData = new List<InventorySaveData>();
-
+   
     private void Awake()
     {
         Instance = this;
@@ -21,17 +20,14 @@ public class PotionBarContent : MonoBehaviour
         foreach (Transform child in contentParent) Destroy(child.gameObject);
         slots.Clear();
 
-        List<InventorySaveData> savedSlots = InventoryWithKeysFactory.LoadBindings();
-
         bool isEmpty = true;
-        foreach (var slotData in savedSlots)
+        foreach (var invSlot in InventoryFactory.LoadGoods(true))
         {
-            if (slotData.ingredientId != "")
+            if (invSlot.slotData.id != "")
             {
-                potionSlotsData.Add(slotData);
-                PotionBarSlot slot = Instantiate(potionSlotPrefab, contentParent).GetComponent<PotionBarSlot>();
-                slot.Setup(slotData);
-                slots.Add(slot);
+                PotionBarSlot potionSlot = Instantiate(potionSlotPrefab, contentParent).GetComponent<PotionBarSlot>();
+                potionSlot.Setup(invSlot.slotData, invSlot.slotIndex);
+                slots.Add(potionSlot);
                 isEmpty = false;
             }
         }

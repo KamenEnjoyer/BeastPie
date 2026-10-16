@@ -4,48 +4,30 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHandler
+public class InventoryPlayerSlot : InventorySlotType
 {
-    private Image icon;
-    private TextMeshProUGUI nameText;
-    private InventorySaveData slotData;
-
+    private int slotIndex;
     private bool isAvailable = true;
 
-    void Awake()
+    public override void Setup(IngredientData data, int index, bool available)
     {
-        icon = gameObject.GetComponent<InventorySlotAbstract>().GetIcon();
-        nameText = gameObject.GetComponent<InventorySlotAbstract>().GetNameText();
-    }
-
-    public void Setup(InventorySaveData data, bool available)
-    {
-        slotData = data;
+        slotIndex = index;
         isAvailable = available;
 
-        if (data.ingredientId == "")
-        {
-            icon.sprite = null;
-        }
-        else
-        {
-            StorageContentData ingredient = StorageContent.Instance.GetIngredientById(data.ingredientId);
-            icon.sprite = ingredient.icon;
-            GetComponent<IngredientHover>()?.SetIngredient(ingredient);
-        }
-
         PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
-        nameText.text = playerInput.actions.FindAction("UsePotion" + (slotData.slotIndex+1)).GetBindingDisplayString().Replace("Alpha", "");
+        text.text = playerInput.actions.FindAction("UsePotion" + (slotIndex+1)).GetBindingDisplayString().Replace("Alpha", "");
 
         if (!available)
         {
             icon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-            nameText.text = "";
+            text.text = "";
         }
         else icon.color = new Color(1f, 1f, 1f, 1f);
+
+        SetupIngredient(data);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         if (!isAvailable)
         {
@@ -55,14 +37,7 @@ public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHa
         ClearSlot();
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        var dragged = eventData.pointerDrag?.GetComponent<StorageSlot>();
-        if (dragged == null || dragged.slotData == null) return;
-        SetIngredient(dragged.slotData);
-    }
-
-    public void SetIngredient(StorageContentData ingredient)
+    public override void SetIngredient(StorageContentData ingredient)
     {
         if (!isAvailable)
         {
@@ -78,22 +53,26 @@ public class InventorySlotWithKey : MonoBehaviour, IPointerClickHandler, IDropHa
         {
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!");
         }
+
         icon.sprite = ingredient.icon;
-        slotData.ingredientId = ingredient.data.id;
+        slotData.id = ingredient.data.id;
+        slotData.count = ingredient.count;
         GetComponent<IngredientHover>()?.SetIngredient(ingredient);
-        InventoryWithKeysFactory.SaveNamesByIngredient(slotData);
+
+        InventoryFactory.SaveDataByIndex(slotData, slotIndex, true);
     }  
     
     public int GetSlotIndex()
     {
-        return slotData.slotIndex;
+        return slotIndex;
     }
 
-    public void ClearSlot()
+    public override void ClearSlot()
     {
         icon.sprite = null;
-        slotData.ingredientId = "";
+        slotData.id = "";
+        slotData.count = 0;
         GetComponent<IngredientHover>()?.SetIngredient(null);
-        InventoryWithKeysFactory.SaveNamesByIngredient(slotData);
+        InventoryFactory.SaveDataByIndex(slotData, slotIndex, true);
     }
 }

@@ -1,17 +1,28 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class InventoryFactory : MonoBehaviour
+public class InventoryFactory
 {
-    private static string savePath = Path.Combine(Application.persistentDataPath, "Saves/inventorySlots.json");
-    private static List<IngredientData> goods = new List<IngredientData>();
+    private static string playerSavePath = Path.Combine(Application.persistentDataPath, "Saves/inventoryPlayerSlots.json");
+    private static string tigerSavePath = Path.Combine(Application.persistentDataPath, "Saves/inventoryTigerSlots.json");
 
-    public static List<IngredientData> LoadGoods()
+    [Serializable]
+    public struct InventoryData
     {
+        public IngredientData slotData;
+        public int slotIndex;
+    }
+
+    public static List<InventoryData> LoadGoods(bool playerInventory)
+    {
+        string savePath = playerInventory ? playerSavePath : tigerSavePath;
+        List<InventoryData> goods = new List<InventoryData>();
         if (!File.Exists(savePath))
         {
-            SaveAllGoods(new List<IngredientData>());
+            goods = CreateDefaultSlots();
+            SaveAllGoods(savePath, goods);
         }
         else
         {
@@ -21,28 +32,48 @@ public class InventoryFactory : MonoBehaviour
         return goods;
     }
 
-    public static void SaveAllGoods(List<IngredientData> saveData)
+    private static List<InventoryData> CreateDefaultSlots()
     {
-        Wrapper wrapper = new Wrapper { list = saveData };
+        List<InventoryData> inventoryData = new List<InventoryData>();
+        for (int i = 0; i < 8; i++)
+        {
+            inventoryData.Add(new InventoryData
+            {
+                slotData = new IngredientData { id = "", count = 0 },
+                slotIndex = i
+            });
+        }
+        return inventoryData;
+    }
+
+    public static void SaveAllGoods(string savePath, List<InventoryData> goods)
+    {
+        Wrapper wrapper = new Wrapper { list = goods };
         string json = JsonUtility.ToJson(wrapper, true);
         File.WriteAllText(savePath, json);
     }
 
-    public static void AddNewIngredient(IngredientData slotData)
+    public static void SaveDataByIndex(IngredientData data, int index, bool playerInventory)
     {
-        foreach (var item in goods)
-        {
-            if (item.id == slotData.id)
-            {
-                item.count += slotData.count;
-                SaveAllGoods(goods);
-                return;
-            }
-        }
-        goods.Add(slotData);
-        SaveAllGoods(goods);
+        List<InventoryData> goods = new List<InventoryData>();
+        goods = LoadGoods(playerInventory);
+        goods.Find(b => b.slotIndex == index).slotData.id = data.id;
+        goods.Find(b => b.slotIndex == index).slotData.count = data.count;
+
+        string savePath = playerInventory ? playerSavePath : tigerSavePath;
+        SaveAllGoods(savePath, goods);
+    }
+
+    public static void SaveCountsByIngredient(string id, int count, bool playerInventory)
+    {
+        List<InventoryData> goods = new List<InventoryData>();
+        goods = LoadGoods(playerInventory);
+        goods.Find(b => b.slotData.id == id).slotData.count = count;
+
+        string savePath = playerInventory ? playerSavePath : tigerSavePath;
+        SaveAllGoods(savePath, goods);
     }
 
     [System.Serializable]
-    private class Wrapper { public List<IngredientData> list; }
+    private class Wrapper { public List<InventoryData> list; }
 }
