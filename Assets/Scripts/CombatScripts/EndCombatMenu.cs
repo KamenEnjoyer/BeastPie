@@ -16,14 +16,12 @@ public class EndCombatMenu : MonoBehaviour
 
     private IEnumerator Start()
     {
-        GetComponent<PlayerInput>().actions.FindActionMap("GamePlay").Disable();
-        GetComponent<PlayerInput>().actions.FindActionMap("Menu").Enable();
-        GetComponent<PlayerInput>().actions.FindActionMap("MenuManager").Enable();
+        MenuManager.Instance.ToggleActionMap(true);
 
         yield return null;
         Canvas.ForceUpdateCanvases();
         float width = contentParent.GetComponentInParent<ScrollRect>().GetComponent<RectTransform>().rect.width - 35f;
-        contentParent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / 5f, width * 0.25f);
+        contentParent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / 5f, width * 0.23f);
 
         lootData = IngredientFactory.LoadIngredients("Loot");
         foreach (var slotData in lootData)
@@ -80,9 +78,7 @@ public class EndCombatMenu : MonoBehaviour
         }
 
         Time.timeScale = 1f;
-        GetComponent<PlayerInput>().actions.FindActionMap("GamePlay").Enable();
-        GetComponent<PlayerInput>().actions.FindActionMap("Menu").Disable();
-        GetComponent<PlayerInput>().actions.FindActionMap("MenuManager").Enable();
+        MenuManager.Instance.ToggleActionMap(false);
 
         SceneManager.LoadScene(sceneName);
     }

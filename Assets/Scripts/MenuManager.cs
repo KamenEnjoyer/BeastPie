@@ -8,17 +8,19 @@ public class MenuManager : MonoBehaviour
     public GameObject menuPref;
     public PlayerInput otherPlayerInput;
 
+    private PlayerInput playerInput;
+
     private GameObject currentMenu;
 
     void Awake()
     {
         Instance = this;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     public void OnOpenMenu()
     {
-        GetComponent<PlayerInput>().SwitchCurrentActionMap("Menu");
-        otherPlayerInput.SwitchCurrentActionMap("Menu");
+        ToggleActionMap(true);
 
         currentMenu = Instantiate(menuPref);
         Time.timeScale = 0f;
@@ -28,10 +30,23 @@ public class MenuManager : MonoBehaviour
 
     public void OnHideMenu()
     {
-        GetComponent<PlayerInput>().SwitchCurrentActionMap("GamePlay");
-        otherPlayerInput.SwitchCurrentActionMap("GamePlay");
+        ToggleActionMap(false);
 
         Destroy(currentMenu);
         Time.timeScale = 1f;
+    }
+
+    public void ToggleActionMap(bool openMenu)
+    {
+        if (openMenu)
+        {
+            playerInput.SwitchCurrentActionMap("Menu");
+            otherPlayerInput.SwitchCurrentActionMap("Menu");
+        }
+        else
+        {
+            playerInput.SwitchCurrentActionMap("GamePlay");
+            otherPlayerInput.SwitchCurrentActionMap("GamePlay");
+        }
     }
 }
