@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -39,10 +40,24 @@ public abstract class InventorySlotType : MonoBehaviour, IPointerClickHandler, I
     {
         var dragged = eventData.pointerDrag?.GetComponent<StorageSlot>();
         if (dragged == null || dragged.slotData == null) return;
+        dragged.DestroyDragIcon();
         SetIngredient(dragged.slotData);
     }
 
     public abstract void SetIngredient(StorageContentData ingredient);
 
-    public abstract void ClearSlot();
+    public void ClearStart()
+    {
+        GetComponent<IngredientHover>()?.SetIngredient(null);
+        IngredientFactory.AddIngredient(slotData.id, slotData.count, 
+            ScenesConfig.IsHome ? "Home" : "Camp");
+
+        icon.sprite = null;
+        slotData.id = "";
+        slotData.count = 0;
+
+        ClearEnd();
+    }
+
+    public abstract void ClearEnd();
 }

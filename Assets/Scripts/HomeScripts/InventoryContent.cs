@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.Analytics.IAnalytic;
 
 public class InventoryContent : MonoBehaviour
 {

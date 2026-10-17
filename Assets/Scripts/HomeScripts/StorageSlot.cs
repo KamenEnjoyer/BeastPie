@@ -131,7 +131,7 @@ public class StorageSlot : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (dragIconInstance != null) Destroy(dragIconInstance.gameObject);
+        DestroyDragIcon();
 
         var results = new System.Collections.Generic.List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
@@ -144,5 +144,10 @@ public class StorageSlot : MonoBehaviour,
                 break;
             }
         }
+    }
+
+    public void DestroyDragIcon()
+    {
+        if (dragIconInstance != null) Destroy(dragIconInstance.gameObject);
     }
 }

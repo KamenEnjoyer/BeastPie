@@ -1,4 +1,4 @@
-using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -34,7 +34,7 @@ public class InventoryPlayerSlot : InventorySlotType
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Хотите купить ячейку?", true); //Ну, пока что хотеть не вредно
             return;
         }
-        ClearSlot();
+        ClearStart();
     }
 
     public override void SetIngredient(StorageContentData ingredient)
@@ -52,6 +52,13 @@ public class InventoryPlayerSlot : InventorySlotType
         if (ingredient.count == 0)
         {
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "ВНИМАНИЕ! Количество равно нулю!");
+            return;
+        }
+
+        if (slotData != null && slotData.id != "")
+        {
+            IngredientFactory.AddIngredient(slotData.id, slotData.count,
+                        ScenesConfig.IsHome ? "Home" : "Camp");
         }
 
         icon.sprite = ingredient.icon;
@@ -60,19 +67,16 @@ public class InventoryPlayerSlot : InventorySlotType
         GetComponent<IngredientHover>()?.SetIngredient(ingredient);
 
         InventoryFactory.SaveDataByIndex(slotData, slotIndex, true);
-    }  
-    
+        IngredientFactory.RemoveIngredient(slotData.id, slotData.count, ScenesConfig.IsHome);
+    }
+
     public int GetSlotIndex()
     {
         return slotIndex;
     }
 
-    public override void ClearSlot()
+    public override void ClearEnd()
     {
-        icon.sprite = null;
-        slotData.id = "";
-        slotData.count = 0;
-        GetComponent<IngredientHover>()?.SetIngredient(null);
         InventoryFactory.SaveDataByIndex(slotData, slotIndex, true);
     }
 }

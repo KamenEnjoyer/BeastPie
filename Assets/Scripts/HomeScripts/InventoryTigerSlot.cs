@@ -20,7 +20,7 @@ public class InventoryTigerSlot : InventorySlotType
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        ClearSlot();
+        ClearStart();
     }
 
     public override void SetIngredient(StorageContentData ingredient)
@@ -35,21 +35,27 @@ public class InventoryTigerSlot : InventorySlotType
             ShakeButton.Instance.Shake(icon.GetComponentInParent<Button>().transform, "Количество равно нулю!");
             return;
         }
+
+        if (slotData != null && slotData.id != "")
+        {
+            IngredientFactory.AddIngredient(slotData.id, slotData.count,
+                        ScenesConfig.IsHome ? "Home" : "Camp");
+        }
+
         icon.sprite = ingredient.icon;
         slotData.id = ingredient.data.id;
         slotData.count = ingredient.count;
         text.text = ingredient.count.ToString();
         GetComponent<IngredientHover>()?.SetIngredient(ingredient);
+
         InventoryFactory.SaveDataByIndex(slotData, slotIndex, false);
+        IngredientFactory.RemoveIngredient(slotData.id, slotData.count, ScenesConfig.IsHome);
+
     }
 
-    public override void ClearSlot()
+    public override void ClearEnd()
     {
-        icon.sprite = null;
-        slotData.id = "";
-        slotData.count = 0;
         text.text = "";
         InventoryFactory.SaveDataByIndex(slotData, slotIndex, false);
-        GetComponent<IngredientHover>()?.SetIngredient(null);
     }
 }
