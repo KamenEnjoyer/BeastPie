@@ -25,7 +25,7 @@ MonoBehaviour:
   minEnemySpawnInterval: 1
   maxEnemySpawnInterval: 2
   obstacles:
-  - prefab: {fileID: 8734927436723208427, guid: 99ccc3b772be98d4b94a3fb861096734, type: 3}
+  - type: {fileID: 11400000, guid: 4ae15f72ce9f24047aa37f5949590c13, type: 2}
     spawnChance: 1
   minObstacles: 2
   maxObstacles: 7

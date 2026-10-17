@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b923528a781fdbe46ba17f31fa9c7589, type: 3}
+  m_Name: Lake
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleType
+  prefab: {fileID: 493819764977437094, guid: 4765ab6f24f678c41a447a8b3cabefa2, type: 3}
+  shape: 1
+  width: 2
+  height: 2
+  radius: 0
+  blocksGround: 1
+  blocksFlying: 0
+  neighborRules:
+  - obstacle: {fileID: 11400000}
+    weightMultiplier: 3

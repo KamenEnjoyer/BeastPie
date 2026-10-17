@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 public class ZoneLoading : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class ZoneLoading : MonoBehaviour
     private ZoneType currentZone;
 
     public static ZoneLoading Instance;
-
     private void Awake()
     {
         Instance = this;
@@ -20,7 +18,7 @@ public class ZoneLoading : MonoBehaviour
         currentZone = ZoneTransfer.zone;
         background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
-        ObstacleSpawner.Instance.Setup(currentZone.minObstacles, currentZone.maxObstacles, currentZone.obstacles);
+        ObstacleGridGenerator.Instance.Generate(currentZone);
 
         EnemySpawner.Instance.Setup(
             currentZone.minEnemies,

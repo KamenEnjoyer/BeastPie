@@ -829,9 +829,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1542147003}
   - component: {fileID: 1542147002}
-  - component: {fileID: 1542147007}
   - component: {fileID: 1542147005}
   - component: {fileID: 1542147006}
+  - component: {fileID: 1542147007}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -903,9 +903,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1542147001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c19224d41086842b5e25c43fb38fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: a639c8f2e769810408e513b3731de26d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleGridGenerator
+  width: 20
+  height: 15
+  cellSize: 1
+  obstacleParent: {fileID: 1899295590}
 --- !u!1 &1565410785
 GameObject:
   m_ObjectHideFlags: 0
