@@ -23,6 +23,9 @@ public class ZoneType : ScriptableObject
     public enum ZoneName { Reality, Chitin, Slime, Flesh, Plant, Fire, Water, Earth, Storm, Void};
     public ZoneName zoneType;
 
+    [Header("Mapping")]
+    public ZoneBackgroundTiles backgroundTileSet;
+
     public Vector2 mapPosition;
 
     [Header("Spawn")]

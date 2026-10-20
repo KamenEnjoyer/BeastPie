@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZoneType
   id: SpruceForest
   zoneType: 0
+  backgroundTileSet: {fileID: 11400000, guid: ef9d9428d281be841b1eaf5a4bda603f, type: 2}
   mapPosition: {x: 0.5, y: 0.4}
   enemies:
   - enemyType: {fileID: 11400000, guid: 362fac2958879ad45aea23f8eb39669b, type: 2}

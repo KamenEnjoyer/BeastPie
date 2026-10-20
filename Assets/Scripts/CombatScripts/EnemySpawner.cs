@@ -69,7 +69,6 @@ public class EnemySpawner : MonoBehaviour
         enemyGO.GetComponent<Enemy>().Initialize(enemies[index].enemyType);
         spawnedEnemies.Add(enemyGO);
         spawnedEnemyCount++;
-        Debug.Log($"Spawned enemy {spawnedEnemyCount}/{enemyCountToSpawn}");
         if (spawnedEnemyCount >= enemyCountToSpawn)
         {
             CancelInvoke(nameof(SpawnEnemy));

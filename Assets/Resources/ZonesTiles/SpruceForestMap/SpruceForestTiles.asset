@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1ca6d93326762429dd7e5b18889f77, type: 3}
+  m_Name: SpruceForestTiles
+  m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
+  tiles:
+  - tile: {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
+    spawnWeight: 5
+  - tile: {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+    spawnWeight: 8
+  - tile: {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
+    spawnWeight: 10

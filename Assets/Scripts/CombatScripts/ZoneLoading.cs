@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class ZoneLoading : MonoBehaviour
 {
-    public Image background;
-
     private ZoneType currentZone;
 
     public static ZoneLoading Instance;
@@ -16,9 +14,9 @@ public class ZoneLoading : MonoBehaviour
     private void Start()
     {
         currentZone = ZoneTransfer.zone;
-        background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
+        //background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
-        ObstacleGridGenerator.Instance.Generate(currentZone);
+        ZoneBackgroundGenerator.Instance.Generate();
 
         EnemySpawner.Instance.Setup(
             currentZone.minEnemies,
