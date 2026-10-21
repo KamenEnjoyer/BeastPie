@@ -16,7 +16,7 @@ public class ZoneLoading : MonoBehaviour
         currentZone = ZoneTransfer.zone;
         //background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
-        ZoneBackgroundGenerator.Instance.Generate();
+        ZoneBackgroundGenerator.Instance.Generate(currentZone.backgroundTileSet);
 
         EnemySpawner.Instance.Setup(
             currentZone.minEnemies,

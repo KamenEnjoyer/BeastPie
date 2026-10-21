@@ -6,7 +6,6 @@ public class ZoneBackgroundGenerator : MonoBehaviour
 {
     [Header("Background")]
     public Tilemap backgroundTilemap;
-    public ZoneBackgroundTiles tileSet;
 
     [Header("Settings")]
     [Min(0)] public int padding = 1;
@@ -17,7 +16,7 @@ public class ZoneBackgroundGenerator : MonoBehaviour
         Instance = this;
     }
 
-    public void Generate()
+    public void Generate(ZoneBackgroundTiles tileSet)
     {
         if (backgroundTilemap == null || tileSet == null)
         {
