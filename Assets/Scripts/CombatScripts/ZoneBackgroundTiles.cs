@@ -9,13 +9,16 @@ public class ZoneBackgroundTiles : ScriptableObject
     public struct TileEntry
     {
         public TileBase tile;
-        [Min(0f)]
-        public float spawnWeight;
+
+        [SerializeField] public int minClusterCount;
+        [SerializeField] public int maxClusterCount;
+
+        [Min(1)]
+        [SerializeField] public int minClusterRadius;
+        [Min(1)]
+        [SerializeField] public int maxClusterRadius;
     }
 
-    public TileEntry[] tiles;
-
-
-    public TileBase baseTile;
-    public TileBase[] clusterRuleTiles;
+    public TileBase[] baseTile;
+    public TileEntry[] clusterRuleTiles;
 }

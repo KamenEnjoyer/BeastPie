@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1ca6d93326762429dd7e5b18889f77, type: 3}
   m_Name: SpruceForestTiles
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
-  tiles:
-  - tile: {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
-    spawnWeight: 3
-  - tile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
-    spawnWeight: 8
-  - tile: {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
-    spawnWeight: 10
-  baseTile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+  baseTile:
+  - {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
+  - {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
+  - {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+  - {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
   clusterRuleTiles:
-  - {fileID: 11400000, guid: ee76617f4e0d3194e807992545158eae, type: 2}
+  - tile: {fileID: 11400000, guid: 534197d7562d0b749a7827d6337d8845, type: 2}
+    minClusterCount: -2
+    maxClusterCount: 4
+    minClusterRadius: 1
+    maxClusterRadius: 3
+  - tile: {fileID: 11400000, guid: ee76617f4e0d3194e807992545158eae, type: 2}
+    minClusterCount: -1
+    maxClusterCount: 3
+    minClusterRadius: 2
+    maxClusterRadius: 4
