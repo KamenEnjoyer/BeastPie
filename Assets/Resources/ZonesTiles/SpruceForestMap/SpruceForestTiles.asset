@@ -12,11 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1ca6d93326762429dd7e5b18889f77, type: 3}
   m_Name: SpruceForestTiles
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
-  baseTile:
-  - {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
-  - {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
-  - {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
-  - {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
+  baseTiles:
+  - tile: {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+    spawnWeight: 2
+  - tile: {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 11190bfec20c32b4c8ceae3b3ef83cb8, type: 2}
+    spawnWeight: 6
+  - tile: {fileID: 11400000, guid: d6c770c2b06524e47a851243534bcc09, type: 2}
+    spawnWeight: 5
+  - tile: {fileID: 11400000, guid: 9a3ba1131f5794845a0a5d892bb6a29f, type: 2}
+    spawnWeight: 6
+  - tile: {fileID: 11400000, guid: cb99c88fd86b503489969ce190d30965, type: 2}
+    spawnWeight: 5
+  - tile: {fileID: 11400000, guid: 3916fa99976217b439ebd54695d9f737, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 750e8900ab599f84c9a69502fee85d0f, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: 0e20dd8f5c889ff49ae2a63bd864f206, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: cff95859d8fd41d4d9a3c5fc33f429e6, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: e0e261f1fab4f3c438e5c4e08dc5e883, type: 2}
+    spawnWeight: 5
+  - tile: {fileID: 11400000, guid: 4ae47425f66db9a4f87696eed324f69c, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 892e333ba1d14f648a51f5015fd89f19, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: 977f254495d29894f927f99e36b06bfc, type: 2}
+    spawnWeight: 100
   clusterRuleTiles:
   - tile: {fileID: 11400000, guid: 534197d7562d0b749a7827d6337d8845, type: 2}
     minClusterCount: -2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08ceb78e3b2495b8d808a5860e66794, type: 3}
   m_Name: SpruceForestTile 1
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AutoTile
-  m_DefaultSprite: {fileID: 7167688702774952146, guid: 8de43155537c9a541981d7458c7e1ec3, type: 3}
+  m_DefaultSprite: {fileID: -152792262359616040, guid: 428f9fd5b7abad640ae49bb3cd414190, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_MaskType: 0

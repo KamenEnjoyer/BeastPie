@@ -30,9 +30,9 @@ public class ZoneBackgroundGeneration : MonoBehaviour
             Debug.LogError("Assign both background and cluster Tilemaps.", this);
             return;
         }
-        if (tilesSet.baseTile == null)
+        if (tilesSet.baseTiles == null || tilesSet.baseTiles.Count == 0)
         {
-            Debug.LogError("Base Tile is not assigned.", this);
+            Debug.LogError("Base Tiles are not assigned.", this);
             return;
         }
 
@@ -73,18 +73,38 @@ public class ZoneBackgroundGeneration : MonoBehaviour
     {
         backgroundTilemap.ClearAllTiles();
 
+        float totalWeight = 0;
+        for (int i = 0; i < tilesSet.baseTiles.Count; i++)
+        {
+            totalWeight += tilesSet.baseTiles[i].spawnWeight;
+        }
+
         for (int x = minCell.x; x <= maxCell.x; x++)
         {
             for (int y = minCell.y; y <= maxCell.y; y++)
             {
                 backgroundTilemap.SetTile(
                     new Vector3Int(x, y, 0),
-                    tilesSet.baseTile[Random.Range(0, tilesSet.baseTile.Length)]
+                    ChooseTile(tilesSet.baseTiles, totalWeight)
                 );
             }
         }
 
         backgroundTilemap.RefreshAllTiles();
+    }
+
+    private TileBase ChooseTile(List<ZoneBackgroundTiles.TileBaseEntry> candidates, float totalWeight)
+    {
+        float roll = Random.value * totalWeight;
+
+        foreach (var entry in candidates)
+        {
+            roll -= entry.spawnWeight;
+
+            if (roll <= 0f) return entry.tile;
+        }
+
+        return candidates[candidates.Count - 1].tile;
     }
 
     private void GenerateClusters(Vector3Int minCell, Vector3Int maxCell, ZoneBackgroundTiles tilesSet)

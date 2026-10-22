@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,6 +20,14 @@ public class ZoneBackgroundTiles : ScriptableObject
         [SerializeField] public int maxClusterRadius;
     }
 
-    public TileBase[] baseTile;
+    [Serializable]
+    public struct TileBaseEntry
+    {
+        public TileBase tile;
+        [Min(0f)]
+        public float spawnWeight;
+    }
+
+    public List<TileBaseEntry> baseTiles;
     public TileEntry[] clusterRuleTiles;
 }
