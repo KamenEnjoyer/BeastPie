@@ -14,4 +14,8 @@ public class ZoneBackgroundTiles : ScriptableObject
     }
 
     public TileEntry[] tiles;
+
+
+    public TileBase baseTile;
+    public TileBase[] clusterRuleTiles;
 }

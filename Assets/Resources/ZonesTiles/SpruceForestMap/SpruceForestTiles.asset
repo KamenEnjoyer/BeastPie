@@ -21,3 +21,6 @@ MonoBehaviour:
     spawnWeight: 8
   - tile: {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
     spawnWeight: 10
+  baseTile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+  clusterRuleTiles:
+  - {fileID: 11400000, guid: ee76617f4e0d3194e807992545158eae, type: 2}

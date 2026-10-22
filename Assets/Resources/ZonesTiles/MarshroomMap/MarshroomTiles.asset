@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1ca6d93326762429dd7e5b18889f77, type: 3}
   m_Name: MarshroomTiles
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
-  tiles: []
+  tiles:
+  - tile: {fileID: 11400000, guid: ef0b67792787877479e108ecc7a40270, type: 2}
+    spawnWeight: 10
+  - tile: {fileID: 11400000, guid: 764c4736f4ef3cc40b67c77d29cda612, type: 2}
+    spawnWeight: 9
+  - tile: {fileID: 11400000, guid: 88017b356aed43846a1b0f701274162c, type: 2}
+    spawnWeight: 6
+  - tile: {fileID: 11400000, guid: 29a84426f2256fd4f99e0d476b9e8deb, type: 2}
+    spawnWeight: 7
