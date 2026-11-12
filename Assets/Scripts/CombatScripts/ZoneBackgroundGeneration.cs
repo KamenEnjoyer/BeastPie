@@ -1,6 +1,5 @@
 
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,6 +7,7 @@ public class ZoneBackgroundGeneration : MonoBehaviour
 {
     [SerializeField] private Tilemap backgroundTilemap;
     [SerializeField] private Tilemap clusterTilemap;
+    [SerializeField] private Tilemap obstaclesTilemap;
 
     [Min(0)]
     [SerializeField] private int padding = 2;

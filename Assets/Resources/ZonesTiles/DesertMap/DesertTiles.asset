@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1ca6d93326762429dd7e5b18889f77, type: 3}
   m_Name: DesertTiles
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
-  tiles:
-  - tile: {fileID: 11400000, guid: 5bd3600938a2ef54ead45f1823ac1af0, type: 2}
-    spawnWeight: 10
-  - tile: {fileID: 11400000, guid: 936329840567466498cf05713e957adf, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: e60a30dbd503ebf4dbe47274c529ff89, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: b7560dd1cecb4c642a2c4afca8e8146a, type: 2}
-    spawnWeight: 5
+  baseTiles:
+  - tile: {fileID: 11400000, guid: d3b1b9699fcd68b44abeac39d585bc92, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 5a8a70ab2cb20d34ab1b3a89c9658c67, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 1d8281b90ab04bc4c86a6d8cc270cb3c, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: fbdf7eaaf657e6e44b5b2ac7bca64c70, type: 2}
+    spawnWeight: 1
+  clusterRuleTiles: []

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ZoneLoading : MonoBehaviour
 {
@@ -14,8 +13,7 @@ public class ZoneLoading : MonoBehaviour
     private void Start()
     {
         currentZone = ZoneTransfer.zone;
-        //background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
-
+        
         ZoneBackgroundGeneration.Instance.Generate(currentZone.backgroundTileSet);
 
         EnemySpawner.Instance.Setup(

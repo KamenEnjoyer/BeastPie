@@ -13,45 +13,53 @@ MonoBehaviour:
   m_Name: SpruceForestTiles
   m_EditorClassIdentifier: Assembly-CSharp::ZoneBackgroundTiles
   baseTiles:
-  - tile: {fileID: 11400000, guid: b4d955e74beff3641b391a4939015e83, type: 2}
-    spawnWeight: 4
-  - tile: {fileID: 11400000, guid: 11ca7424bb422a04e8d5badc305ebc93, type: 2}
+  - tile: {fileID: 11400000, guid: 358b6366cac8e8546888fd79b9772402, type: 2}
     spawnWeight: 3
-  - tile: {fileID: 11400000, guid: e2247e06c54956949ab7fd00a3758c37, type: 2}
+  - tile: {fileID: 11400000, guid: 0654597e79836c24e8ece1658a2f6684, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 367fc503e11365c439193f37925d93f1, type: 2}
+    spawnWeight: 300
+  - tile: {fileID: 11400000, guid: 30880f7a253ad8943b79767490780760, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 5be49b4a41585054993ee78d5150e942, type: 2}
+    spawnWeight: 3
+  - tile: {fileID: 11400000, guid: 46a648e09c11cb54abbe8d92789a824d, type: 2}
     spawnWeight: 2
-  - tile: {fileID: 11400000, guid: 4f079ad33d0d1354fa2381d87f0df6a8, type: 2}
+  - tile: {fileID: 11400000, guid: c66c07949ad7937438bfae2d51cffcac, type: 2}
     spawnWeight: 1
-  - tile: {fileID: 11400000, guid: 11190bfec20c32b4c8ceae3b3ef83cb8, type: 2}
-    spawnWeight: 6
-  - tile: {fileID: 11400000, guid: d6c770c2b06524e47a851243534bcc09, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: 9a3ba1131f5794845a0a5d892bb6a29f, type: 2}
-    spawnWeight: 6
-  - tile: {fileID: 11400000, guid: cb99c88fd86b503489969ce190d30965, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: 3916fa99976217b439ebd54695d9f737, type: 2}
-    spawnWeight: 4
-  - tile: {fileID: 11400000, guid: 750e8900ab599f84c9a69502fee85d0f, type: 2}
+  - tile: {fileID: 11400000, guid: 9d94de661f459694490bc6a6663400fb, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 4a6b66918a6a6e0439887465ab6b94ba, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: b7920d0c94f2c7a4796d9a91c6edd4e5, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 34ab3778da663544ba59fa6fa30ec37c, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 272ebfea95f829243ba673536a598959, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: a525eea4691b7b642b7e6903c4727c92, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: ccbeb89436417184baff7107a4c39e5f, type: 2}
     spawnWeight: 3
-  - tile: {fileID: 11400000, guid: 0e20dd8f5c889ff49ae2a63bd864f206, type: 2}
-    spawnWeight: 4
-  - tile: {fileID: 11400000, guid: cff95859d8fd41d4d9a3c5fc33f429e6, type: 2}
+  - tile: {fileID: 11400000, guid: 6c2babe834bb7204f835bb8d8e17d181, type: 2}
+    spawnWeight: 1
+  - tile: {fileID: 11400000, guid: 490201ceb13ae3343bca5d56a90fcf61, type: 2}
+    spawnWeight: 2
+  - tile: {fileID: 11400000, guid: 7400c3d4751029c43a38c18e6916dc63, type: 2}
     spawnWeight: 3
-  - tile: {fileID: 11400000, guid: e0e261f1fab4f3c438e5c4e08dc5e883, type: 2}
-    spawnWeight: 5
-  - tile: {fileID: 11400000, guid: 4ae47425f66db9a4f87696eed324f69c, type: 2}
+  - tile: {fileID: 11400000, guid: f3d68a122afe055488d02b021cd50b3f, type: 2}
     spawnWeight: 4
-  - tile: {fileID: 11400000, guid: 892e333ba1d14f648a51f5015fd89f19, type: 2}
-    spawnWeight: 3
-  - tile: {fileID: 11400000, guid: 977f254495d29894f927f99e36b06bfc, type: 2}
-    spawnWeight: 100
+  - tile: {fileID: 11400000, guid: 7d8830d69162c284e862e2c784349be2, type: 2}
+    spawnWeight: 4
+  - tile: {fileID: 11400000, guid: 3fe210bb72a88e34c89dc5f3436b2c37, type: 2}
+    spawnWeight: 4
   clusterRuleTiles:
-  - tile: {fileID: 11400000, guid: 534197d7562d0b749a7827d6337d8845, type: 2}
-    minClusterCount: -2
+  - tile: {fileID: 11400000, guid: 0fe171a93ec7ff94d97c6a2c2b372d21, type: 2}
+    minClusterCount: 0
     maxClusterCount: 4
     minClusterRadius: 1
     maxClusterRadius: 3
-  - tile: {fileID: 11400000, guid: ee76617f4e0d3194e807992545158eae, type: 2}
+  - tile: {fileID: 11400000, guid: b8117fdaa6192fe45b93fdf0b58ea25a, type: 2}
     minClusterCount: -1
     maxClusterCount: 3
     minClusterRadius: 2
