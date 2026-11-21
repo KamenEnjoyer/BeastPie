@@ -13,8 +13,11 @@ public class ZoneLoading : MonoBehaviour
     private void Start()
     {
         currentZone = ZoneTransfer.zone;
-        
-        ZoneBackgroundGeneration.Instance.Generate(currentZone.backgroundTileSet);
+
+        ZoneClustersGeneration.Instance?.GetVisibleCellBounds();
+        ZoneClustersGeneration.Instance?.GenerateBackground(currentZone.backgroundTileSet);
+        int rand = Random.Range(currentZone.minObstacles, currentZone.maxObstacles + 1);
+        ObstacleGeneration.Instance?.GenerateObstacles(currentZone.obstacles, rand < 0 ? 0 : rand);
 
         EnemySpawner.Instance.Setup(
             currentZone.minEnemies,

@@ -5,13 +5,6 @@ using UnityEngine;
 public class ZoneType : ScriptableObject
 {
     [Serializable]
-    public struct Obstacle
-    {
-        public ObstacleType type;
-        [Min(0f)]
-        public float spawnChance;
-    }
-    [Serializable]
     public struct Enemies
     {
         public EnemyTypeAsset enemyType;
@@ -26,6 +19,11 @@ public class ZoneType : ScriptableObject
     [Header("Mapping")]
     public ZoneBackgroundTiles backgroundTileSet;
 
+    public ObstacleType[] obstacles;
+    public int minObstacles = 0;
+    [Min(0f)]
+    public int maxObstacles = 5;
+
     public Vector2 mapPosition;
 
     [Header("Spawn")]
@@ -39,9 +37,4 @@ public class ZoneType : ScriptableObject
     [Min(0f)]
     public float maxEnemySpawnInterval = 2f;
     
-    public Obstacle[] obstacles;
-    [Min(0f)]
-    public int minObstacles = 0;
-    [Min(0f)]
-    public int maxObstacles = 0;
 }

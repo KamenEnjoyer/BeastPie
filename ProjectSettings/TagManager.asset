@@ -46,8 +46,17 @@ TagManager:
   - name: Background
     uniqueID: 618432075
     locked: 0
+  - name: WalkObstacle
+    uniqueID: 14440815
+    locked: 0
+  - name: GlobalObstalce
+    uniqueID: 203430407
+    locked: 0
   - name: Player
     uniqueID: 2346798081
+    locked: 0
+  - name: FlyObstacle
+    uniqueID: 3482421451
     locked: 0
   m_RenderingLayers:
   - Default

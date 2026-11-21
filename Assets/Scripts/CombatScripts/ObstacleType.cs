@@ -1,52 +1,55 @@
 using System;
 using UnityEngine;
-using static ZoneType;
+using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(menuName = "ObstacleType")]
 public class ObstacleType : ScriptableObject
 {
-    public enum Shape
+    public enum GenerationType
     {
-        Single,
-        Rectangle,
-        Circle
+        Cluster,
+        Object
+    }
+
+    [Flags]
+    public enum ObstacleBlocks
+    {
+        None = 0,
+        Walking = 1 << 0,
+        Flying = 1 << 1,
+        Swimming = 1 << 2,
+        All = Walking | Flying | Swimming
     }
 
     [Serializable]
-    public struct NeighborRule
+    public struct TileEntry
     {
-        public ObstacleType obstacle;
+        public TileBase tile;
 
-        [Min(0f)]
-        public float weightMultiplier;
+        [Min(1)]
+        [SerializeField] public int minClusterRadius;
+        [Min(1)]
+        [SerializeField] public int maxClusterRadius;
     }
 
-    [Header("Visual")]
+    [Header("Type")]
+    public GenerationType generationType = GenerationType.Object;
+
+    [Header("Object")]
     public GameObject prefab;
+    public Vector2Int footprint = Vector2Int.one;
 
-    [Header("Shape")]
-    public Shape shape = Shape.Single;
-    [Min(1)]
-    public int width = 1;
-    [Min(1)]
-    public int height = 1;
+    public bool destructible;
     [Min(0)]
-    public int radius = 1;
+    public int health = 0;
 
-    [Header("Movement")]
-    public bool blocksGround = true;
-    public bool blocksFlying = true;
+    [Header("Cluster")]
+    public TileEntry clusterRuleTiles;
 
-    [Header("Neighbors")]
-    public NeighborRule[] neighborRules;
+    [Header("Properties")]
+    public int spawnWeight = 1;
 
-    public float GetNeighborMultiplier(ObstacleType obstacle)
-    {
-        foreach (NeighborRule rule in neighborRules)
-        {
-            if (rule.obstacle == obstacle) return rule.weightMultiplier;
-        }
 
-        return 1f;
-    }
+    public ObstacleBlocks blocks = ObstacleBlocks.All;
+    public bool blocksProjectiles = true;
 }
