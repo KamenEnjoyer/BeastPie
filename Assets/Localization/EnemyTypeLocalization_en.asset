@@ -35,11 +35,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 137589800960
-    m_Localized: Air
+    m_Localized: Storm
     m_Metadata:
       m_Items: []
   - m_Id: 169755918336
     m_Localized: Plant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74136951260704768
+    m_Localized: Chitin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74137070118891520
+    m_Localized: Slime
     m_Metadata:
       m_Items: []
   references:

@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZoneType
   id: SpruceForest
   zoneType: 0
+  backgroundTileSet: {fileID: 11400000, guid: ef9d9428d281be841b1eaf5a4bda603f, type: 2}
+  obstacles:
+  - {fileID: 11400000, guid: ba725d96ea8faf04389fc05d8f31e97b, type: 2}
+  - {fileID: 11400000, guid: b262f58780236e644a963ed1447e7656, type: 2}
+  - {fileID: 11400000, guid: 367edef15b7a01e4dac1f48a4c353491, type: 2}
+  minObstacles: 2
+  maxObstacles: 5
   mapPosition: {x: 0.5, y: 0.4}
   enemies:
   - enemyType: {fileID: 11400000, guid: 362fac2958879ad45aea23f8eb39669b, type: 2}
@@ -24,10 +31,3 @@ MonoBehaviour:
   maxEnemies: 5
   minEnemySpawnInterval: 2
   maxEnemySpawnInterval: 2
-  obstacles:
-  - prefab: {fileID: 8734927436723208427, guid: 99ccc3b772be98d4b94a3fb861096734, type: 3}
-    spawnChance: 0.7
-  - prefab: {fileID: 3697656306988720566, guid: d10013052cad2b849bb8bed0045b911c, type: 3}
-    spawnChance: 1
-  minObstacles: 0
-  maxObstacles: 5

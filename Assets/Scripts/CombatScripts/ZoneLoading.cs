@@ -1,15 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR;
 
 public class ZoneLoading : MonoBehaviour
 {
-    public Image background;
-
     private ZoneType currentZone;
 
     public static ZoneLoading Instance;
-
     private void Awake()
     {
         Instance = this;
@@ -18,9 +13,11 @@ public class ZoneLoading : MonoBehaviour
     private void Start()
     {
         currentZone = ZoneTransfer.zone;
-        background.sprite = Resources.Load<Sprite>("ZonesBackgrounds/" + currentZone.id + "_background");
 
-        ObstacleSpawner.Instance.Setup(currentZone.minObstacles, currentZone.maxObstacles, currentZone.obstacles);
+        ZoneClustersGeneration.Instance?.GetVisibleCellBounds();
+        ZoneClustersGeneration.Instance?.GenerateBackground(currentZone.backgroundTileSet);
+        int rand = Random.Range(currentZone.minObstacles, currentZone.maxObstacles + 1);
+        ObstacleGeneration.Instance?.GenerateObstacles(currentZone.obstacles, rand < 0 ? 0 : rand);
 
         EnemySpawner.Instance.Setup(
             currentZone.minEnemies,

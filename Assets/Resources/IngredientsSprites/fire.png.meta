@@ -1,7 +1,22 @@
 fileFormatVersion: 2
-guid: dbb04e45230f15f4db7aad1ae5cc0e74
+guid: 0d2d6b2ddc98d0841abc968bd790629e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2530512187584579857
+    second: fire 1_0
+  - first:
+      213: -6294306746031552222
+    second: fire 1_1
+  - first:
+      213: 1992416057066575511
+    second: fire 1_2
+  - first:
+      213: -5489837745201065658
+    second: fire 1_3
+  - first:
+      213: -7574551211060685038
+    second: fire 1_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,22 +108,119 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fire 1_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 30
+        width: 269
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11986c86d6f2e1320800000000000000
+      internalID: 2530512187584579857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire 1_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 163
+        width: 106
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229c177fc5126a8a0800000000000000
+      internalID: -6294306746031552222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire 1_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 48
+        width: 363
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796dc3ef8db76ab10800000000000000
+      internalID: 1992416057066575511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire 1_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 451
+        width: 74
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64152ca38ad20d3b0800000000000000
+      internalID: -5489837745201065658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire 1_4
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 199
+        width: 107
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21719b32ec9c1e690800000000000000
+      internalID: -7574551211060685038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -122,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fire 1_0: 2530512187584579857
+      fire 1_1: -6294306746031552222
+      fire 1_2: 1992416057066575511
+      fire 1_3: -5489837745201065658
+      fire 1_4: -7574551211060685038
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
